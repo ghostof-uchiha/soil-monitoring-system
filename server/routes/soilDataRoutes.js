@@ -5,7 +5,7 @@ const authorizeUser = require('../middleware/authorizeMiddleware');
 const SoilData = require('../models/soilDataModel')
 
 // Define routes related to soil data
-router.post('/submit', authorizeUser, async (req, res) => {
+router.post('/submit', async (req, res) => {
   try {
     // Extract data from the request body
     const { nutrient1, nutrient2, nutrient3, moistureLevel, otherData } = req.body;
@@ -19,6 +19,7 @@ router.post('/submit', authorizeUser, async (req, res) => {
       otherData,
     });
 
+    console.log(newSoilData);
     // Save the data to the database
     await newSoilData.save();
 

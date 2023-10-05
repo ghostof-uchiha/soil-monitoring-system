@@ -4,30 +4,55 @@ const bcrypt = require('bcrypt');
 const User = require('../models/UserModel');
 const jwt = require('jsonwebtoken');
 
+
+
+
 router.post('/register', async (req, res) => {
-  const { email, mobileNumber, password } = req.body;
+  const { emailOrMobile, password } = req.body;
+
+  console.log(emailOrMobile)
   try {
+    // Determine whether emailOrMobile is an email or a mobile number
+    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailOrMobile);
+    const isMobileNumber = /^[0-9]{10}$/.test(emailOrMobile);
 
-    const existingEmailUser = email ? await User.findOne({ email }) : null;
-    const existingMobileUser = mobileNumber ? await User.findOne({ mobileNumber }) : null;
+    const existingUser = isEmail
+      ? await User.findOne({ email: emailOrMobile })
+      : isMobileNumber
+      ? await User.findOne({ mobileNumber: emailOrMobile })
+      : null;
 
-    if (existingEmailUser || existingMobileUser ) {
+    if (existingUser) {
       return res.status(400).json({ message: 'Email or mobile number is already registered' });
     }
 
+    console.log(isEmail,isMobileNumber);
 
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create a new user instance
-    const newUser = new User({
-      email,
-      mobileNumber,
-      password: hashedPassword,
-    });
+    let newUser = {};
+    if (isEmail) {
+      newUser = new User({
+        email: emailOrMobile,
+        password: hashedPassword,
+      });
+    } else if (isMobileNumber) {
+      newUser = new User({
+        mobileNumber: emailOrMobile,
+        password: hashedPassword,
+      });
+    } else{
+      return res.status(400).json({ message: 'Invalid email or mobile number format' });
+    }
 
-    // Save the user to the database
-    await newUser.save();
+    if (newUser) {
+      await newUser.save();
+      return res.status(201).json({ message: 'User created successfully' });
+    } else {
+      return res.status(400).json({ message: 'Invalid email or mobile number format' });
+    }
 
     res.status(201).json({ message: 'User created successfully' });
   } catch (error) {
@@ -35,8 +60,6 @@ router.post('/register', async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
-
-
 
 router.post('/login', async (req, res) => {
   const { credential, password } = req.body;
