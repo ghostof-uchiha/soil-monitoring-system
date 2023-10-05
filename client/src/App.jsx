@@ -10,10 +10,12 @@ import { Routes , Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <NavBar />
+      
+      <div className="flex w-full">
       <SideBar/>
 
-      <div className="flex justify-center items-center h-full w-full">
+      <div className="w-full">
+        <NavBar />
         <Routes>
           <Route path="/" exact element={<HomePage/>} />
           <Route index element={<HomePage/>} />
@@ -21,6 +23,7 @@ function App() {
           <Route path="/register" element={<RegistrationForm/>} />
           {/* Add more routes as needed */}
         </Routes>
+      </div>
       </div>
     </div>
   );

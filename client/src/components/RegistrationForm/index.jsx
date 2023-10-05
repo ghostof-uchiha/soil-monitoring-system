@@ -1,47 +1,73 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
-    email: '',
+    emailOrMobile: '',
     password: '',
+    // other form fields
   });
 
+  const [mydata, setMydata] = useState([])
+
   const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:4000/api/users/register', {
-        method: 'POST',
+      const response = await fetch("http://192.168.137.1:4000/api/users/register", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       const data = await response.json();
-      console.log('Registration response:', data);
+      console.log("Registration response:", data);
+      setMydata(data.message)
     } catch (error) {
-      console.error('Error during registration:', error);
+      console.error("Error during registration:", error);
     }
   };
 
   return (
+    <div>
+
     <form onSubmit={handleSubmit}>
       <label>
-        Email:
-        <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
+        Email or Mobile Number:
+        <input
+          type="text"
+          name="emailOrMobile"
+          value={formData.emailOrMobile}
+          onChange={handleInputChange}
+          required
+        />
       </label>
       <label>
         Password:
-        <input type="password" name="password" value={formData.password} onChange={handleInputChange} required />
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleInputChange}
+          required
+        />
       </label>
       {/* other form fields */}
       <button type="submit">Register</button>
     </form>
+
+    <p>{mydata}</p>
+    </div>
+
   );
 };
 
