@@ -1,33 +1,54 @@
-var mqtt = require("mqtt");
+import React, { Component } from 'react';
+import { Client } from 'paho-mqtt';
 
-const brokerUrl = "mqtt://test.mosquitto.org";
-const topic = "agro-api/my-soil";
+class MQTTComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.client = new Client({ 
+      brokerURL: 'mqtt://test.mosquitto.org', // Replace with your MQTT broker URL
+      clientId: '1245' // Provide a unique client ID
+    });
+    this.client.onConnectionLost = this.onConnectionLost;
+    this.client.onMessageArrived = this.onMessageArrived;
+  }
 
-const client = mqtt.connect(brokerUrl);
+  componentDidMount() {
+    this.client.connect({
+      onSuccess: this.onConnect,
+      onFailure: this.onFailure,
+    });
+  }
 
-client.on("connect", () => {
-  console.log("Connected to MQTT broker");
-  client.subscribe(topic, (err) => {
-    if (err) {
-      console.error("Error subscribing to topic:", err);
-    } else {
-      console.log("Subscribed to topic:", topic);
+  onConnect = () => {
+    console.log('Connected to MQTT broker');
+    // Subscribe to a topic
+    this.client.subscribe('agro-api/my-soil');
+  }
+
+  onConnectionLost = (responseObject) => {
+    if (responseObject.errorCode !== 0) {
+      console.error(`Connection lost: ${responseObject.errorMessage}`);
     }
-  });
-});
+  }
 
-client.on("message", (receivedTopic, message) => {
-  console.log(
-    `Received message on topic '${receivedTopic}': ${message.toString()}`
-  );
-});
+  onMessageArrived = (message) => {
+    // Handle incoming MQTT messages here
+    console.log(`Received message on topic ${message.destinationName}: ${message.payloadString}`);
+  }
 
-client.on("error", (err) => {
-  console.error("Error:", err);
-});
+  componentWillUnmount() {
+    // Disconnect from the MQTT broker when the component unmounts
+    this.client.disconnect();
+  }
 
-process.on("exit", () => {
-  client.end();
-});
+  render() {
+    return (
+      <div>
+        <h1>MQTT Connection in React</h1>
+        {/* Your component content */}
+      </div>
+    );
+  }
+}
 
-export default client;
+export default MQTTComponent;

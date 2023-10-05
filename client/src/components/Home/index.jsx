@@ -3,7 +3,9 @@ import mqttClient from '../../utils/mqttClient';
 
 const HomePage = () => {
   return (
-    <div>Home</div>
+    <div>Home
+      <mqttClient/>
+    </div>
   )
 }
 
