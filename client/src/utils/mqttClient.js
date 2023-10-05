@@ -1,4 +1,5 @@
 import * as mqtt from 'mqtt/dist/mqtt'
+
 const brokerUrl = "mqtt://test.mosquitto.org";
 const topic = "agro-api/my-soil";
 

@@ -9,7 +9,9 @@ const client = mqtt.connect(brokerUrl);
 
 const HomePage = () => {
   return (
-    <div>Home</div>
+    <div>Home
+      <mqttClient/>
+    </div>
   )
 }
 

@@ -10,7 +10,6 @@ const jwt = require('jsonwebtoken');
 router.post('/register', async (req, res) => {
   const { emailOrMobile, password } = req.body;
 
-  console.log(emailOrMobile)
   try {
     // Determine whether emailOrMobile is an email or a mobile number
     const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailOrMobile);
@@ -19,14 +18,13 @@ router.post('/register', async (req, res) => {
     const existingUser = isEmail
       ? await User.findOne({ email: emailOrMobile })
       : isMobileNumber
-      ? await User.findOne({ mobileNumber: emailOrMobile })
-      : null;
+        ? await User.findOne({ mobileNumber: emailOrMobile })
+        : null;
 
     if (existingUser) {
       return res.status(400).json({ message: 'Email or mobile number is already registered' });
     }
 
-    console.log(isEmail,isMobileNumber);
 
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -43,7 +41,7 @@ router.post('/register', async (req, res) => {
         mobileNumber: emailOrMobile,
         password: hashedPassword,
       });
-    } else{
+    } else {
       return res.status(400).json({ message: 'Invalid email or mobile number format' });
     }
 
@@ -62,30 +60,44 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  const { credential, password } = req.body;
+  const { emailOrMobile, password } = req.body;
+
   try {
+    // Determine whether emailOrMobile is an email or a mobile number
+    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailOrMobile);
+    const isMobileNumber = /^[0-9]{10}$/.test(emailOrMobile);
+
     // Find the user by username
-    const user = await User.findOne({
-      $or: [{ email: credential }, { mobileNumber: credential }],
-    });
+    const existingUser = isEmail
+      ? await User.findOne({ email: emailOrMobile })
+      : isMobileNumber
+        ? await User.findOne({ mobileNumber: emailOrMobile })
+        : null;
+
+    console.log(existingUser);
 
     // If the user does not exist, send an error response
-    if (!user) {
+    if (!existingUser) {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
 
     // Compare the provided password with the stored hashed password
-    const passwordMatch = bcrypt.compare(password, user.password)
+    // Compare the provided password with the hashed password stored in the database
+    const passwordMatch = await bcrypt.compare(password, existingUser.password);
 
-    // If passwords match, generate a JWT token and send it in the response
+    console.log(password, passwordMatch);
+
     if (passwordMatch) {
-      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+      // Passwords match, proceed with generating a JWT token
+      // ...
+      const token = jwt.sign({ userId: existingUser._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
       return res.status(200).json({ token });
     } else {
-      console.log("its running");
-      // If passwords do not match, send an error response
+      // Passwords do not match, send an error response
+      console.log("Password doesn't match");
       return res.status(401).json({ message: 'Invalid username or password' });
     }
+
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: 'Internal Server Error' });
