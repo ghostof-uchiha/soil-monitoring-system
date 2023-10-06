@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 const NavBar = () => {
   return (
-    <div>
+    <div className='h-24'>
       <nav>
         <ul className='flex justify-end gap-4 w-full'>
           <li>

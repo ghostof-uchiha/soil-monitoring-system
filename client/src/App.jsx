@@ -12,11 +12,11 @@ function App() {
   return (
     <div className="App">
       
-      <div className="flex w-full">
+      <div className="flex w-full gap-2">
       <SideBar/>
 
-      <div className="w-full">
-        <NavBar />
+      <div className="w-full h-full flex flex-col justify-center items-center">
+        <NavBar/>
         <Routes>
           <Route path="/" exact element={<HomePage/>} />
           <Route index element={<HomePage/>} />

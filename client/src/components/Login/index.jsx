@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+const apiKey = process.env.REACT_APP_API_KEY;
+
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -25,13 +27,13 @@ const LoginForm = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          'API-Key' : apiKey
         },
         body: JSON.stringify(formData),
       });
 
       const data = await response.json();
       console.log("Login response:", data);
-      setMydata(data.message);
     } catch (error) {
       console.error("Error during login:", error);
     }
@@ -39,22 +41,24 @@ const LoginForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form  className="flex flex-col  gap-6 w-64" onSubmit={handleSubmit}>
+        <label className="flex flex-col gap-3">
           Email or Mobile Number:
           <input
             type="text"
             name="emailOrMobile"
+            className="outline"
             value={formData.emailOrMobile}
             onChange={handleInputChange}
             required
           />
         </label>
-        <label>
+        <label className="flex flex-col gap-3">
           Password:
           <input
             type="password"
             name="password"
+            className="outline"
             value={formData.password}
             onChange={handleInputChange}
             required
@@ -63,9 +67,9 @@ const LoginForm = () => {
         {/* other form fields */}
         <button type="submit">Login</button>
       </form>
-
-      <p>{mydata}</p>
+    <p>{mydata}</p>
     </div>
+
   );
 };
 
