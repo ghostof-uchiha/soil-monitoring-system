@@ -1,33 +1,40 @@
-import {React,useState} from 'react'
-import * as mqtt from 'mqtt/dist/mqtt'
-
-const brokerUrl = "mqtt://test.mosquitto.org:8080";
-
-const client = mqtt.connect(brokerUrl);
-
-
-
+import React, { useState, useEffect } from 'react';
 
 const HomePage = () => {
-  const [soildata, setsoildata] = useState('')
+  const [soilData, setSoilData] = useState(null);
 
-  client.on('connect', () => {
-    console.log('Connected to MQTT Broker');
-    client.subscribe('agro-api/my-soil');
-  });
-  
-  client.on('message', (topic, message) => {
-    console.log(`Received message '${message.toString()}' on topic '${topic}'`);
-    setsoildata(message.toString())
-  });
-  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://192.168.4.1/soildata');
+        if (response.ok) {
+          const data = await response.json();
+          setSoilData(data);
+        } else {
+          console.error('Error fetching data:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array ensures the effect runs once after the initial render
+
   return (
-    <div>
-      <p>
-        {soildata}
-      </p>
+    <div className='bg-gray-500'>
+      <h1>Soil Data</h1>
+      {soilData ? (
+        <div>
+          <p>nutrient: {soilData.nutrient}</p>
+          <p>nutrient1: {soilData.nutrient2}</p>
+          {/* Add more data points as needed */}
+        </div>
+      ) : (
+        <p>Loading soil data...</p>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
