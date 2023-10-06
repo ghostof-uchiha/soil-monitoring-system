@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const authenticateUser = require('../middleware/authMiddleware');
 const authorizeUser = require('../middleware/authorizeMiddleware');
 const SoilData = require('../models/soilDataModel')
 
