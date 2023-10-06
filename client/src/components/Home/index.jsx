@@ -17,7 +17,6 @@ const HomePage = () => {
   });
   
   client.on('message', (topic, message) => {
-    console.log(`Received message '${message.toString()}' on topic '${topic}'`);
     setsoildata(message.toString())
   });
   
