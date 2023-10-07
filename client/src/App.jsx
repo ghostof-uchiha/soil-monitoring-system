@@ -1,31 +1,23 @@
 import React from "react";
 import "./App.css";
-import NavBar from "./components/NavBar";
-import HomePage from "./components/Home";
-import AboutPage from "./components/About";
-import LoginForm from "./components/Login";
-import RegistrationForm from "./components/RegistrationForm";
-import { SideBar } from "./components/SideBar";
-import { Routes , Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
+
+import Header from "./components/common/Header";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
+import Home from "./components/Home";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
-    <div className="App">
-      
-      <div className="flex w-full gap-2">
-      <SideBar/>
-
-      <div className="w-full h-full flex flex-col justify-center items-center">
-        <NavBar/>
-        <Routes>
-          <Route path="/" exact element={<HomePage/>} />
-          <Route index element={<HomePage/>} />
-          <Route path="/login" element={<LoginForm/>} />
-          <Route path="/register" element={<RegistrationForm/>} />
-          {/* Add more routes as needed */}
-        </Routes>
-      </div>
-      </div>
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} /> {/* Add the element prop */}
+        <Route path="/registration" element={<Register />} />
+        <Route path="*" element={<NotFound />} /> {/* Use path="*" for NotFound route */}
+      </Routes>
     </div>
   );
 }

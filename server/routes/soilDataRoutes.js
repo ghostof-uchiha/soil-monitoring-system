@@ -1,16 +1,16 @@
 const express = require('express');
+const SoilData = require('../models/soilDataModel');
+const { requireAuth } = require('../middleware/authMiddleware');
+
 const router = express.Router();
-const authorizeUser = require('../middleware/authorizeMiddleware');
-const SoilData = require('../models/soilDataModel')
 
-// Define routes related to soil data
-router.post('/submit', async (req, res) => {
+router.post('/soil-data', requireAuth, async (req, res) => {
+  const { nutrient1, nutrient2, nutrient3, moistureLevel, otherData } = req.body;
+  const userId = req.user._id;
+
   try {
-    // Extract data from the request body
-    const { nutrient1, nutrient2, nutrient3, moistureLevel, otherData } = req.body;
-
-    // Create a new SoilData instance based on the Mongoose model
-    const newSoilData = new SoilData({
+    const soilData = new SoilData({
+      userId,
       nutrient1,
       nutrient2,
       nutrient3,
@@ -18,11 +18,8 @@ router.post('/submit', async (req, res) => {
       otherData,
     });
 
-    console.log(newSoilData);
-    // Save the data to the database
-    await newSoilData.save();
-
-    res.status(201).json({ message: 'Soil data submitted successfully!' });
+    await soilData.save();
+    res.status(201).json({ message: 'Soil data saved successfully' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal Server Error' });
@@ -30,5 +27,3 @@ router.post('/submit', async (req, res) => {
 });
 
 module.exports = router;
-
-

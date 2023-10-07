@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const HomePage = () => {
+const Home = () => {
   const [soilData, setSoilData] = useState(null);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const HomePage = () => {
   }, []); // Empty dependency array ensures the effect runs once after the initial render
 
   return (
-    <div className='bg-gray-500'>
+    <div>
       <h1>Soil Data</h1>
       {soilData ? (
         <div>
@@ -37,4 +37,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;
