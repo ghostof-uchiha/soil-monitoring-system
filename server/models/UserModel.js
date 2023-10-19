@@ -12,16 +12,22 @@ const userSchema = new mongoose.Schema({
     unique: true,
     sparse: true,
   },
+  name: {
+    type: String,
+  },
   password: {
     type: String,
     required: true,
   },
+  profileImage: {
+    type: String, // store the file path to the image
+  },  
 });
 
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
   const user = this;
   if (user.isModified('password')) {
-    const salt = await bcrypt.genSalt(10)
+    const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
   }
   next();

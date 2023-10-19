@@ -17,8 +17,9 @@ async function main() {
   try {
     await connectDB();
     // Middleware
-    app.use(express.json()); // Parse JSON request bodies
+    app.use(express.json({limit:'50mb'})); // Parse JSON request bodies
     app.use(cors()); // Enable All CORS Requests
+    app.use(express.urlencoded({limit:'50mb',extended:true})); //
 
     // Routes
     app.use('/api/users', userRoutes); // User routes
