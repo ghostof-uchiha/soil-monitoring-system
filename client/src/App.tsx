@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
@@ -11,8 +11,11 @@ import routes from './routes';
 const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
 
 function App() {
+
+  
+
   const [loading, setLoading] = useState<boolean>(true);
-  const [logged, setLogged] = useState<boolean>(false);
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 500);
@@ -28,7 +31,7 @@ function App() {
         containerClassName="overflow-auto"
       />
       <Routes>
-        <Route path="/auth/signin" element={<SignIn />} />
+        <Route path="/auth/signin" element={<SignIn token={token} setToken={setToken}/>} />
         <Route path="/auth/signup" element={<SignUp />} />
 
         <Route element={<DefaultLayout />}>
