@@ -1,7 +1,14 @@
 
-const Home = () => {
-  return (
 
+
+const Home  = () => {
+
+  // const storedToken = localStorage.getItem('token');
+  const token = localStorage.getItem('userdata');
+
+  console.log(token);
+  
+  return  (
     <>
     <div className="antialiased font-sans">
     <nav className ="bg-transparent py-4 px-4 lg:px-16 xl:py-8 fixed top-0 z-50 w-full md:px-8 xl:px-24 xxl:px-40" id="navbar">
@@ -33,10 +40,20 @@ const Home = () => {
           <a href="#" className ="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0 menu_item">Agro-special</a>
           <a href="#" className ="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0">Know more</a>
           <a href="#" className ="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0">Services</a>
+          {token?
+          (
+          <a href="/ml" className ="block mt-3  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold md:ml-6 md:mt-0 bg-green-home">Dashboard
+            </a>
+          ):
+          (
+          <>
           <a href="/auth/signin" className ="block mt-3 hover:bg-blue-700 py-2 rounded text-gray-600 font-semibold md:ml-6 md:mt-0">Sign - In
             </a>
           <a href="/auth/signup" className ="block mt-3  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold md:ml-6 md:mt-0 bg-green-home">Sign - Up
             </a>
+          </>
+          )
+          }
         </div>
       </div>
     </div>

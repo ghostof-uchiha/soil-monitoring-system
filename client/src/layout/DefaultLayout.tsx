@@ -4,6 +4,9 @@ import Sidebar from '../components/Sidebar';
 import { Outlet, useLocation } from 'react-router-dom';
 import Home from '../pages/Home';
 // its only starting layout we have to make another one once again .
+
+
+
 const DefaultLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 

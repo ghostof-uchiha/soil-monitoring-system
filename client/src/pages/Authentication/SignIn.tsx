@@ -1,9 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { ChangeEvent } from 'react';
 import LogoDark from '../../images/logo/logo-dark.svg';
 import Logo from '../../images/logo/logo.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
-import DropdownDefault from '../../components/DropdownDefault';
 
 type SignInProps = {
   setToken: React.Dispatch<React.SetStateAction<string | null>>;
@@ -12,13 +12,22 @@ type SignInProps = {
 const SignIn: React.FC<SignInProps> = ({ setToken }) => {
   const [error, setError] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [logging, setLogging] = useState(false);
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     emailOrMobile: '',
     password: '',
   });
 
-  const handleInputChange = (e) => {
+  useEffect(() => {
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      navigate('/ml');
+    }
+  }, []);
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -32,7 +41,9 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    handleClose()
     setError(null);
+    setLogging(true);
     try {
       const response = await fetch('http://localhost:4000/api/users/login', {
         method: 'POST',
@@ -45,13 +56,12 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
 
       const data = await response.json();
       if (response.ok) {
-        localStorage.setItem('token', data.token); // Store the token in localStorage
-        localStorage.setItem('userId', data.userId); // Store the user ID in localStorage
+        localStorage.setItem('userdata', JSON.stringify(data)); // Store the token in localStorage
 
         setToken(data.token);
         setIsVisible(true);
         setTimeout(() => {}, 1000);
-        navigate('/');
+        navigate('/ml');
       } else {
         setError(data.message);
         setIsVisible(true);
@@ -59,9 +69,8 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
       }
     } catch (error) {
       window.alert(`Error during login:, ${error}`);
-      // setError(error);
-      setIsVisible(true);
     }
+    setLogging(false);
   };
   return (
     <>
@@ -69,7 +78,8 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
         <div className="absolute left-1/2 transform -translate-x-1/2 top-3 max-w-2xl mx-auto transition-transform duration-300 ease-in-out">
           <div
             id="toast-default"
-            className="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+            className={`${error ? 'border-danger' : 'border-green-light'}
+            flex items-center w-full max-w-xs p-4 text-gray-500 border-2  bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800`}
             role="alert"
           >
             <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 bg-blue-100 rounded-lg dark:bg-blue-800 dark:text-blue-200">
@@ -91,11 +101,11 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
               ) : (
                 <>
                   <svg
-                    width="16"
-                    height="12"
+                    width="24"
+                    height="24"
                     viewBox="0 0 16 12"
                     fill="none"
-                    className='text-green-light'
+                    className="bg-green-light p-2 rounded-full"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -114,29 +124,31 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
                 <p className="text-green-light">Login Succesfully</p>
               )}
             </div>
-            {error?(
-            <button
-              type="button"
-              onClick={handleClose}
-              className="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-              data-collapse-toggle="toast-default"
-              aria-label="Close"
-            >
-              <span className="sr-only">Close</span>
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
+            {error ? (
+              <button
+                type="button"
+                onClick={handleClose}
+                className="ml-6 -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                data-collapse-toggle="toast-default"
+                aria-label="Close"
+              >
+                <span className="sr-only">Close</span>
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                <path
-                  fill-rule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
                   ></path>
-              </svg>
-            </button>
-            ):(<></>)}
+                </svg>
+              </button>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       ) : (
@@ -363,11 +375,39 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
                 </div>
 
                 <div className="mb-5">
-                  <input
-                    type="submit"
-                    value="Sign In"
-                    className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
-                  />
+                  {logging ? (
+                    <>
+                      <button
+                        type="button"
+                        className="w-full flex justify-center items-center gap-3 cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
+                        disabled
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="w-6 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-green-light"
+                          viewBox="0 0 100 101"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                            fill="currentColor"
+                          />
+                          <path
+                            d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                            fill="currentFill"
+                          />
+                        </svg>
+                        Processing...
+                      </button>
+                    </>
+                  ) : (
+                    <input
+                      type="submit"
+                      value="Sign In"
+                      className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
+                    />
+                  )}
                 </div>
               </form>
 
