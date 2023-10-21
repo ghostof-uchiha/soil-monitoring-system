@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
@@ -11,13 +11,22 @@ import routes from './routes';
 const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
 
 function App() {
+  
   const [loading, setLoading] = useState<boolean>(true);
-  const [logged, setLogged] = useState<boolean>(false);
-
+  const [token, setToken] = useState<string | null>(null);
+  
+  
   useEffect(() => {
-    setTimeout(() => setLoading(false), 500);
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      setToken(storedToken);
+      console.log('Token set:', storedToken);
+    }
+    setLoading(false);
   }, []);
 
+  
+  
   return loading ? (
     <Loader />
   ) : (
@@ -28,11 +37,11 @@ function App() {
         containerClassName="overflow-auto"
       />
       <Routes>
-        <Route path="/auth/signin" element={<SignIn />} />
-        <Route path="/auth/signup" element={<SignUp />} />
+          <Route path="/auth/signin" element={<SignIn setToken={setToken}/>} />
+          <Route path="/auth/signup" element={<SignUp />} />
 
         <Route element={<DefaultLayout />}>
-          <Route index element={<Home/>} />
+          <Route index element={<Home />} />
           {routes.map((route, index) => {
             const { path, component: Component } = route;
             return (

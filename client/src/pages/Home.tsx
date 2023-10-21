@@ -1,7 +1,14 @@
 
-const Home = () => {
-  return (
 
+
+const Home  = () => {
+
+  // const storedToken = localStorage.getItem('token');
+  const token = localStorage.getItem('userdata');
+
+  console.log(token);
+  
+  return  (
     <>
     <div className="antialiased font-sans">
     <nav className ="bg-transparent py-4 px-4 lg:px-16 xl:py-8 fixed top-0 z-50 w-full md:px-8 xl:px-24 xxl:px-40" id="navbar">
@@ -28,13 +35,25 @@ const Home = () => {
       <div className ="w-full navigation-menu hidden md:flex md:w-3/4 relative">
         <div className ="flex flex-col md:flex-row pt-8 pb-2 md:pt-0 md:pb-0 md:ml-auto md:items-center relative">
          
-          <a href="#" className ="block mt-4 font-semibold max-w-3xl hidden md:ml-6 lg:inline hover:text-gray-600 md:mt-0">About
+          <a href="#" className ="block mt-4 font-semibold max-w-3xl  md:ml-6 lg:inline hover:text-gray-600 md:mt-0">About
             Us</a>
           <a href="#" className ="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0 menu_item">Agro-special</a>
           <a href="#" className ="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0">Know more</a>
           <a href="#" className ="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0">Services</a>
-          <a href="#" className ="block mt-3 bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded text-gray-600 font-semibold md:ml-6 md:mt-0">Sign - In
+          {token?
+          (
+          <a href="/ml" className ="block mt-3  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold md:ml-6 md:mt-0 bg-green-home">Dashboard
             </a>
+          ):
+          (
+          <>
+          <a href="/auth/signin" className ="block mt-3 hover:bg-blue-700 py-2 rounded text-gray-600 font-semibold md:ml-6 md:mt-0">Sign - In
+            </a>
+          <a href="/auth/signup" className ="block mt-3  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold md:ml-6 md:mt-0 bg-green-home">Sign - Up
+            </a>
+          </>
+          )
+          }
         </div>
       </div>
     </div>
@@ -52,7 +71,7 @@ const Home = () => {
       <p className="text-sm xl:text-base text-gray-600 mt-8">
         Our Projects focus on - Empowering Farmers, Nourishing the World: Cultivating Innovation from the Ground Up
       </p>
-      <button className="bg-blue-500 hover:bg-blue-700 px-6 py-4 text-gray-600 rounded block sm:inline-block mt-4 text-center font-bold">
+      <button className="bg-blue-500 hover:bg-blue-700 px-6 py-4 text-white rounded block sm:inline-block mt-4 text-center font-bold">
              Connect with us 
       </button>
       
