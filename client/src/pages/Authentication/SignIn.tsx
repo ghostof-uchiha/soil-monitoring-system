@@ -342,7 +342,7 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
                   <div className="relative">
                     <input
                       type="password"
-                      placeholder="6+ Characters, 1 Capital letter"
+                      placeholder="Enter your Password"
                       name="password"
                       required
                       value={formData.password}
