@@ -1,15 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LogoDark from '../../images/logo/logo-dark.svg';
 import Logo from '../../images/logo/logo.svg';
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent,useEffect } from 'react';
 
 const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
 
 const SignUp = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [sucess, setSucess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [registering, setRegistering] = useState(false);
-  const [sendOtp, setSendOtp] = useState(false);
+  const [sendOtp, setSendOtp] = useState(1);
+  const navigate =  useNavigate()
 
   const [formData, setFormData] = useState({
     emailOrMobile: '',
@@ -27,16 +29,47 @@ const SignUp = () => {
     });
   };
 
+  useEffect(() => {
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      navigate('/ml');
+    }
+  }, []);
+
   const handleClose = () => {
     setIsVisible(false);
   };
+  
+  const sendOTPHandler = async () => {
+    handleClose()
+    setSendOtp(2);
+    try {
+      const response = await fetch('http://localhost:4000/api/users/userotp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'API-Key': apiKey,
+        },
+        body: JSON.stringify(formData),
+      });
 
-  const handleOTP = async (e) => {};
+      const data = await response.json();
+      if (response.ok) {
+        setSucess(data.message);
+        setIsVisible(true);
+        
+      } else {
+        console.log(data);
+        setError(data.message);
+        setIsVisible(true);
 
-  const sendOTPHandler = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+      }
+    } catch (error) {
+      console.error('Error during registration:', error);
+    }
+    setSendOtp(1);
+  };
 
-  }
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleClose();
@@ -54,11 +87,17 @@ const SignUp = () => {
 
       const data = await response.json();
       if (response.ok) {
+        console.log(data);
+
+        setSucess(data.message);
         setIsVisible(true);
+        localStorage.setItem('userdata', JSON.stringify(data)); 
+        setTimeout(() => {}, 1000);
+        navigate('/ml')
       } else {
         setError(data.message);
         setIsVisible(true);
-        // window.alert(`Login failed: ${data.message}`);
+        
       }
     } catch (error) {
       console.error('Error during registration:', error);
@@ -76,7 +115,7 @@ const SignUp = () => {
             flex items-center w-full max-w-xs p-4 text-gray-500 border-2  bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800`}
             role="alert"
           >
-            <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 bg-blue-100 rounded-lg dark:bg-blue-800 dark:text-blue-200">
+            <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg ">
               {error ? (
                 <>
                   <svg
@@ -115,7 +154,7 @@ const SignUp = () => {
               {error ? (
                 <p className="text-danger">{error}</p>
               ) : (
-                <p className="text-green-light">Login Succesfully</p>
+                <p className="text-green-light">{sucess}</p>
               )}
             </div>
             {error ? (
@@ -134,9 +173,9 @@ const SignUp = () => {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
               </button>
@@ -333,7 +372,7 @@ const SignUp = () => {
                 </div>
 
                 <div className="mb-4 flex w-full gap-3">
-                  <div className="w-3/4">
+                  <div className="w-7/12">
                     <label className="mb-2.5 block font-medium text-black dark:text-white">
                       Email / Mobile Number
                     </label>
@@ -366,17 +405,14 @@ const SignUp = () => {
                       </span>
                     </div>
                   </div>
-                  <div className="w-1/4">
-                    <label className="mb-2.5 block font-medium text-black dark:text-white">
-                      OTP
-                    </label>
+                  <div className="flex gap-2 justify-center items-end">
                     <div className="relative ">
                       <button
                         type="button"
                         onClick={sendOTPHandler}
-                        className=" flex justify-center items-center gap-3 cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
+                        className="justify-center items-center gap-3 cursor-pointer px-4 py-1 rounded-lg border text-black transition hover:bg-opacity-90"
                       >
-                        {sendOtp ? (
+                        {sendOtp==2 ? (
                           <>
                             <svg
                               aria-hidden="true"
@@ -394,19 +430,24 @@ const SignUp = () => {
                                 fill="currentFill"
                               />
                             </svg>
-                            Processing...
+                            ...
                           </>
-                        ) : (
+                        ) :(
                           <>Send OTP</>
                         )}
                       </button>
+                    </div>
+                    <div>
+                      <label className="mb-2.5 block font-medium text-black dark:text-white">
+                        OTP
+                      </label>
                       <input
                         type="text"
                         value={formData.otp}
                         name="otp"
                         onChange={handleInputChange}
                         placeholder="Enter your OTP"
-                        className="hidden w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                       />
                     </div>
                   </div>

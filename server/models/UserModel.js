@@ -19,6 +19,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  bio: {
+    type: String,
+  },
   profileImage: {
     type: String, // store the file path to the image
   },  

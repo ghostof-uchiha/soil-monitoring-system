@@ -49,9 +49,18 @@ const registerUser = async (req, res) => {
 
       await newUser.save(); // Save the user to the database
       // Delete the verified OTP after user registration
+      
+      const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
       await OTP.deleteOne({ _id: req.verifiedOTP._id });
+      
+      return res.status(200).json({ 
+        message:"User Created successfully",
+        token, userId: newUser._id, 
+        name: newUser?.name,
+        email: newUser?.email,
+        mobileNumber: newUser?.mobileNumber
+      });
 
-      return res.status(201).json({ message: 'User created successfully' });
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: 'Internal Server Error' });
@@ -89,7 +98,14 @@ const LoginUser = async (req, res) => {
         if (result) {
           // Send JWT and user ID
           const token = jwt.sign({ userId: existingUser._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
-          return res.status(200).json({ token, userId: existingUser._id, name: existingUser?.name });
+          return res.status(200).json({ 
+            message:'Logged in successfully',
+            token, userId: existingUser._id, 
+            name: existingUser?.name,
+            email: existingUser?.email,
+            mobileNumber: existingUser?.mobileNumber,
+            bio: existingUser?.bio,
+          });
         } else {
           return res.status(401).json({ message: 'Invalid Id or password' });
         }

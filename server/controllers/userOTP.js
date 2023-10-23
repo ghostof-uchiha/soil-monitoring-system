@@ -7,6 +7,7 @@ const twilio = require('twilio');
 const fast2sms = require('fast-two-sms');
 require('dotenv').config();
 const OAuth2 = google.auth.OAuth2
+const e = require('cors');
 
 
 // EMAIL SERVICE SETUP
@@ -17,7 +18,7 @@ const token = process.env.GOOGLE_CLIENT_TOKEN
 const OAuth2_client = new OAuth2(id, secret)
 OAuth2_client.setCredentials({ refresh_token: token })
 
-const emailservice = async (email, otp, emailOrMobile, res) => {
+const emailservice = async (email, otp, res) => {
   const accessToken = OAuth2_client.getAccessToken()
 
   const transporter = nodemailer.createTransport({
@@ -64,7 +65,7 @@ const emailservice = async (email, otp, emailOrMobile, res) => {
     // Send email with OTP
     await transporter.sendMail(mailOptions);
     const newOTP = new OTP({
-      emailOrMobile: emailOrMobile,
+      emailOrMobile: email,
       otp: otp,
     });
 
@@ -90,7 +91,7 @@ const smsservice = async (to, otp, req, res) => {
   console.log("running SMS service");
   SMSclient.messages
   .create({
-    to: to,
+    to: `+91${to}`,
     from: SMSNumber,
     body: `Your Agro-API verification OTP is: ${otp}`
   })
@@ -149,12 +150,14 @@ const SendOtp = async (req, res) => {
   }
   // Generate a 6-digit OTP
   const otp = `${otpGenerator.generate(6, { digits: true, lowerCaseAlphabets: false, upperCaseAlphabets: false, specialChars: false })}`;
-
-
+  
+  
   if (isEmail) {
-    emailservice(emailOrMobile, otp, emailOrMobile, res)
-  } else {
-    smsservice(emailOrMobile, otp, req, res)
+    return emailservice(emailOrMobile, otp, res)
+  } else if(isMobileNumber) {
+    return smsservice(emailOrMobile, otp, req, res)
+  }else{
+    return res.status(400).json({ message: 'Enter valid Email or mobile number' });
   }
 }
 

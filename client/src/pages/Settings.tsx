@@ -10,6 +10,8 @@ import { useNavigate } from 'react-router-dom';
 const Settings = () => {
 
   const navigate = useNavigate();
+  const userdataString = localStorage.getItem('userdata');
+  const userdata = userdataString ? JSON.parse(userdataString) : null;
 
   const [modalOpen, setModalOpen] = useState(false);
   const [rows, setRows] = useState(
@@ -61,6 +63,7 @@ const Settings = () => {
               <div className="p-7">
                 <form action="#">
                   <div className="mb-5.5 flex flex-col gap-5.5 sm:flex-row">
+                  {/* Name */}
                     <div className="w-full sm:w-1/2">
                       <label
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
@@ -99,12 +102,12 @@ const Settings = () => {
                           type="text"
                           name="fullName"
                           id="fullName"
-                          placeholder="Ramu"
-                          defaultValue="Ramu"
+                          placeholder={`${userdata.name}`}
+                          defaultValue={`${userdata.name}`}
                         />
                       </div>
                     </div>
-
+                  {/* Phone Number */}
                     <div className="w-full sm:w-1/2">
                       <label
                         className="mb-3 block text-sm font-medium text-black dark:text-white"
@@ -117,8 +120,9 @@ const Settings = () => {
                         type="text"
                         name="phoneNumber"
                         id="phoneNumber"
-                        placeholder="+91 111 3333 555"
-                        defaultValue="+91 444 5555 666"
+                        placeholder='123 1323 123'
+                        defaultValue={userdata.mobileNumber?(`${userdata?.mobileNumber}`):('')}
+
                       />
                     </div>
                   </div>
@@ -161,8 +165,8 @@ const Settings = () => {
                         type="email"
                         name="emailAddress"
                         id="emailAddress"
-                        placeholder="any@gmail.com"
-                        defaultValue="any@gmail.com"
+                        placeholder={`${userdata.email}`}
+                        defaultValue={`${userdata.email}`}
                       />
                     </div>
                   </div>

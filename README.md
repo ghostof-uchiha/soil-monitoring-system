@@ -15,8 +15,15 @@ then in fronend which is client
 ```
 cd client
 npm i
+npm run dev
+```
+
+or in root directory 
+```
+npm i
 npm start
 ```
+you don't need to sever and client seperately.
 
 ```
 soil-monitoring-system
