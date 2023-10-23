@@ -1,7 +1,7 @@
 import { useEffect, useRef ,useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import UserOne from '../images/user/user-01.png';
+import UserOne from '../images/user/user-00.png';
 
 const DropdownUser = () => {
   const navigate = useNavigate();
@@ -20,6 +20,7 @@ const DropdownUser = () => {
 
   const logout = (()=>{
     localStorage.removeItem('userdata');
+    localStorage.removeItem('token');
     navigate("/")
   })
 
@@ -66,7 +67,7 @@ const DropdownUser = () => {
         </span>
 
         <span className="h-12 w-12 rounded-full">
-          <img src={UserOne} alt="User" />
+          <img src={userdata?.profileImage || UserOne} alt="User" className='w-full h-full object-cover rounded-full'/>
         </span>
 
         <svg

@@ -92,6 +92,7 @@ const SignUp = () => {
         setSucess(data.message);
         setIsVisible(true);
         localStorage.setItem('userdata', JSON.stringify(data)); 
+        localStorage.setItem('token', data.token); 
         setTimeout(() => {}, 1000);
         navigate('/ml')
       } else {

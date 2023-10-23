@@ -57,6 +57,7 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
       const data = await response.json();
       if (response.ok) {
         localStorage.setItem('userdata', JSON.stringify(data)); // Store the token in localStorage
+        localStorage.setItem('token', data.token); // Store the token in localStorage
 
         setToken(data.token);
         setIsVisible(true);
