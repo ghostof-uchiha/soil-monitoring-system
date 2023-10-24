@@ -10,6 +10,7 @@ const Tables = lazy(() => import('../pages/Tables'));
 const Alerts = lazy(() => import('../pages/UiElements/Alerts'));
 const Buttons = lazy(() => import('../pages/UiElements/Buttons'));
 const dashML = lazy(() => import('../pages/Dashboard/MachineLearning'));
+const dashsoildata = lazy(() => import('../pages/Dashboard/Soildata'));
 
 
 const coreRoutes = [
@@ -17,6 +18,11 @@ const coreRoutes = [
     path: '/ml',
     title: 'MachineLearning',
     component: dashML,
+  },
+  {
+    path: '/Soildata',
+    title: 'Test soil',
+    component: dashsoildata,
   },
   {
     path: '/calendar',

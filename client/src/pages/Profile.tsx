@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Breadcrumb from '../components/Breadcrumb';
 import CoverOne from '../images/cover/cover-01.png';
 import userSix from '../images/user/user-00.png';

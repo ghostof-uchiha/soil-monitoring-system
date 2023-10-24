@@ -3,11 +3,8 @@ const OTP = require('../models/OTPSchema');
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { cloudinary } = require('../utils/cloudinary');
 const sizeOf = require('image-size');
 const e = require('cors');
-const sharp = require('sharp');
-const { Readable } = require('stream'); 
 
 
 const registerUser = async (req, res) => {
@@ -125,75 +122,6 @@ const LoginUser = async (req, res) => {
 // Update User Data
 
 
-const updateUserProfile = async (req, res) => {
-  try {
-    const userId = req.params.userId;
-    const { name, email, mobileNumber, bio } = req.body;
-    const { buffer } = req.file;
-
-    const updatedFields = {};
-    // Resize and compress the image using sharp
-    const optimizedImageBuffer = await sharp(buffer)
-      .resize({ width: 800, height: 800, fit: 'inside' }) // Resize the image to a maximum of 800x800
-      .toBuffer();
-
-    // Handle profile image upload if provided
-    const uploadResponse = await new Promise((resolve, reject) => {
-      const stream = cloudinary.uploader.upload_stream(
-        {
-          folder: 'agroApiProfile', // Specify your desired folder in Cloudinary
-          upload_preset: 'agroApiProfile', // Specify your upload preset
-        },
-        (error, result) => {
-          if (error) {
-            console.error('Error uploading image to Cloudinary:', error);
-            reject('Failed to upload profile image');
-          } else {
-            resolve(result);
-          }
-        }
-      );
-
-      // Pipe the optimized image buffer to Cloudinary uploader
-      const optimizedImageStream = new Readable();
-      optimizedImageStream.push(optimizedImageBuffer);
-      optimizedImageStream.push(null);
-      optimizedImageStream.pipe(stream);
-    });
-
-    // Handle successful upload
-    const { secure_url } = uploadResponse;
-    // Rest of your code...
-
-    // Update other fields if provided
-    if (name) updatedFields.name = name;
-    if (bio) updatedFields.bio = bio;
-    if (email) updatedFields.email = email;
-    if (mobileNumber) updatedFields.mobileNumber = mobileNumber;
-    if (secure_url) updatedFields.profileImage = secure_url;
-
-    // Perform the update operation and get the updated user
-    const user = await User.findByIdAndUpdate(userId, updatedFields, { new: true });
-
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-
-    res.status(200).json({
-      message: 'Successfully updated',
-      userId: user._id,
-      name: user?.name,
-      email: user?.email,
-      mobileNumber: user?.mobileNumber,
-      bio: user?.bio,
-      profileImage: user?.profileImage,
-    });
-
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error updating user profile' });
-  }
-};
 
 
 
@@ -201,5 +129,4 @@ const updateUserProfile = async (req, res) => {
 module.exports = {
   registerUser,
   LoginUser,
-  updateUserProfile,
 };

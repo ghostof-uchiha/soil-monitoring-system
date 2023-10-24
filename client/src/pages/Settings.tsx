@@ -1,14 +1,20 @@
 import Breadcrumb from '../components/Breadcrumb';
 import userThree from '../images/user/user-00.png';
-import fireToast from '../hooks/fireToast';
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useEffect } from 'react';
+import Processing from '../components/Processing';
+import SucessMessage from '../components/SucessMessage';
 import axios from 'axios';
 const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
 
 const Settings = () => {
   const userdataString = localStorage.getItem('userdata');
   const userdata = userdataString ? JSON.parse(userdataString) : null;
+  const [updating, setUpdating] = useState(false);
   const [imagePreviewUrl, setImagePreviewUrl] = useState('');
+  const [isFormModified, setIsFormModified] = useState(false);
+  const [isImageModified, setIsIImageModified] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [message, setMessage] = useState('');
 
   const [formData, setFormData] = useState({
     email: userdata?.email,
@@ -17,6 +23,57 @@ const Settings = () => {
     bio: userdata?.bio,
     profileImage: null as File | null,
   });
+
+  const deleteProfileImage = async () => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/api/users/profileimage/${userdata.userId}`, // Replace this URL with your actual API endpoint
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data', // Important: Set content type to multipart/form-data for file uploads
+            'API-Key': apiKey,
+            Authorization: localStorage.getItem('token'), // Include your authorization token if required
+          },
+        },
+      );
+
+      if (userdata && userdata.profileImage) {
+        // Remove the profileImage property from the userdata object
+        delete userdata.profileImage;
+      
+        // Step 4: Store the modified userdata object back into localStorage
+        localStorage.setItem('userdata', JSON.stringify(userdata));
+      
+        // Now, the profileImage property has been removed from the userdata object
+      }
+
+      if (response.status === 200) {
+        console.log('Image deleted successfully');
+        setMessage('Image deleted successfully');
+        setShowPopup(true);
+      } else {
+        console.error('Failed to delete image');
+        // Handle error scenarios if needed
+      }
+    } catch (error) {
+      console.error('Error deleting image:', error);
+      // Handle error scenarios if needed
+    }
+  };
+
+  useEffect(() => {
+    if (showPopup) {
+      setShowPopup(true);
+      const timeoutId = setTimeout(() => {
+        setShowPopup(false);
+      }, 5000); // Hide the message after 5 seconds
+  
+      // Clear the timeout when the component unmounts or when showPopup changes
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }
+  }, [showPopup]);
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -36,18 +93,20 @@ const Settings = () => {
           ...formData,
           [name]: selectedFile,
         });
+        setIsIImageModified(true);
       }
     } else {
       setFormData({
         ...formData,
         [name]: value,
       });
+      setIsFormModified(true);
     }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+    setUpdating(true);
 
     try {
       const formDataWithImage = new FormData();
@@ -74,18 +133,24 @@ const Settings = () => {
 
       const data = response.data;
       if (response.status === 200) {
-        console.log('User profile updated successfully:', data);
+        console.log('User profile updated successfully:');
         localStorage.setItem('userdata', JSON.stringify(data));
+        setMessage('User profile updated successfully');
+        setShowPopup(true);
       } else {
-        console.error('Error updating user profile:', data.message);
+        console.log('Error updating user profile:', data.message);
       }
     } catch (error) {
-      console.error('Error during user profile update:', error);
+      console.log('Error during user profile update:', error);
     }
+    setUpdating(false);
+    setIsFormModified(false);
+    setIsIImageModified(false);
   };
 
   return (
-    <>
+    <div className="relative">
+      {showPopup && <SucessMessage message={message} />}
       <div className="mx-auto max-w-270">
         <Breadcrumb pageName="Settings" />
 
@@ -258,19 +323,17 @@ const Settings = () => {
                   </div>
 
                   <div className="flex justify-end gap-4.5">
-                    <button
-                      className="flex justify-center rounded border border-stroke py-2 px-6 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
-                      type="submit"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      className="flex justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:shadow-1"
-                      type="submit"
-                      onClick={fireToast}
-                    >
-                      Save
-                    </button>
+                    {isFormModified &&
+                      (updating ? ( // Only render the button if the form is modified
+                        <Processing />
+                      ) : (
+                        <button
+                          className="flex justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:bg-opacity-70"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      ))}
                   </div>
                 </form>
               </div>
@@ -284,27 +347,33 @@ const Settings = () => {
                 </h3>
               </div>
               <div className="p-7">
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="h-14 w-14 rounded-full">
-                      <img src={userdata?.profileImage || userThree} alt="User" className='w-ful h-full rounded-full object-cover'/>
-                    </div>
-                    <div>
-                      <span className="mb-1.5 text-black dark:text-white">
-                        Edit your photo
-                      </span>
-                      <span className="flex gap-2.5">
-                        <button className="text-sm hover:text-primary">
-                          Delete
-                        </button>
-                        <button className="text-sm hover:text-primary">
-                          Update
-                        </button>
-                      </span>
-                    </div>
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="h-14 w-14 rounded-full">
+                    <img
+                      src={userdata?.profileImage || userThree}
+                      alt="User"
+                      className="w-ful h-full rounded-full object-cover"
+                    />
                   </div>
-
-                  <div className="relative mb-5.5 w-72 h-72 rounded-full block cursor-pointer appearance-none border-2 border-dashed border-primary bg-gray py-4 px-4 dark:bg-meta-4 sm:py-7.5">
+                  <div>
+                    <span className="mb-1.5 text-black dark:text-white">
+                      Edit your photo
+                    </span>
+                    <span className="flex gap-2.5">
+                      <button
+                        onClick={deleteProfileImage}
+                        className="text-sm hover:text-primary"
+                      >
+                        Delete
+                      </button>
+                      <button className="text-sm hover:text-primary">
+                        Update
+                      </button>
+                    </span>
+                  </div>
+                </div>
+                <form onSubmit={handleSubmit}>
+                  <div className="relative mb-5.5 w-72 h-72 rounded-full block cursor-pointer appearance-none border-2 border-dashed border-primary bg-gray py-4 px-4 dark:bg-meta-4">
                     <input
                       type="file"
                       accept="image/*"
@@ -360,18 +429,17 @@ const Settings = () => {
                   </div>
 
                   <div className="flex justify-end gap-4.5">
-                    <button
-                      className="flex justify-center rounded border border-stroke py-2 px-6 font-medium text-black hover:shadow-1 dark:border-strokedark dark:text-white"
-                      type="submit"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      className="flex justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:bg-opacity-70"
-                      type="submit"
-                    >
-                      Save
-                    </button>
+                    {isImageModified &&
+                      (updating ? ( // Only render the button if the form is modified
+                        <Processing />
+                      ) : (
+                        <button
+                          className="flex justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:bg-opacity-70"
+                          type="submit"
+                        >
+                          Update
+                        </button>
+                      ))}
                   </div>
                 </form>
               </div>
@@ -379,7 +447,7 @@ const Settings = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
