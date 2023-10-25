@@ -2,6 +2,7 @@ import Addlogowhite from '../../images/logo/add-white.png';
 import SoilDataTable from '../../components/SoilDataTable';
 import SoilBarGraph from '../../components/SoilBarGraph';
 import { useEffect, useState } from 'react';
+import { Transition } from '@tailwindui/react';
 import axios from 'axios';
 
 const Soildata = () => {
@@ -11,11 +12,13 @@ const Soildata = () => {
   const [showError, setShowError] = useState(false);
 
   const handleSampleToggle = (index: number) => {
+    
     setExpandedSamples((prevExpandedSamples) => {
       const newExpandedSamples = [...prevExpandedSamples];
       newExpandedSamples[index] = !newExpandedSamples[index];
       return newExpandedSamples;
     });
+    console.log(expandedSamples[index]);
   };
 
   const addSample = async () => {
@@ -54,6 +57,12 @@ const Soildata = () => {
     });
   }, [samples.length]);
 
+  
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
   return (
     <>
       <div className="flex justify-between">
@@ -68,7 +77,7 @@ const Soildata = () => {
             width="20"
             height="20"
             viewBox="0,0,256,256"
-            className='text-black dark:text-white'
+            className="text-black dark:text-white"
           >
             <g
               fill-rule="nonzero"
@@ -97,7 +106,7 @@ const Soildata = () => {
         <div
           key={index}
           className="relative cursor-pointer bg-white px-5 mb-2 rounded-md pt-6 pb-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-6
-          transition duration-300 ease-in-out"
+          "
           onClick={() => handleSampleToggle(index)}
         >
           <svg
@@ -117,15 +126,26 @@ const Soildata = () => {
               fill=""
             />
           </svg>
+
           <h4 className="mb-2 text-xl font-semibold text-black dark:text-white">
             Sample {index + 1}
           </h4>
-          {expandedSamples[index] && (
-            <div className="flex flex-col xl:flex-row">
-              <SoilDataTable sample={sample} />
-              <SoilBarGraph sample={sample} />
-            </div>
-          )}
+          
+          
+          <div className={`max-h-0 overflow-hidden transition-max-h ease-custom ease-in-out ${
+          expandedSamples[index] ? 'max-h-screen' : ''
+        }`}>
+            
+          
+         
+              <div className="flex flex-col xl:flex-row ">
+                <SoilDataTable sample={sample} />
+                <SoilBarGraph sample={sample} />
+              </div>
+          </div>
+              
+
+          
         </div>
       ))}
 

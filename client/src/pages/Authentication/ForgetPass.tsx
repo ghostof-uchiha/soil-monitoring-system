@@ -4,7 +4,7 @@ import PassOtp from "./PassOtp";
 import VerifyForOtp from './VerifyForOtp';
 
 const ForgetPass = () => {
-  const [condition , setCondition] = useState(true)
+  const [condition , setCondition] = useState(false)
 
   const CreatePass = ()=> {
     setCondition(PassOtp)

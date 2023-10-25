@@ -426,3 +426,7 @@ span.flatpickr-weekday,
     margin: 15%;
 
 }
+
+.ease-custom {
+  transition-duration: 600ms;
+}
