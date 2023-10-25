@@ -41,6 +41,9 @@ function App() {
       <Routes>
           <Route path="/auth/signin" element={<SignIn setToken={setToken}/>} />
           <Route path="/auth/signup" element={<SignUp />} />
+          <Route path="/forgetpass" element={<ForgetPass />} />
+          <Route path="*" element={<NotFound />} />
+
 
         <Route element={<DefaultLayout />}>
           <Route index element={<Home />} />
