@@ -5,9 +5,6 @@ import ForgetPass from '../../components/ForgetPass';
 const VerifyForOtp = () => {
   const [condition, setCondition] = useState(false);
 
-  const CreatePass = () => {
-    setCondition(PassOtp);
-  };
 
   return (
     <>
