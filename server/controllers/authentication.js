@@ -3,10 +3,8 @@ const OTP = require('../models/OTPSchema');
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { cloudinary } = require('../utils/cloudinary');
 const sizeOf = require('image-size');
 const e = require('cors');
-
 
 
 const registerUser = async (req, res) => {
@@ -49,16 +47,17 @@ const registerUser = async (req, res) => {
 
       await newUser.save(); // Save the user to the database
       // Delete the verified OTP after user registration
-      
+
       const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
       await OTP.deleteOne({ _id: req.verifiedOTP._id });
-      
-      return res.status(200).json({ 
-        message:"User Created successfully",
-        token, userId: newUser._id, 
+
+      return res.status(200).json({
+        message: "User Created successfully",
+        token, userId: newUser._id,
         name: newUser?.name,
         email: newUser?.email,
-        mobileNumber: newUser?.mobileNumber
+        mobileNumber: newUser?.mobileNumber,
+        profileImage: existingUser?.profileImage,
       });
 
     } catch (error) {
@@ -98,13 +97,14 @@ const LoginUser = async (req, res) => {
         if (result) {
           // Send JWT and user ID
           const token = jwt.sign({ userId: existingUser._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
-          return res.status(200).json({ 
-            message:'Logged in successfully',
-            token, userId: existingUser._id, 
+          return res.status(200).json({
+            message: 'Logged in successfully',
+            token, userId: existingUser._id,
             name: existingUser?.name,
             email: existingUser?.email,
             mobileNumber: existingUser?.mobileNumber,
             bio: existingUser?.bio,
+            profileImage: existingUser?.profileImage,
           });
         } else {
           return res.status(401).json({ message: 'Invalid Id or password' });
@@ -121,38 +121,12 @@ const LoginUser = async (req, res) => {
 
 // Update User Data
 
-const updateUserProfile = async (req, res) => {
-  try {
-    const userId = req.params.userId;
-    const { name, profileImage } = req.body;
-    // const profileImage = req.file ? req.file.path : null; // check if an image was uploaded
 
-    const fileStr = req.body.profileImage;
-    console.log(fileStr);
-    const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-      upload_preset: 'agroApiProfile',
-    });
 
-    const updatedFields = {};
-    if (name) updatedFields.name = name;
-    if (profileImage) updatedFields.profileImage = uploadResponse.secure_url;
 
-    const user = await User.findByIdAndUpdate(userId, updatedFields, { new: true });
 
-    if (!user) {
-      return res.status(404).send('User not found');
-    }
-
-    res.status(200).send(user);
-    console.log(user);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error updating user profile');
-  }
-};
 
 module.exports = {
   registerUser,
   LoginUser,
-  updateUserProfile,
 };
