@@ -22,7 +22,7 @@ type SoilDataTableProps = {
 };
 const SoilDataTable: React.FC<SoilDataTableProps>  = ({sample}) => {
   return (
-    <div className="min-w-[550px] rounded-sm  bg-white px-5 pt-6 pb-2.5 dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+    <div className=" rounded-sm  bg-white px-5 pt-6 pb-2.5 dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       
 
       <div className=" w-full flex flex-col">
@@ -37,7 +37,7 @@ const SoilDataTable: React.FC<SoilDataTableProps>  = ({sample}) => {
               Level
             </h5>
           </div>
-          <div className="hidden p-2.5 text-center sm:block xl:p-5">
+          <div className=" p-2.5 text-center block xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
               Percentage
             </h5>

@@ -21,6 +21,7 @@ module.exports = {
       'rose-500':'#F43F5E',
       'green-500': '#22c55e',
       'green-400':'#4ade80',
+      'gray-500': '#6B7280',
       bodydark: '#AEB7C0',
       bodydark1: '#DEE4EE',
       bodydark2: '#8A99AF',
