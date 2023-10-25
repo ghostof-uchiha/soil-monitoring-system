@@ -6,9 +6,9 @@ import Home from './pages/Home';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
 import NotFound from './pages/404/NotFound';
-import ForgetPass from './pages/Authentication/ForgetPass';
 import Loader from './common/Loader';
 import routes from './routes';
+import VerifyForOtp from './pages/Authentication/VerifyForOtp';
 
 const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
 
@@ -41,7 +41,7 @@ function App() {
       <Routes>
           <Route path="/auth/signin" element={<SignIn setToken={setToken}/>} />
           <Route path="/auth/signup" element={<SignUp />} />
-          <Route path="/forgetpass" element={<ForgetPass />} />
+          <Route path="/auth/verifyotp" element={<VerifyForOtp />} />
           <Route path="*" element={<NotFound />} />
 
 

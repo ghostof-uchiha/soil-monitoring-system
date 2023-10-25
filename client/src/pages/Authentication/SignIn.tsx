@@ -429,7 +429,7 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
               <div>
               <p>
                   Forget {' '}
-                  <Link to="/forgetpass" className="text-primary">
+                  <Link to="/auth/verifyotp" className="text-primary">
                     Password
                   </Link>
                 </p>
