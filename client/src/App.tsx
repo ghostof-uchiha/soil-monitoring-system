@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import Home from './pages/Home';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
+import ForgetPass from './pages/Authentication/ForgetPass';
 import Loader from './common/Loader';
 import routes from './routes';
 
@@ -39,6 +40,7 @@ function App() {
       <Routes>
           <Route path="/auth/signin" element={<SignIn setToken={setToken}/>} />
           <Route path="/auth/signup" element={<SignUp />} />
+          <Route path="/forgetpass" element={<ForgetPass />} />
 
         <Route element={<DefaultLayout />}>
           <Route index element={<Home />} />

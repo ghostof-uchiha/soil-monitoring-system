@@ -447,6 +447,15 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
                 </span>
                 Sign in with Google
               </button>
+              
+              <div>
+              <p>
+                  Forget {' '}
+                  <Link to="/forgetpass" className="text-primary">
+                    Password
+                  </Link>
+                </p>
+              </div>
 
               <div className="mt-6 text-center">
                 <p>
