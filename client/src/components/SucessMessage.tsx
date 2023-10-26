@@ -17,7 +17,7 @@ const SucessMessage: React.FC<SuccessMessageProps> = ({ message }) => {
   }, [message]);
   return (
     <div
-      className={`fixed top-20 right-20 z-9999 transform translate-y-[-50%] ${
+      className={`fixed top-10 right-10 z-9999 transform ${
         show ? 'translate-x-0' : 'translate-x-full'
       } rounded shadow duration-500`}
     >
