@@ -3,11 +3,6 @@ import React from 'react';
 const Processing = () => {
   return (
     <>
-      <button
-        type="button"
-        className="flex justify-center items-center gap-3 cursor-pointer rounded-lg border border-primary bg-primary p-2 text-white transition hover:bg-opacity-90"
-        disabled
-      >
         <svg
           aria-hidden="true"
           className="w-6 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-green-light"
@@ -25,7 +20,6 @@ const Processing = () => {
           />
         </svg>
         Processing...
-      </button>
     </>
   );
 };

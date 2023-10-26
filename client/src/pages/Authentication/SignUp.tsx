@@ -344,6 +344,7 @@ const SignUp = () => {
                       type="text"
                       placeholder="Enter your full name"
                       value={formData.name}
+                      required
                       name="name"
                       onChange={handleInputChange}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
@@ -380,6 +381,7 @@ const SignUp = () => {
                     </label>
                     <div className="relative ">
                       <input
+                      required
                         type="text"
                         value={formData.emailOrMobile}
                         name="emailOrMobile"
@@ -447,6 +449,7 @@ const SignUp = () => {
                         type="text"
                         value={formData.otp}
                         name="otp"
+                        required
                         onChange={handleInputChange}
                         placeholder="Enter your OTP"
                         className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
@@ -465,6 +468,7 @@ const SignUp = () => {
                       value={formData.password}
                       onChange={handleInputChange}
                       name="password"
+                      required
                       placeholder="Enter your password"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                     />
@@ -502,6 +506,7 @@ const SignUp = () => {
                       type="password"
                       name="confirmpassword"
                       value={formData.confirmpassword}
+                      required
                       onChange={handleInputChange}
                       placeholder="Re-enter your password"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
@@ -532,15 +537,18 @@ const SignUp = () => {
                 </div>
 
                 <div className="mb-5">
+                <button
+                    type="submit"
+                    className="flex  justify-center gap-4 w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
+                  >
                   {registering ? (
                     <Processing/>
                   ) : (
-                    <input
-                      type="submit"
-                      value="Sign In"
-                      className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
-                    />
+                    <>
+                    Sign Up
+                    </>
                   )}
+                  </button>
                 </div>
               </form>
               <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">

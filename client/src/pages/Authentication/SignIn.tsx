@@ -291,7 +291,7 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
                   />
                 </svg>
               </span>
-            </div>
+            </div> 
           </div>
 
           <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
@@ -377,15 +377,19 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
                 </div>
 
                 <div className="mb-5">
+                  <button
+                    type="submit"
+                    value="Sign In"
+                    className="flex  justify-center gap-4 w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
+                  >
                   {logging ? (
                     <Processing/>
                   ) : (
-                    <input
-                      type="submit"
-                      value="Sign In"
-                      className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
-                    />
+                    <>
+                    Sign In
+                    </>
                   )}
+                  </button>
                 </div>
               </form>
 
@@ -428,9 +432,9 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
               
               <div>
               <p>
-                  Forget {' '}
+                   {' '}
                   <Link to="/auth/verifyotp" className="text-primary">
-                    Password
+                  Forget Password
                   </Link>
                 </p>
               </div>
