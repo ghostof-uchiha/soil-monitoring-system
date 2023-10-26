@@ -89,44 +89,26 @@ const SMSclient = new twilio(SMSaccountSid, SMSauthToken);
 
 const smsservice = async (to, otp, req, res) => {
   console.log("running SMS service");
-  SMSclient.messages
-  .create({
-    to: `+91${to}`,
-    from: SMSNumber,
-    body: `Your Agro-API verification OTP is: ${otp}`
-  })
-  .then(message => {
+  try {
+    const message = await SMSclient.messages.create({
+      to: `+91${to}`,
+      from: SMSNumber,
+      body: `Your Agro-API verification OTP is: ${otp}`
+    });
+
+
+    const newOTP = new OTP({
+      emailOrMobile: to,
+      otp: otp,
+    });
+
+    await newOTP.save();
     return res.status(200).json({ message: 'OTP sent successfully' });
-  })
-  .catch(err =>{
-    return res.status(400).json({ message: err});
-  });
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
+  }
+};
 
-  // console.log(to);
-
-  // var options = {
-  //   authorization: process.env.FAST_TWO_SMS,
-  //   message: `Your Agro-API varification OTP is: ${otp}`,
-  //   numbers: [`${to}`]
-  // }
-
-  // fast2sms.sendMessage(options)
-  //   .then((response) => {
-  //     console.log(response);
-
-  //     if (response.status === 'OK') {
-  //       return res.status(200).json({ message: 'SMS sent successfully', data: response });
-  //     } else {
-  //       return res.status(400).json({ message: 'Failed to send SMS', data: response });
-  //     }
-  //   })
-  //   .catch((err) => {
-  //     console.error(err);
-  //     return res.status(500).json({ message: 'Internal Server Error', error: err });
-  //   });
-
-
-}
 
 
 const SendOtp = async (req, res) => {
@@ -150,18 +132,52 @@ const SendOtp = async (req, res) => {
   }
   // Generate a 6-digit OTP
   const otp = `${otpGenerator.generate(6, { digits: true, lowerCaseAlphabets: false, upperCaseAlphabets: false, specialChars: false })}`;
-  
-  
+
+
   if (isEmail) {
     return emailservice(emailOrMobile, otp, res)
-  } else if(isMobileNumber) {
+  } else if (isMobileNumber) {
     return smsservice(emailOrMobile, otp, req, res)
-  }else{
+  } else {
+    return res.status(400).json({ message: 'Enter valid Email or mobile number' });
+  }
+}
+
+
+const ForgetPass = async (req, res, next) => {
+
+  const { emailOrMobile } = req.body;
+
+  // Determine whether emailOrMobile is an email or a mobile number
+  const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailOrMobile);
+  const isMobileNumber = /^[0-9]{10}$/.test(emailOrMobile);
+  // Find the user by username
+
+  if (isEmail || isMobileNumber) {
+    const existingUser = isEmail
+      ? await User.findOne({ email: emailOrMobile })
+      : isMobileNumber
+        ? await User.findOne({ mobileNumber: emailOrMobile })
+        : null;
+
+    if (!existingUser) {
+      return res.status(400).json({ message: 'Email or mobile number is not registered' });
+    }
+  }
+  // Generate a 6-digit OTP
+  const otp = `${otpGenerator.generate(6, { digits: true, lowerCaseAlphabets: false, upperCaseAlphabets: false, specialChars: false })}`;
+
+  if (isEmail) {
+    return emailservice(emailOrMobile, otp, res)
+  } else if (isMobileNumber) {
+    return smsservice(emailOrMobile, otp, req, res)
+  } else {
     return res.status(400).json({ message: 'Enter valid Email or mobile number' });
   }
 }
 
 
 module.exports = {
-  SendOtp
+  SendOtp,
+  ForgetPass
 };
