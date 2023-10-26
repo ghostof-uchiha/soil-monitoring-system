@@ -435,4 +435,7 @@ span.flatpickr-weekday,
   .custom {
     display: flex;
   }
+  .sidebarhome{
+    display: none;
+  }
 }
