@@ -35,77 +35,49 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="w-1/2 text-right sm:hidden">
-              <button type="button" className="navbar-toggler">
-                <span className="navbar-toggler-bar"></span>
-                <span className="navbar-toggler-bar"></span>
-                <span className="navbar-toggler-bar"></span>
-              </button>
-            </div>
+      <div className ="w-1/2 text-right sm:hidden">
+        <button type="button" className ="navbar-toggler">
+          <span className ="navbar-toggler-bar"></span>
+          <span className ="navbar-toggler-bar"></span>
+          <span className ="navbar-toggler-bar"></span>
+        </button>
+      </div>
 
-            <div className="w-full navigation-menu hidden md:flex md:w-3/4 relative">
-              <div className="flex flex-col md:flex-row pt-8 pb-2 md:pt-0 md:pb-0 md:ml-auto md:items-center relative">
-                <a
-                  href="#"
-                  className="block mt-4 font-semibold max-w-3xl  md:ml-6 lg:inline hover:text-gray-600 md:mt-0"
-                >
-                  About Us
-                </a>
-                <a
-                  href="#"
-                  className="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0 menu_item"
-                >
-                  Agro-special
-                </a>
-                <a
-                  href="#"
-                  className="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0"
-                >
-                  Know more
-                </a>
-                <a
-                  href="#"
-                  className="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0"
-                >
-                  Services
-                </a>
-                {token ? (
-                  <a
-                    href="/ml"
-                    className="block mt-3  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold md:ml-6 md:mt-0 bg-green-home"
-                  >
-                    Dashboard
-                  </a>
-                ) : (
-                  <>
-                    <a
-                      href="/auth/signin"
-                      className="block mt-3 hover:bg-blue-700 py-2 rounded text-gray-600 font-semibold md:ml-6 md:mt-0"
-                    >
-                      Sign - In
-                    </a>
-                    <a
-                      href="/auth/signup"
-                      className="block mt-3  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold md:ml-6 md:mt-0 bg-green-home"
-                    >
-                      Sign - Up
-                    </a>
-                  </>
-                )}
-              </div>
-            </div>
-          </div>
-        </nav>
+      <div className ="w-full navigation-menu hidden md:flex md:w-3/4 relative">
+        <div className ="flex flex-col md:flex-row pt-8 pb-2 md:pt-0 md:pb-0 md:ml-auto md:items-center relative">
+         
+          <a href="#" className ="block mt-4 font-semibold max-w-3xl  md:ml-6 lg:inline hover:text-gray-600 md:mt-0">About
+            Us</a>
+          <a href="#" className ="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0 menu_item">Agro-special</a>
+          <a href="#" className ="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0">Know more</a>
+          <a href="#" className ="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0">Services</a>
+          {token?
+          (
+          <a href="/ml" className ="block mt-3  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold md:ml-6 md:mt-0 bg-green-home">Dashboard
+            </a>
+          ):
+          (
+          <>
+          <a href="/auth/signin" className ="block mt-3 hover:bg-blue-700 py-2 rounded text-gray-600 font-semibold md:ml-6 md:mt-0">Sign - In
+            </a>
+          <a href="/auth/signup" className ="block mt-3  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold md:ml-6 md:mt-0 bg-green-home">Sign - Up
+            </a>
+          </>
+          )
+          }
+        </div>
+      </div>
+    </div>
+  </nav>
 
-        <header className="relative flex pt-32 h-full pb-48 sm:pt-32 sm:pb-64 lg:pb-48 px-4 bg-blue-100 w-full md:pb-40 lg:px-16 lg:pt-48 xl:pt-40 xl:pb-64 xl:h-screen md:px-8 xl:px-24 xxl:px-40">
-          <div className="text-center md:text-left md:w-1/2 z-10 xxl:max-w-2xl">
-            <h1 className="text-3xl xl:text-5xl text-gray-900 font-bold leading-tight">
-              Welcome To AGRO-API
-            </h1>
-            <p className="text-base xl:text-xl text-gray-600 mt-4">
-              Unlocking the Secrets of Soil: Precision Agriculture at Your
-              Fingertips
-            </p>
+  <header className="relative flex pt-32 pb-48 sm:pt-32 sm:pb-64 lg:pb-48 px-4 bg-blue-100 w-full md:pb-40 lg:px-16 lg:pt-48 xl:pt-40 xl:pb-64 xl:h-screen md:px-8 xl:px-24 xxl:px-40">
+    <div className="text-center md:text-left md:w-1/2 z-10 xxl:max-w-2xl">
+      <h1 className="text-3xl xl:text-5xl text-gray-900 font-bold leading-tight">
+        Welcome To AGRO-API
+      </h1>
+      <p className="text-base xl:text-xl text-gray-600 mt-4">
+        Unlocking the Secrets of Soil: Precision Agriculture at Your Fingertips
+      </p>
 
             <p className="text-sm xl:text-base text-gray-600 mt-8">
               Our Projects focus on - Empowering Farmers, Nourishing the World:

@@ -430,3 +430,9 @@ span.flatpickr-weekday,
 .ease-custom {
   transition-duration: 600ms;
 }
+
+@media (min-width: 900px) {
+  .custom {
+    display: flex;
+  }
+}
