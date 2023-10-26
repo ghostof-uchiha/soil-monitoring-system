@@ -33,6 +33,7 @@ const VerifyForOtp = () => {
     e.preventDefault();
     setsendOtp(true);
     handleClose();
+    setError(null)
     try {
       const response = await fetch(
         'http://localhost:4000/api/users/forgetpass',
