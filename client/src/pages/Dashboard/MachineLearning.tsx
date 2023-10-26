@@ -28,7 +28,7 @@ const Machine = () => {
         <ChatCard />
       </div>
     </>
-  );
+  );  
 };
 
 export default Machine;
