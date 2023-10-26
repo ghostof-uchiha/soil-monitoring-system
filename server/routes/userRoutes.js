@@ -1,15 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const validateApiKey = require('../middleware/apiKeyMiddleware'); 
-const { requireAuth } = require('../middleware/authMiddleware');
-const uploadMiddleware = require('../middleware/uploadMiddleware');
-const verifyOTP = require('../middleware/verifyOTP');
+const { requireAuth,requireAuthReset } = require('../middleware/authMiddleware');
+const { verifyOTP,verifyOTPPass } = require('../middleware/verifyOTP');
 const multer = require('multer');
 const upload = multer(); 
 
-const { registerUser,LoginUser } = require('../controllers/authentication');
+const { registerUser,LoginUser,ResetPassword } = require('../controllers/authentication');
 const { updateUserProfile,deleteProfileImage } = require('../controllers/profile');
-const { SendOtp } = require('../controllers/userOTP');
+const { SendOtp, ForgetPass } = require('../controllers/userOTP');
 
 router.post('/register', validateApiKey,verifyOTP, registerUser);
 
@@ -20,5 +19,11 @@ router.put('/user/:userId', requireAuth, validateApiKey, upload.single('profileI
 router.delete('/profileimage/:userId', requireAuth, validateApiKey, deleteProfileImage);
 
 router.post('/userotp', validateApiKey, SendOtp);
+
+router.post('/forgetpass', validateApiKey, ForgetPass);
+
+router.post('/verifyOtp', validateApiKey, verifyOTPPass);
+
+router.put('/resetpassword',validateApiKey,requireAuthReset, ResetPassword);
 
 module.exports = router;

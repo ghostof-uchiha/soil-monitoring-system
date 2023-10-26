@@ -121,7 +121,33 @@ const LoginUser = async (req, res) => {
 
 // Update User Data
 
+const ResetPassword = async (req, res) => {
+  const { password, confirmpassword } = req.body;
+  const userId = req.userId;
+  console.log(userId);
 
+  // Validate password and confirmpassword
+  if (password !== confirmpassword) {
+    return res.status(400).json({ message: 'Passwords do not match' });
+  }
+
+  // Validate password strength (add your password strength validation logic here if needed)
+
+  // Reset password logic
+  try {
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(401).json({ message: 'User not found' });
+    }
+    user.password = password;
+    await user.save();
+
+    return res.status(200).json({ message: 'Password reset successfully' });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
 
 
 
@@ -129,4 +155,5 @@ const LoginUser = async (req, res) => {
 module.exports = {
   registerUser,
   LoginUser,
+  ResetPassword
 };

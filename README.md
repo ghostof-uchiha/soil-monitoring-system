@@ -28,47 +28,77 @@ you don't need to sever and client seperately.
 ```
 soil-monitoring-system
 ├─ client
+│  ├─ .gitignore
+│  ├─ .prettierrc
+│  ├─ index.html
+│  ├─ LICENSE.md
 │  ├─ package-lock.json
 │  ├─ package.json
-│  ├─ postcss.config.js
+│  ├─ postcss.config.cjs
 │  ├─ public
-│  │  ├─ assets
-│  │  │  └─ images
-│  │  │     └─ grid.svg
-│  │  ├─ index.html
-│  │  └─ manifest.json
+│  │  ├─ data.json
+│  │  └─ favicon.ico
+│  ├─ README.md
 │  ├─ src
-│  │  ├─ App.css
-│  │  ├─ App.jsx
-│  │  ├─ components
-│  │  │  ├─ auth
-│  │  │  │  ├─ Login.jsx
-│  │  │  │  └─ Register.jsx
-│  │  │  ├─ common
-│  │  │  │  └─ Header.jsx
-│  │  │  ├─ ErrorBoundary.jsx
-│  │  │  ├─ Home.jsx
-│  │  │  ├─ NotFound.jsx
-│  │  │  ├─ Sidebar.jsx
-│  │  │  └─ Wifi.jsx
+│  │  ├─ App.tsx
+│  │  ├─ common
+│  │  │  └─ Loader
+│  │  │     └─ index.tsx
 │  │  ├─ index.css
-│  │  ├─ index.jsx
-│  │  └─ middleware
-│  │     └─ setupProxy.js
-│  └─ tailwind.config.js
+│  │  ├─ js
+│  │  │  ├─ drag.ts
+│  │  │  └─ us-aea-en.js
+│  │  ├─ layout
+│  │  │  └─ DefaultLayout.tsx
+│  │  ├─ lib.d.ts
+│  │  ├─ main.tsx
+│  │  ├─ pages
+│  │  │  ├─ 404
+│  │  │  │  └─ NotFound.tsx
+│  │  │  ├─ Authentication
+│  │  │  │  ├─ SignIn.tsx
+│  │  │  │  ├─ SignUp.tsx
+│  │  │  │  └─ VerifyForOtp.tsx
+│  │  │  ├─ Calendar.tsx
+│  │  │  ├─ Chart.tsx
+│  │  │  ├─ Dashboard
+│  │  │  │  ├─ MachineLearning.tsx
+│  │  │  │  └─ Soildata.tsx
+│  │  │  ├─ Form
+│  │  │  │  ├─ FormElements.tsx
+│  │  │  │  └─ FormLayout.tsx
+│  │  │  ├─ Home.tsx
+│  │  │  ├─ Profile.tsx
+│  │  │  ├─ Settings.tsx
+│  │  │  ├─ Tables.tsx
+│  │  │  └─ UiElements
+│  │  │     ├─ Alerts.tsx
+│  │  │     └─ Buttons.tsx
+│  │  ├─ react-app-env.d.ts
+│  │  ├─ routes
+│  │  │  └─ index.ts
+│  │  └─ satoshi.css
+│  ├─ tailwind.config.cjs
+│  ├─ tsconfig.json
+│  ├─ tsconfig.node.json
+│  └─ vite.config.js
 ├─ package-lock.json
 ├─ package.json
 ├─ README.md
 └─ server
    ├─ controllers
-   │  └─ userController.js
+   │  ├─ authentication.js
+   │  ├─ profile.js
+   │  └─ userOTP.js
    ├─ db
    │  └─ db.js
    ├─ middleware
    │  ├─ apiKeyMiddleware.js
    │  ├─ authMiddleware.js
-   │  └─ authorizeMiddleware.js
+   │  ├─ uploadMiddleware.js
+   │  └─ verifyOTP.js
    ├─ models
+   │  ├─ OTPSchema.js
    │  ├─ soilDataModel.js
    │  └─ UserModel.js
    ├─ package-lock.json
@@ -77,6 +107,9 @@ soil-monitoring-system
    │  ├─ cropPredictionRoutes.js
    │  ├─ soilDataRoutes.js
    │  └─ userRoutes.js
-   └─ server.js
+   ├─ server.js
+   └─ utils
+      ├─ cloudinary.js
+      └─ nodemailer.js
 
 ```
