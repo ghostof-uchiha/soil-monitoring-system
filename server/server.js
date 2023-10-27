@@ -2,9 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv'); // For loading environment variables from .env file
 const cors = require('cors'); // For handling CORS issues
-const userRoutes = require('./routes/userRoutes'); // Import your user routes
-const soilDataRoutes = require('./routes/soilDataRoutes'); // Import your soil data routes
+const userRoutes = require('./routes/userRoutes'); 
+const soilDataRoutes = require('./routes/soilDataRoutes'); 
 const connectDB = require('./db/db');
+const nodemailer = require('nodemailer');
+const otpGenerator = require('otp-generator');
 
 dotenv.config(); // Load environment variables from .env file
 const app = express();

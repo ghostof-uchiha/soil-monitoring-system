@@ -183,8 +183,22 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                                 'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ' +
                                 (isActive && '!text-white')
                               }
+                              onClick={() => setSidebarOpen(!sidebarOpen)}
                             >
                               Machine Learning 
+                            </NavLink>
+                          </li>
+                          <li>
+                            <NavLink
+                              to="/soildata"
+                              className={({ isActive }) =>
+                                'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ' +
+                                (isActive && '!text-white')
+                              }
+                              onClick={() => setSidebarOpen(!sidebarOpen)}
+
+                            >
+                              Test Your Soil
                             </NavLink>
                           </li>
                         </ul>
@@ -204,6 +218,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     pathname.includes('calendar') &&
                     'bg-graydark dark:bg-meta-4'
                   }`}
+                  onClick={() => setSidebarOpen(!sidebarOpen)}
+
                 >
                   <svg
                     className="fill-current"
@@ -230,6 +246,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('profile') && 'bg-graydark dark:bg-meta-4'
                   }`}
+                  onClick={() => setSidebarOpen(!sidebarOpen)}
+
                 >
                   <svg
                     className="fill-current"
@@ -338,6 +356,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                                 'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ' +
                                 (isActive && '!text-white')
                               }
+                              onClick={() => setSidebarOpen(!sidebarOpen)}
+
                             >
                               Form Elements
                             </NavLink>
@@ -349,6 +369,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                                 'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ' +
                                 (isActive && '!text-white')
                               }
+                              onClick={() => setSidebarOpen(!sidebarOpen)}
+
                             >
                               Form Layout
                             </NavLink>
@@ -369,6 +391,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('tables') && 'bg-graydark dark:bg-meta-4'
                   }`}
+                  onClick={() => setSidebarOpen(!sidebarOpen)}
+
                 >
                   <svg
                     className="fill-current"
@@ -408,6 +432,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     pathname.includes('settings') &&
                     'bg-graydark dark:bg-meta-4'
                   }`}
+                  onClick={() => setSidebarOpen(!sidebarOpen)}
+
                 >
                   <svg
                     className="fill-current"

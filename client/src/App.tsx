@@ -5,22 +5,30 @@ import { Toaster } from 'react-hot-toast';
 import Home from './pages/Home';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
+import NotFound from './pages/404/NotFound';
 import Loader from './common/Loader';
 import routes from './routes';
+import VerifyForOtp from './pages/Authentication/VerifyForOtp';
 
 const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
 
 function App() {
-
   
-
   const [loading, setLoading] = useState<boolean>(true);
-  const [token, setToken] = useState(localStorage.getItem("token"));
-
+  const [token, setToken] = useState<string | null>(null);
+  
+  
   useEffect(() => {
-    setTimeout(() => setLoading(false), 500);
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      setToken(storedToken);
+      console.log('Token set:', storedToken);
+    }
+    setLoading(false);
   }, []);
 
+  
+  
   return loading ? (
     <Loader />
   ) : (
@@ -31,11 +39,14 @@ function App() {
         containerClassName="overflow-auto"
       />
       <Routes>
-        <Route path="/auth/signin" element={<SignIn token={token} setToken={setToken}/>} />
-        <Route path="/auth/signup" element={<SignUp />} />
+          <Route path="/auth/signin" element={<SignIn setToken={setToken}/>} />
+          <Route path="/auth/signup" element={<SignUp />} />
+          <Route path="/auth/verifyotp" element={<VerifyForOtp />} />
+          <Route path="*" element={<NotFound />} />
+
 
         <Route element={<DefaultLayout />}>
-          <Route index element={<Home/>} />
+          <Route index element={<Home />} />
           {routes.map((route, index) => {
             const { path, component: Component } = route;
             return (

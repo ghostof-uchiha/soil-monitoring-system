@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import UserOne from '../images/user/user-00.png';
 
-const DropdownUser = () => {
+const HomeDropdown = () => {
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -199,4 +199,4 @@ const DropdownUser = () => {
   );
 };
 
-export default DropdownUser;
+export default HomeDropdown;

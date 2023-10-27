@@ -4,7 +4,7 @@
   "version": "1.0.5",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -14,7 +14,10 @@
     "url": "https://tailadmin.com"
   },
   "dependencies": {
+    "@tailwindui/react": "^0.1.1",
     "apexcharts": "^3.41.0",
+    "axios": "^1.5.1",
+    "cloudinary": "^1.41.0",
     "dotenv": "^16.3.1",
     "headlessui": "^0.0.0",
     "jsvectormap": "^1.5.3",
