@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-import { Link } from 'react-router-dom';
-
-=======
 import { Link } from "react-router-dom";
->>>>>>> dd913180770818f569256e96e297fe7e73a4b3f3
 
 const Home = () => {
   // const storedToken = localStorage.getItem('token');
@@ -103,18 +98,6 @@ const Home = () => {
         </nav>
 
 
-<<<<<<< HEAD
-      <p className="text-sm xl:text-base text-gray-600 mt-8">
-        Our Projects focus on - Empowering Farmers, Nourishing the World: Cultivating Innovation from the Ground Up
-      </p>
-      <Link
-              to="#"
-              className="inline-flex items-center justify-center rounded-md border mt-4 border-primary py-3 px-10 text-center font-medium text-primary hover:bg-opacity-90 lg:px-8 xl:px-10 "
-            >
-              Connect with us
-            </Link>
-    </div>
-=======
         <header className="relative flex pt-32 pb-48 sm:pt-32 sm:pb-64 lg:pb-48 px-4 bg-blue-100 w-full md:pb-40 lg:px-16 lg:pt-48 xl:pt-40 xl:pb-64 xl:h-screen md:px-8 xl:px-24 xxl:px-40">
           <div className="text-center md:text-left md:w-1/2 z-10 xxl:max-w-2xl">
             <h1 className="text-3xl xl:text-5xl text-gray-900 font-bold leading-tight">
@@ -124,7 +107,6 @@ const Home = () => {
               Unlocking the Secrets of Soil: Precision Agriculture at Your
               Fingertips
             </p>
->>>>>>> dd913180770818f569256e96e297fe7e73a4b3f3
 
             <p className="text-sm xl:text-base text-gray-600 mt-8">
               Our Projects focus on - Empowering Farmers, Nourishing the World:
