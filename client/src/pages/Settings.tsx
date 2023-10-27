@@ -40,10 +40,10 @@ const Settings = () => {
       if (userdata && userdata.profileImage) {
         // Remove the profileImage property from the userdata object
         delete userdata.profileImage;
-      
+
         // Step 4: Store the modified userdata object back into localStorage
         localStorage.setItem('userdata', JSON.stringify(userdata));
-      
+
         // Now, the profileImage property has been removed from the userdata object
       }
 
@@ -67,7 +67,7 @@ const Settings = () => {
       const timeoutId = setTimeout(() => {
         setShowPopup(false);
       }, 5000); // Hide the message after 5 seconds
-  
+
       // Clear the timeout when the component unmounts or when showPopup changes
       return () => {
         clearTimeout(timeoutId);
@@ -264,10 +264,10 @@ const Settings = () => {
                       <input
                         className="w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                         type="email"
-                        value={formData.email}
+                        value={formData.email || ''}
                         name="email"
                         onChange={handleInputChange}
-                        readOnly
+                        readOnly={formData.email ? true : false}
                       />
                     </div>
                   </div>

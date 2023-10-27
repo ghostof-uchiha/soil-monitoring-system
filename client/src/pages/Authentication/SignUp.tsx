@@ -374,8 +374,8 @@ const SignUp = () => {
                   </div>
                 </div>
 
-                <div className="mb-4 flex w-full gap-3">
-                  <div className="w-7/12">
+                <div className="mb-2 flex sm:flex-nowrap flex-wrap w-full gap-3">
+                  <div className="sm:w-7/12 w-full">
                     <label className="mb-2.5 block font-medium text-black dark:text-white">
                       Email / Mobile Number
                     </label>
@@ -458,7 +458,7 @@ const SignUp = () => {
                   </div>
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-2">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
                     Password
                   </label>
@@ -497,7 +497,7 @@ const SignUp = () => {
                   </div>
                 </div>
 
-                <div className="mb-6">
+                <div className="mb-4">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
                     Re-type Password
                   </label>
