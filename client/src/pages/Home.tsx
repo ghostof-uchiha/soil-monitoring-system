@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 
 const Home = () => {
   return (
@@ -54,10 +56,12 @@ const Home = () => {
       <p className="text-sm xl:text-base text-gray-600 mt-8">
         Our Projects focus on - Empowering Farmers, Nourishing the World: Cultivating Innovation from the Ground Up
       </p>
-      <button className="bg-blue-500 hover:bg-blue-700 px-6 py-4 text-white rounded block sm:inline-block mt-4 text-center font-bold">
-             Connect with us 
-      </button>
-      
+      <Link
+              to="#"
+              className="inline-flex items-center justify-center rounded-md border mt-4 border-primary py-3 px-10 text-center font-medium text-primary hover:bg-opacity-90 lg:px-8 xl:px-10 "
+            >
+              Connect with us
+            </Link>
     </div>
 
     <div className="w-full absolute bottom-0 right-0">
