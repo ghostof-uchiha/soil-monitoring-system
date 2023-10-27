@@ -4,6 +4,7 @@ import LogoDark from '../../images/logo/logo-dark.svg';
 import Logo from '../../images/logo/logo.svg';
 import { useState, useEffect } from 'react';
 import Processing from '../../components/Processing';
+import GoogleWithSignIn from './GoogleWithSign';
 const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
 
 type SignInProps = {
@@ -13,6 +14,7 @@ type SignInProps = {
 const SignIn: React.FC<SignInProps> = ({ setToken }) => {
   const [error, setError] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [isVisibleGoogle, setIsVisibleGoogle,] = useState(false);
   const [logging, setLogging] = useState(false);
 
   const navigate = useNavigate();
@@ -76,6 +78,11 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
   };
   return (
     <>
+
+    {isVisibleGoogle ?
+    <GoogleWithSignIn/>:<></>  
+
+    }
       {isVisible ? (
         <div className="absolute left-1/2 transform -translate-x-1/2 top-3 max-w-2xl mx-auto transition-transform duration-300 ease-in-out">
           <div
@@ -393,7 +400,9 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
                 </div>
               </form>
 
-              <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
+              <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50" 
+                onClick={() =>setIsVisibleGoogle(true)}
+                >
                 <span>
                   <svg
                     width="20"
@@ -451,6 +460,8 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
           </div>
         </div>
       </div>
+
+      
     </>
   );
 };
