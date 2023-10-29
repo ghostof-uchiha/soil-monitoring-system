@@ -4,7 +4,6 @@ const Home = () => {
   // const storedToken = localStorage.getItem('token');
   const token = localStorage.getItem('userdata');
 
-  console.log(token);
 
   return (
     <>

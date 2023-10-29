@@ -1,28 +1,32 @@
 import { useEffect, useRef ,useState} from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import UserOne from '../images/user/user-00.png';
+import axios from 'axios';
 
 const HomeDropdown = () => {
-  const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const userdataString = localStorage.getItem('userdata');
   const userdata = userdataString ? JSON.parse(userdataString) : null;
 
-  if (!userdata){
-    navigate('/')
-  }
-
 
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
 
-  const logout = (()=>{
-    localStorage.removeItem('userdata');
-    localStorage.removeItem('token');
-    navigate("/")
-  })
+  const logout = async () => {
+    try {
+      // Remove user data and token from localStorage
+      localStorage.removeItem('userdata');
+      localStorage.removeItem('token');
+      // Make API call to logout endpoint
+      await axios.get(`${process.env.REACT_APP_API_URL}/g/logout`);
+    } catch (error) {
+      console.error('Logout failed:', error);
+      // Handle error, show error message, or redirect to an error page
+    }
+  };
+  
 
   
 

@@ -1,3 +1,4 @@
+
 import CardFour from '../../components/CardFour.tsx';
 import CardOne from '../../components/CardOne.tsx';
 import CardThree from '../../components/CardThree.tsx';
@@ -7,8 +8,11 @@ import ChartThree from '../../components/ChartThree.tsx';
 import ChartTwo from '../../components/ChartTwo.tsx';
 import ChatCard from '../../components/ChatCard.tsx';
 import TableOne from '../../components/TableOne.tsx';
+const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
+
 
 const Machine = () => {
+  
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
