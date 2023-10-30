@@ -57,7 +57,6 @@ const registerUser = async (req, res) => {
         name: newUser?.name,
         email: newUser?.email,
         mobileNumber: newUser?.mobileNumber,
-        profileImage: existingUser?.profileImage,
       });
 
     } catch (error) {

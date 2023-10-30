@@ -84,7 +84,8 @@ const updateUserProfile = async (req, res) => {
     if (name) updatedFields.name = name;
     if (bio) updatedFields.bio = bio;
     if (email) updatedFields.email = email;
-    if (mobileNumber !== undefined) updatedFields.mobileNumber = mobileNumber;
+    if (mobileNumber) updatedFields.mobileNumber = mobileNumber;
+    updatedFields.userId = userId;
 
     // Perform the update operation and get the updated user
     const updatedUser = await User.findByIdAndUpdate(userId, updatedFields, { new: true });
@@ -93,14 +94,20 @@ const updateUserProfile = async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    res.status(200).json({ message: 'Successfully updated', data: updatedUser });
+    res.status(200).json({ message: 'Successfully updated', 
+    userId: updatedUser._id,
+    name: updatedUser?.name,
+    email: updatedUser?.email,
+    mobileNumber: updatedUser?.mobileNumber,
+    bio: updatedUser?.bio,
+    profileImage: updatedUser?.profileImage, });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message || 'Error updating user profile' });
   }
 };
 
-module.exports = { updateUserProfile };
+
 
 
 const deleteProfileImage = async (req, res) => {

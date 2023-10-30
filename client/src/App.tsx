@@ -28,6 +28,8 @@ function App() {
           'API-Key': apiKey,
         },
       });
+      console.log((data.user));
+      
       localStorage.setItem('userdata', JSON.stringify(data.user)); // Store the token in localStorage
       localStorage.setItem('token', data.token); // Store the token in localStorage
       

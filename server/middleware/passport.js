@@ -10,7 +10,7 @@ passport.use(new GoogleStrategy({
   userProfileURL: 'https://www.googleapis.com/oauth2/v3/userinfo',
 },
 async (accessToken, refreshToken, profile, done) => {
-  const { id, displayName, emails } = profile;
+  const { id, displayName, emails,photos } = profile;
   const email = emails[0].value;
 
   try {
@@ -25,7 +25,9 @@ async (accessToken, refreshToken, profile, done) => {
           googleId: id,
           name: displayName,
           email: email,
+          profileImage: photos[0].value,
         });
+        console.log(user);
         await user.save();
         return done(null, user);
       } catch (error) {

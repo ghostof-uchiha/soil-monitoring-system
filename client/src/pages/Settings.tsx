@@ -120,6 +120,8 @@ const Settings = () => {
         formDataWithImage.append('profileImage', formData.profileImage);
       }
       const token = localStorage.getItem('token');
+      console.log(userdata.userId);
+      
 
       const response = await axios.put(
         `http://localhost:4000/setting/userprofile/${userdata.userId}`,
@@ -134,9 +136,11 @@ const Settings = () => {
       );
 
       const data = response.data;
+      console.log(data);
+      
       if (response.status === 200) {
         console.log('User profile updated successfully:');
-        localStorage.setItem('userdata', JSON.stringify(data.data));
+        localStorage.setItem('userdata', JSON.stringify(data));
         setMessage('User profile updated successfully');
         setShowPopup(true);
       } else {
