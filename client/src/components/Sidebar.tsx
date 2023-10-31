@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import Logo from '../images/logo/logo.svg';
 import SidebarLinkGroup from './SidebarLinkGroup';
+import crop from '../images/logo/crop.png'
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -212,6 +213,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
               {/* <!-- Menu Item Calendar --> */}
               <li>
+                <NavLink
+                  to="/crops"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('crops') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                  onClick={() => setSidebarOpen(!sidebarOpen)}
+
+                >
+                  <img src={crop} alt="" className='w-5'/>
+                  Crops
+                </NavLink>
                 <NavLink
                   to="/calendar"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${

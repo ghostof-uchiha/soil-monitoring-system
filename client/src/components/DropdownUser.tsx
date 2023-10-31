@@ -67,7 +67,7 @@ const DropdownUser = () => {
         </span>
 
         <span className="h-12 w-12 rounded-full">
-          <img src={userdata?.profileImage || UserOne} alt="User" className='w-full h-full object-cover rounded-full' loading="lazy"/>
+          <img src={userdata?.profileImage || UserOne} alt="User" className='w-full h-full object-cover rounded-full'/>
         </span>
 
         <svg
