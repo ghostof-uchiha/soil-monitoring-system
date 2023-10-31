@@ -199,8 +199,7 @@ const SignUp = () => {
                 <img className="dark:hidden" src={LogoDark} alt="Logo" />
               </Link>
               <p className="2xl:px-20">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                suspendisse.
+              .....SIGN UP AND ENJOY OUR SERVICE.....
               </p>
 
               <span className="mt-15 inline-block">
@@ -330,7 +329,7 @@ const SignUp = () => {
 
           <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
             <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
-              <span className="mb-1.5 block font-medium">Start for free</span>
+              <span className="mb-1.5 block font-medium">Register - Join Agro</span>
               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
                 Sign Up to Agro-API
               </h2>
@@ -415,7 +414,7 @@ const SignUp = () => {
                       <button
                         type="button"
                         onClick={sendOTPHandler}
-                        className="justify-center items-center gap-3 cursor-pointer px-4 py-1 rounded-lg border text-black transition hover:bg-opacity-90"
+                        className="justify-center items-center gap-3 cursor-pointer px-4 py-1 rounded-lg border  transition hover:bg-opacity-90      block font-medium dark:text-white  border-stroke bg-transparent    outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                       >
                         {sendOtp==2 ? (
                           <>
@@ -438,12 +437,14 @@ const SignUp = () => {
                             ...
                           </>
                         ) :(
-                          <>Send OTP</>
+                          <>
+                         Send OTP          
+                          </>
                         )}
                       </button>
                     </div>
-                    <div>
-                      <label className="mb-2.5 block font-medium text-black dark:text-white">
+                    <div >
+                      <label className="mb-2.5 block font-medium  text-black dark:text-white ">
                         OTP
                       </label>
                       <input
