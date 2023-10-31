@@ -5,6 +5,8 @@ import userSix from '../images/user/user-00.png';
 const Profile = () => {
   const userdataString = localStorage.getItem('userdata');
   const userdata = userdataString ? JSON.parse(userdataString) : null;
+  console.log(userdata);
+  
 
 
   return (
@@ -89,7 +91,7 @@ const Profile = () => {
                 About Me
               </h4>
               <p className="mt-4.5">
-                jaan ke kya kr lega 
+                {userdata.bio}
               </p>
             </div>
 

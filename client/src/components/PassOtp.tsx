@@ -72,7 +72,7 @@ const PassOtp:React.FC<PassOtpProps> = ({ setSuccess, setError, setIsVisible , f
     handleClose();
     try {
       const response = await fetch(
-        'http://localhost:4000/api/users/verifyOtp',
+        'http://localhost:4000/auth/verifyOtp',
         {
           method: 'POST',
           headers: {

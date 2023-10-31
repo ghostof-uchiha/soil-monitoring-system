@@ -36,7 +36,7 @@ const VerifyForOtp = () => {
     setError(null)
     try {
       const response = await fetch(
-        'http://localhost:4000/api/users/forgetpass',
+        'http://localhost:4000/auth/forgetpass',
         {
           method: 'POST',
           headers: {
@@ -231,7 +231,7 @@ const VerifyForOtp = () => {
             </div>
           </div>
         </div>
-      )}
+  )}
     </>
   );
 };

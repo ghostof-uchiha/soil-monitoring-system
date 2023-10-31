@@ -11,6 +11,7 @@ const Alerts = lazy(() => import('../pages/UiElements/Alerts'));
 const Buttons = lazy(() => import('../pages/UiElements/Buttons'));
 const dashML = lazy(() => import('../pages/Dashboard/MachineLearning'));
 const dashsoildata = lazy(() => import('../pages/Dashboard/Soildata'));
+const CropInfo = lazy(() => import('../pages/Crops/Crop'));
 
 
 const coreRoutes = [
@@ -69,6 +70,11 @@ const coreRoutes = [
     title: 'Buttons',
     component: Buttons,
   },
+  {
+    path: '/crops/:cropName', // Dynamic route parameter for the selected crop
+    title: 'Crop Information',
+    component: CropInfo,
+  }
 ];
 
 const routes = [...coreRoutes];

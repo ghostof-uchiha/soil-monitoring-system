@@ -9,25 +9,55 @@ import NotFound from './pages/404/NotFound';
 import Loader from './common/Loader';
 import routes from './routes';
 import VerifyForOtp from './pages/Authentication/VerifyForOtp';
+import axios from 'axios';
+const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
+
 
 const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
 
+
 function App() {
+
+  const getUser = async () => {
+    try {
+      const url = `http://localhost:4000/g/login/success`;
+      const { data } = await axios.get(url, { 
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'API-Key': apiKey,
+        },
+      });
+      console.log((data.user));
+      
+      localStorage.setItem('userdata', JSON.stringify(data.user)); // Store the token in localStorage
+      localStorage.setItem('token', data.token); // Store the token in localStorage
+      
+    } catch (err) {
+      console.log(err);
+    }
+    setLoading(false);
+
+  };
+
   
   const [loading, setLoading] = useState<boolean>(true);
   const [token, setToken] = useState<string | null>(null);
   
   
   useEffect(() => {
-    const storedToken = localStorage.getItem('token');
-    if (storedToken) {
-      setToken(storedToken);
-      console.log('Token set:', storedToken);
+    const storedUserData = localStorage.getItem('userdata');
+    if (storedUserData) {
+      // If user data is available in local storage, set loading to false
+      setLoading(false);
+    } else {
+      // If no user data is available, make the API call to get user data
+      getUser();
     }
-    setLoading(false);
   }, []);
 
-  
+  const userdataString = localStorage.getItem('userdata');
+  const userdata = userdataString ? JSON.parse(userdataString) : null;
   
   return loading ? (
     <Loader />
@@ -39,13 +69,13 @@ function App() {
         containerClassName="overflow-auto"
       />
       <Routes>
-          <Route path="/auth/signin" element={<SignIn setToken={setToken}/>} />
-          <Route path="/auth/signup" element={<SignUp />} />
-          <Route path="/auth/verifyotp" element={<VerifyForOtp />} />
+          <Route path="/auth/signin" element={userdata? <Home />: <SignIn setToken={setToken}/>} />
+          <Route path="/auth/signup" element={userdata? <Home />:<SignUp />} />
+          <Route path="/auth/verifyotp" element={userdata? <Home />:<VerifyForOtp />} />
           <Route path="*" element={<NotFound />} />
 
 
-        <Route element={<DefaultLayout />}>
+        <Route element={userdata? <DefaultLayout />:<Home />}>
           <Route index element={<Home />} />
           {routes.map((route, index) => {
             const { path, component: Component } = route;

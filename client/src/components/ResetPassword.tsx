@@ -37,7 +37,7 @@ const ResetPassword:React.FC<ResetPasswordProps> = ({ setSuccess, setError, setI
     
     try {
       const response = await fetch(
-        'http://localhost:4000/api/users/resetpassword',
+        'http://localhost:4000/auth/resetpassword',
         {
           method: 'PUT',
           headers: {

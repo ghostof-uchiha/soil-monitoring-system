@@ -17,17 +17,17 @@ const Settings = () => {
   const [message, setMessage] = useState('');
 
   const [formData, setFormData] = useState({
-    email: userdata?.email,
-    mobileNumber: userdata?.mobileNumber,
-    name: userdata?.name,
-    bio: userdata?.bio,
+    email: userdata?.email || '',
+    mobileNumber: userdata?.mobileNumber || '',
+    name: userdata?.name || '',
+    bio: userdata?.bio || '', // Initialize to an empty string if it's undefined
     profileImage: null as File | null,
   });
 
   const deleteProfileImage = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:4000/api/users/profileimage/${userdata.userId}`, // Replace this URL with your actual API endpoint
+        `http://localhost:4000/setting/profileimage/${userdata.userId}`, // Replace this URL with your actual API endpoint
         {
           headers: {
             'Content-Type': 'multipart/form-data', // Important: Set content type to multipart/form-data for file uploads
@@ -40,10 +40,10 @@ const Settings = () => {
       if (userdata && userdata.profileImage) {
         // Remove the profileImage property from the userdata object
         delete userdata.profileImage;
-      
+
         // Step 4: Store the modified userdata object back into localStorage
         localStorage.setItem('userdata', JSON.stringify(userdata));
-      
+
         // Now, the profileImage property has been removed from the userdata object
       }
 
@@ -62,12 +62,13 @@ const Settings = () => {
   };
 
   useEffect(() => {
+    
     if (showPopup) {
       setShowPopup(true);
       const timeoutId = setTimeout(() => {
         setShowPopup(false);
       }, 5000); // Hide the message after 5 seconds
-  
+
       // Clear the timeout when the component unmounts or when showPopup changes
       return () => {
         clearTimeout(timeoutId);
@@ -79,6 +80,7 @@ const Settings = () => {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value, type } = e.target;
+    console.log(`Name: ${name}, Value: ${value}, Type: ${type}`);
 
     if (type === 'file') {
       const fileInput = e.target as HTMLInputElement;
@@ -118,9 +120,11 @@ const Settings = () => {
         formDataWithImage.append('profileImage', formData.profileImage);
       }
       const token = localStorage.getItem('token');
+      console.log(userdata.userId);
+      
 
       const response = await axios.put(
-        `http://localhost:4000/api/users/user/${userdata.userId}`,
+        `http://localhost:4000/setting/userprofile/${userdata.userId}`,
         formDataWithImage,
         {
           headers: {
@@ -132,6 +136,8 @@ const Settings = () => {
       );
 
       const data = response.data;
+      console.log(data);
+      
       if (response.status === 200) {
         console.log('User profile updated successfully:');
         localStorage.setItem('userdata', JSON.stringify(data));
@@ -220,10 +226,10 @@ const Settings = () => {
                         className="w-full rounded border border-stroke bg-gray py-3 px-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                         type="text"
                         placeholder="123 1323 123"
-                        value={formData.mobileNumber}
+                        value={formData.mobileNumber || ''}
                         name="mobileNumber"
                         onChange={handleInputChange}
-                        readOnly={!!formData.mobileNumber}
+                        readOnly={formData.email ? true : false}
                       />
                     </div>
                   </div>
@@ -264,10 +270,10 @@ const Settings = () => {
                       <input
                         className="w-full rounded border border-stroke bg-gray py-3 pl-11.5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                         type="email"
-                        value={formData.email}
+                        value={formData.email || ''}
                         name="email"
                         onChange={handleInputChange}
-                        readOnly
+                        readOnly={formData.email ? true : false}
                       />
                     </div>
                   </div>

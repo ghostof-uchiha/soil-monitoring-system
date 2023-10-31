@@ -4,7 +4,6 @@ const Home = () => {
   // const storedToken = localStorage.getItem('token');
   const token = localStorage.getItem('userdata');
 
-  console.log(token);
 
   return (
     <>
@@ -139,8 +138,8 @@ const Home = () => {
                   y2="0.335"
                   gradientUnits="objectBoundingBox"
                 >
-                  <stop offset="0" stop-color="#1c8eb8" />
-                  <stop offset="1" stop-color="#c5f9ff" />
+                  <stop offset="0" stopColor="#1c8eb8" />
+                  <stop offset="1" stopColor="#c5f9ff" />
                 </linearGradient>
                 <clipPath id="c">
                   <path
@@ -157,8 +156,8 @@ const Home = () => {
                   y2="-0.021"
                   gradientUnits="objectBoundingBox"
                 >
-                  <stop offset="0" stop-color="#0b5c79" />
-                  <stop offset="1" stop-color="#3ec3d1" />
+                  <stop offset="0" stopColor="#0b5c79" />
+                  <stop offset="1" stopColor="#3ec3d1" />
                 </linearGradient>
                 <clipPath id="e">
                   <path
@@ -175,8 +174,8 @@ const Home = () => {
                   y2="0.481"
                   gradientUnits="objectBoundingBox"
                 >
-                  <stop offset="0" stop-color="#3ec3d1" />
-                  <stop offset="1" stop-color="#6ce2ef" />
+                  <stop offset="0" stopColor="#3ec3d1" />
+                  <stop offset="1" stopColor="#6ce2ef" />
                 </linearGradient>
                 <clipPath id="g">
                   <path
@@ -193,8 +192,8 @@ const Home = () => {
                   y2="0.054"
                   gradientUnits="objectBoundingBox"
                 >
-                  <stop offset="0" stop-color="#0a6373" />
-                  <stop offset="1" stop-color="#3ed1d1" />
+                  <stop offset="0" stopColor="#0a6373" />
+                  <stop offset="1" stopColor="#3ed1d1" />
                 </linearGradient>
                 <clipPath id="i">
                   <path
@@ -211,8 +210,8 @@ const Home = () => {
                   y2="1.017"
                   gradientUnits="objectBoundingBox"
                 >
-                  <stop offset="0" stop-color="#fff" />
-                  <stop offset="1" stop-color="#ffe8b8" />
+                  <stop offset="0" stopColor="#fff" />
+                  <stop offset="1" stopColor="#ffe8b8" />
                 </linearGradient>
                 <clipPath id="k">
                   <path
@@ -237,8 +236,8 @@ const Home = () => {
                   y2="-0.032"
                   gradientUnits="objectBoundingBox"
                 >
-                  <stop offset="0" stop-color="#f7ce8f" />
-                  <stop offset="1" stop-color="#d97d61" />
+                  <stop offset="0" stopColor="#f7ce8f" />
+                  <stop offset="1" stopColor="#d97d61" />
                 </linearGradient>
                 <clipPath id="n">
                   <path
@@ -255,8 +254,8 @@ const Home = () => {
                   y2="-0.426"
                   gradientUnits="objectBoundingBox"
                 >
-                  <stop offset="0" stop-color="#d95e36" />
-                  <stop offset="1" stop-color="#80331a" />
+                  <stop offset="0" stopColor="#d95e36" />
+                  <stop offset="1" stopColor="#80331a" />
                 </linearGradient>
                 <clipPath id="p">
                   <path
@@ -373,7 +372,7 @@ const Home = () => {
                 >
                   <feOffset dy="5" in="SourceAlpha" />
                   <feGaussianBlur stdDeviation="3.5" result="ae" />
-                  <feFlood flood-color="#a4a4a4" flood-opacity="0.216" />
+                  <feFlood floodColor="#a4a4a4" floodOpacity="0.216" />
                   <feComposite operator="in" in2="ae" />
                   <feComposite in="SourceGraphic" />
                 </filter>
@@ -387,7 +386,7 @@ const Home = () => {
                 >
                   <feOffset dy="6" in="SourceAlpha" />
                   <feGaussianBlur stdDeviation="4" result="ag" />
-                  <feFlood flood-color="#a4a4a4" flood-opacity="0.216" />
+                  <feFlood floodColor="#a4a4a4" floodOpacity="0.216" />
                   <feComposite operator="in" in2="ag" />
                   <feComposite in="SourceGraphic" />
                 </filter>
@@ -401,7 +400,7 @@ const Home = () => {
                 >
                   <feOffset dy="4" in="SourceAlpha" />
                   <feGaussianBlur stdDeviation="3" result="ai" />
-                  <feFlood flood-color="#a4a4a4" flood-opacity="0.216" />
+                  <feFlood floodColor="#a4a4a4" floodOpacity="0.216" />
                   <feComposite operator="in" in2="ai" />
                   <feComposite in="SourceGraphic" />
                 </filter>
@@ -415,7 +414,7 @@ const Home = () => {
                 >
                   <feOffset dy="4" in="SourceAlpha" />
                   <feGaussianBlur stdDeviation="3" result="ak" />
-                  <feFlood flood-color="#a4a4a4" flood-opacity="0.216" />
+                  <feFlood floodColor="#a4a4a4" floodOpacity="0.216" />
                   <feComposite operator="in" in2="ak" />
                   <feComposite in="SourceGraphic" />
                 </filter>
@@ -429,7 +428,7 @@ const Home = () => {
                 >
                   <feOffset dy="4" in="SourceAlpha" />
                   <feGaussianBlur stdDeviation="3" result="am" />
-                  <feFlood flood-color="#a4a4a4" flood-opacity="0.216" />
+                  <feFlood floodColor="#a4a4a4" floodOpacity="0.216" />
                   <feComposite operator="in" in2="am" />
                   <feComposite in="SourceGraphic" />
                 </filter>
@@ -443,7 +442,7 @@ const Home = () => {
                 >
                   <feOffset dy="4" in="SourceAlpha" />
                   <feGaussianBlur stdDeviation="3" result="ao" />
-                  <feFlood flood-color="#a4a4a4" flood-opacity="0.216" />
+                  <feFlood floodColor="#a4a4a4" floodOpacity="0.216" />
                   <feComposite operator="in" in2="ao" />
                   <feComposite in="SourceGraphic" />
                 </filter>
@@ -493,7 +492,7 @@ const Home = () => {
                     transform="translate(0.044 0.729)"
                     fill="none"
                   />
-                  <g clip-path="url(#a)">
+                  <g clipPath="url(#a)">
                     <path
                       d="M847.9,82.732c-35.467,16.382-70.248,7.339-114.45-22.181-130.3-87.026-222.523-75.217-343.934,3.359-25.868,16.742-67.626,44.576-137.624,24.769C149.45,59.69,44.091,89,0,169.643H1161.727c-33.066-63-156.751-159.454-313.828-86.911"
                       transform="translate(0.044 0.729)"
@@ -507,7 +506,7 @@ const Home = () => {
                     transform="translate(0.189 0.248)"
                     fill="none"
                   />
-                  <g clip-path="url(#c)">
+                  <g clipPath="url(#c)">
                     <path
                       d="M0,93.453c5.066-9.4,30.388-27.88,62.525-22.872,35.079,5.468,42.787-6.458,57.249-11.417,26.478-9.079,46.914,20.875,56.065,1.869,11.685-24.264,30.654-36.258,88.5-12.391,13.739,5.669,12.8-6.891,19.051-14.225,12.145-14.242,26.853,12.047,33.6,10.6,7.663-1.639,5.324-12.829,9.811-22.411,9.349-19.964,25.484-1.2,36.607-2.849,11.075-1.639,17-23.612,29.543-19.169C419.738,10.08,411.33,65.861,409.673,78.3c7.619-10.618,21.033-18.416,21.033,15.149H0"
                       transform="translate(0.189 0.248)"
@@ -521,7 +520,7 @@ const Home = () => {
                     transform="translate(0.768 0.085)"
                     fill="none"
                   />
-                  <g clip-path="url(#e)">
+                  <g clipPath="url(#e)">
                     <path
                       d="M1.971,52.2H131.918c6.753-26.83-19.77-13.415-19.77-13.415s10-28.222-.249-25.291C102,16.319,97.665,38.3,97.665,38.3S92.334,2.4,80.645.048c-7.588-1.528-1.633,34.134-1.633,34.134a18.746,18.746,0,0,0-10.92-3.908c-5.413-.082-4.1,6.882-4.1,6.882S52.7,14,46.819,14.3c-7.373.377.534,24.7.534,24.7S32.835,23.19,27.116,23.6c-7.948.575,5.909,23.161,5.909,23.161S22.5,40.429,9.967,41.475c-9.039.754-12.508,4.406-8,10.721"
                       transform="translate(0.768 0.085)"
@@ -535,7 +534,7 @@ const Home = () => {
                     transform="translate(0.783 0.13)"
                     fill="none"
                   />
-                  <g clip-path="url(#g)">
+                  <g clipPath="url(#g)">
                     <path
                       d="M73.318,101.431c0,55.832-22.176,101.494-37.552,101.494S0,141.97,0,86.139,24.9-5.692,42.794.742C62.964,7.99,73.318,45.6,73.318,101.431"
                       transform="translate(0.783 0.13)"
@@ -549,7 +548,7 @@ const Home = () => {
                     transform="translate(0.112 0.432)"
                     fill="none"
                   />
-                  <g clip-path="url(#i)">
+                  <g clipPath="url(#i)">
                     <path
                       d="M118.71,200.784H0V81.857L59.353,0,118.71,81.857V200.784"
                       transform="translate(0.112 0.432)"
@@ -568,7 +567,7 @@ const Home = () => {
                     transform="translate(0.466 0.057)"
                     fill="none"
                   />
-                  <g clip-path="url(#k)">
+                  <g clipPath="url(#k)">
                     <path
                       d="M0,97.169H136.265V0H0Z"
                       transform="translate(0.466 0.057)"
@@ -592,7 +591,7 @@ const Home = () => {
                     transform="translate(0.53 0.432)"
                     fill="none"
                   />
-                  <g clip-path="url(#n)">
+                  <g clipPath="url(#n)">
                     <path
                       d="M0,0H140L199.35,81.857H59.356L0,0"
                       transform="translate(0.53 0.432)"
@@ -711,7 +710,7 @@ const Home = () => {
                     transform="translate(0.695 0.511)"
                     fill="none"
                   />
-                  <g clip-path="url(#p)">
+                  <g clipPath="url(#p)">
                     <path
                       d="M38.59,0H0L38.59,56.221V0"
                       transform="translate(0.695 0.511)"
@@ -810,7 +809,7 @@ const Home = () => {
                     transform="translate(0.59 0.445)"
                     fill="none"
                   />
-                  <g clip-path="url(#r)">
+                  <g clipPath="url(#r)">
                     <path
                       d="M144.375,47.135a24.824,24.824,0,0,0-17.241-10.894c-13.188-1.929-8.662-16.557-20.124-20.429C94.923,11.729,93.9,21.465,62.993,3.911,54.352-1,38.325-2.537,31.209,6.789c-4.165,5.459-5.185,13.4-3.962,20.007,1.176,6.361,5.929,15.542.764,21.258-4.9,5.429-13.531,3.711-19.505,7.158C2.437,58.713.1,65.791.005,72.458-.211,88.03,6.458,104.819,16.336,116.7c20.586,24.76,57.68,30.68,86.972,20.016a69.006,69.006,0,0,0,38.756-35.741c7.523-15.806,12.109-37.988,2.312-53.841"
                       transform="translate(0.59 0.445)"
@@ -824,7 +823,7 @@ const Home = () => {
                     transform="translate(0.594 0.446)"
                     fill="none"
                   />
-                  <g clip-path="url(#t)">
+                  <g clipPath="url(#t)">
                     <path
                       d="M98.471,14.737c-6.526.309-13.327,1.763-35.485-10.831C54.35-1,38.325-2.536,31.2,6.79c-4.159,5.459-5.183,13.4-3.957,20.007,1.173,6.356,5.929,15.542.757,21.258-4.9,5.426-13.531,3.707-19.5,7.157C2.436,58.715.09,65.787.005,72.452c-.224,15.575,6.45,32.367,16.323,44.245.949,1.143,1.93,2.244,2.954,3.3,37.179,20.264,10.257-41.52,22.667-52.737,7.859-7.1,23.223,2.959,30.186-2.029,3.475-2.489,3.2-7.414.49-11.163C64.266,42.521,50.832,30.226,57.475,23.24c3.55-3.738,10.62-1.688,23.937-1.644,15.386.043,23.318-3.931,17.06-6.858"
                       transform="translate(0.594 0.446)"
@@ -858,7 +857,7 @@ const Home = () => {
                     transform="translate(0.194 0.524)"
                     fill="none"
                   />
-                  <g clip-path="url(#v)">
+                  <g clipPath="url(#v)">
                     <path
                       d="M227.289,45.589c-3.879-9.4-23.249-27.88-47.826-22.872-26.838,5.468-32.731-6.458-43.8-11.417-20.249-9.079-30.224,13.446-42.882,1.869C75.1-3,60.783-4.644,49.365,10.252,32.951,31.672,6.043,7.953,0,45.589H227.289"
                       transform="translate(0.194 0.524)"
@@ -872,7 +871,7 @@ const Home = () => {
                     transform="translate(0.211 0.547)"
                     fill="none"
                   />
-                  <g clip-path="url(#x)">
+                  <g clipPath="url(#x)">
                     <path
                       d="M102.381,47.328H0C.581,15.94,8.823,36.09,8.823,36.09s2.709-22.938,8.7-23.868c5.656-.879,8.321,22.5,8.321,22.5S31.992,1.318,40.129.029C47.272-1.1,41.66,30.99,41.66,30.99a19.212,19.212,0,0,1,10.2-3.545c6.694-.275,3.958,6.242,3.958,6.242s8.365-14.511,13.863-14.238c6.888.342,2.146,15.052,2.146,15.052s5.067-4.844,10.38-5.527c10.4-1.335-.642,11.992-.642,11.992s7.38-3.026,20.1-4.949c12.412-1.878,9.834,5.218.713,11.312"
                       transform="translate(0.211 0.547)"
@@ -886,7 +885,7 @@ const Home = () => {
                     transform="translate(0.69 0.445)"
                     fill="none"
                   />
-                  <g clip-path="url(#z)">
+                  <g clipPath="url(#z)">
                     <path
                       d="M139.761,35.129c.308-18.657-16.264-24.525-32.335-19.316-12.157,3.94-13.142,5.652-43.929-11.9C54.894-1,38.876-2.537,31.689,6.789c-4.2,5.459-5.278,13.4-4.108,20.007,1.135,6.361,5.823,15.542.616,21.258-4.944,5.429-13.564,3.711-19.563,7.158-6.1,3.5-8.48,10.58-8.62,17.246C-.321,88.03,5.573,105.394,16.023,116.7c21.059,22.8,58.082,31.61,92.291,22.889,75.429-19.227,47.061-59.827,38.22-70.59-9.518-11.573-6.984-21.007-6.773-33.871"
                       transform="translate(0.69 0.445)"
@@ -900,7 +899,7 @@ const Home = () => {
                     transform="translate(0.683 0.446)"
                     fill="none"
                   />
-                  <g clip-path="url(#ab)">
+                  <g clipPath="url(#ab)">
                     <path
                       d="M108.365,15.538c-.308.086-.625.182-.932.278C95.276,19.747,94.291,21.467,63.5,3.906,54.892-1,38.883-2.536,31.7,6.79c-4.213,5.459-5.3,13.4-4.117,20.007,1.135,6.356,5.814,15.542.616,21.258C23.26,53.481,14.649,51.762,8.65,55.212c-6.1,3.5-8.488,10.575-8.638,17.24C-.314,88.027,6.231,104.819,16.03,116.7a59.878,59.878,0,0,0,4.082,4.487c33.778,20.563-1.346-23.852,26.539-42.194,13.784-9.08,40.393-18.619,28.808-33.07C67,35.354,60.575,31.241,63.161,25.431,64.577,22.225,68.72,19.213,81.8,21.6c17.892,3.269,30.954-3.087,26.565-6.057"
                       transform="translate(0.683 0.446)"
@@ -965,8 +964,8 @@ const Home = () => {
                     <text
                       transform="translate(18 28)"
                       fill="#454f5b"
-                      font-size="17.28"
-                      font-family="ArialRoundedMTBold, Arial Rounded MT"
+                      fontSize="17.28"
+                      fontFamily="ArialRoundedMTBold, Arial Rounded MT"
                     >
                       <tspan x="-17.647" y="0">
                         25%
@@ -996,8 +995,8 @@ const Home = () => {
                     <text
                       transform="translate(20 31)"
                       fill="#454f5b"
-                      font-size="19.2"
-                      font-family="ArialRoundedMTBold, Arial Rounded MT"
+                      fontSize="19.2"
+                      fontFamily="ArialRoundedMTBold, Arial Rounded MT"
                     >
                       <tspan x="-19.608" y="0">
                         96%
@@ -1027,8 +1026,8 @@ const Home = () => {
                     <text
                       transform="translate(14 22.1)"
                       fill="#454f5b"
-                      font-size="13.44"
-                      font-family="ArialRoundedMTBold, Arial Rounded MT"
+                      fontSize="13.44"
+                      fontFamily="ArialRoundedMTBold, Arial Rounded MT"
                     >
                       <tspan x="-13.725" y="0">
                         12%
@@ -1058,8 +1057,8 @@ const Home = () => {
                     <text
                       transform="translate(16.2 26.53)"
                       fill="#454f5b"
-                      font-size="15.552"
-                      font-family="ArialRoundedMTBold, Arial Rounded MT"
+                      fontSize="15.552"
+                      fontFamily="ArialRoundedMTBold, Arial Rounded MT"
                     >
                       <tspan x="-15.882" y="0">
                         85%
@@ -1089,8 +1088,8 @@ const Home = () => {
                     <text
                       transform="translate(16.2 26.53)"
                       fill="#454f5b"
-                      font-size="15.552"
-                      font-family="ArialRoundedMTBold, Arial Rounded MT"
+                      fontSize="15.552"
+                      fontFamily="ArialRoundedMTBold, Arial Rounded MT"
                     >
                       <tspan x="-15.882" y="0">
                         12%
@@ -1120,8 +1119,8 @@ const Home = () => {
                     <text
                       transform="translate(14 22)"
                       fill="#454f5b"
-                      font-size="13.44"
-                      font-family="ArialRoundedMTBold, Arial Rounded MT"
+                      fontSize="13.44"
+                      fontFamily="ArialRoundedMTBold, Arial Rounded MT"
                     >
                       <tspan x="-13.725" y="0">
                         10%

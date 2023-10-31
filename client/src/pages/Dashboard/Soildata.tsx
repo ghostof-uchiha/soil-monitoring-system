@@ -137,7 +137,7 @@ const Soildata = () => {
       ))}
 
       {fetchingsoilData && (
-        <div className="bg-white px-5 pt-6 pb-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-6">
+        <div className="bg-white px-5 pt-6 pb-6 shadow-default rounded-md dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-6">
           <h4 className="flex flex-col justify-center items-center gap-4 mb-6 text-xl font-semibold text-black dark:text-white">
             Fetching Soil Data
             <div className="flex space-x-2 animate-pulse">
@@ -150,7 +150,7 @@ const Soildata = () => {
       )}
 
       {showError && (
-        <div className="bg-white px-5 pt-6 pb-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-6">
+        <div className="bg-white px-5 pt-6 pb-6 shadow-default rounded-md dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-6">
           <h4 className="flex flex-col justify-center items-center gap-4 mb-6 text-xl font-semibold text-danger dark:text-danger">
             Please connect your Agro-API device to your wifi Network
           </h4>

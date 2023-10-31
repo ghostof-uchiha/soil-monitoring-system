@@ -17,14 +17,18 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
   },
   bio: {
     type: String,
   },
   profileImage: {
     type: String, // store the file path to the image
-  },  
+  },
+  googleId: { 
+    type: String,
+    unique: true,
+    sparse: true,
+  }  
 });
 
 userSchema.pre('save', async function (next) {

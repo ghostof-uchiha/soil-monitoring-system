@@ -26,6 +26,8 @@ function extractPublicIdFromImageUrl(imageUrl) {
   return null;
 }
 
+
+
 const updateUserProfile = async (req, res) => {
   try {
     const userId = req.params.userId;
@@ -42,12 +44,12 @@ const updateUserProfile = async (req, res) => {
         .resize({ width: 800, height: 800, fit: 'inside' }) // Resize the image to a maximum of 800x800
         .toBuffer();
 
-      // Check if the user already has a profile image
+      // Check if the user already has a profile image and delete it from Cloudinary
       const user = await User.findById(userId);
       if (user && user.profileImage) {
-        cloudinary.uploader
-          .destroy(`agroApiProfile/${name}`)
-          .then(result => console.log(result));
+        cloudinary.uploader.destroy(`agroApiProfile/${user._id}`)
+          .then(result => console.log(result))
+          .catch(error => console.error('Error deleting old profile image:', error));
       }
 
       // Upload the new profile image to Cloudinary
@@ -56,7 +58,7 @@ const updateUserProfile = async (req, res) => {
           {
             folder: 'agroApiProfile', // Specify your desired folder in Cloudinary
             upload_preset: 'agroApiProfile', // Specify your upload preset
-            public_id: name,
+            public_id: userId, // Use unique identifier like user ID for Cloudinary's public_id
           },
           (error, result) => {
             if (error) {
@@ -83,6 +85,7 @@ const updateUserProfile = async (req, res) => {
     if (bio) updatedFields.bio = bio;
     if (email) updatedFields.email = email;
     if (mobileNumber) updatedFields.mobileNumber = mobileNumber;
+    updatedFields.userId = userId;
 
     // Perform the update operation and get the updated user
     const updatedUser = await User.findByIdAndUpdate(userId, updatedFields, { new: true });
@@ -91,20 +94,21 @@ const updateUserProfile = async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    res.status(200).json({
-      message: 'Successfully updated',
-      userId: updatedUser._id,
-      name: updatedUser?.name,
-      email: updatedUser?.email,
-      mobileNumber: updatedUser?.mobileNumber,
-      bio: updatedUser?.bio,
-      profileImage: updatedUser?.profileImage,
-    });
+    res.status(200).json({ message: 'Successfully updated', 
+    userId: updatedUser._id,
+    name: updatedUser?.name,
+    email: updatedUser?.email,
+    mobileNumber: updatedUser?.mobileNumber,
+    bio: updatedUser?.bio,
+    profileImage: updatedUser?.profileImage, });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error updating user profile' });
+    res.status(500).json({ error: error.message || 'Error updating user profile' });
   }
 };
+
+
+
 
 const deleteProfileImage = async (req, res) => {
   try {
