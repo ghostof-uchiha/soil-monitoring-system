@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import Logo from '../images/logo/logo.svg';
 import SidebarLinkGroup from './SidebarLinkGroup';
-import crop from '../images/logo/crop.png'
+import crop from '../images/logo/crop2.png'
 
 interface SidebarProps {
   sidebarOpen: boolean;

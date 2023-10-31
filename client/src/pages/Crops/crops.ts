@@ -82,7 +82,7 @@ export const crops = [
   {
     id: 17,
     name: "Papaya",
-    image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&q=80&w=1935&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    image: "https://images.unsplash.com/photo-1623492229905-ebc1202e8904?auto=format&fit=crop&q=80&w=2080&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     id: 18,
@@ -97,7 +97,7 @@ export const crops = [
   {
     id: 20,
     name: "Jute",
-    image: "https://plus.unsplash.com/premium_photo-1674624789813-aee3aaa976cb?auto=format&fit=crop&q=60&w=600&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8SnV0ZXxlbnwwfHwwfHx8MA%3D%3D"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Jute_Cultivation_and_Processing_Bangladesh_%288%29.JPG/1200px-Jute_Cultivation_and_Processing_Bangladesh_%288%29.JPG?20091217072323"
   },
   {
     id: 21,
