@@ -1,7 +1,9 @@
+// databade modules
 const dotenv = require('dotenv'); // For loading environment variables from .env file
 const mongoose = require('mongoose');
 const connectDB = require('./db/db');
 const express = require('express');
+//authentication
 const session = require('express-session');
 const cookieSession = require('cookie-session');
 const cors = require('cors'); // For handling CORS issues

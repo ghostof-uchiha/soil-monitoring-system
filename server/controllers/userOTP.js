@@ -1,5 +1,5 @@
-const User = require('../models/UserModel');
-const OTP = require('../models/OTPSchema');
+const User = require('../models/user.models');
+const OTP = require('../models/OTP.models');
 const nodemailer = require('nodemailer');
 const otpGenerator = require('otp-generator');
 const { google } = require('googleapis');
