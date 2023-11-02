@@ -1,9 +1,9 @@
 import Breadcrumb from '../components/Breadcrumb';
 import userThree from '../images/user/user-00.png';
-import { useState, ChangeEvent, useEffect } from 'react';
+import { useState, ChangeEvent } from 'react';
 import Processing from '../components/Processing';
-import SucessMessage from '../components/SucessMessage';
 import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
 
 const Settings = () => {
@@ -13,8 +13,6 @@ const Settings = () => {
   const [imagePreviewUrl, setImagePreviewUrl] = useState('');
   const [isFormModified, setIsFormModified] = useState(false);
   const [isImageModified, setIsIImageModified] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
-  const [message, setMessage] = useState('');
 
   const [formData, setFormData] = useState({
     email: userdata?.email || '',
@@ -49,8 +47,7 @@ const Settings = () => {
 
       if (response.status === 200) {
         console.log('Image deleted successfully');
-        setMessage('Image deleted successfully');
-        setShowPopup(true);
+        toast.success('Image deleted successfully');
       } else {
         console.error('Failed to delete image');
         // Handle error scenarios if needed
@@ -60,21 +57,6 @@ const Settings = () => {
       // Handle error scenarios if needed
     }
   };
-
-  useEffect(() => {
-    
-    if (showPopup) {
-      setShowPopup(true);
-      const timeoutId = setTimeout(() => {
-        setShowPopup(false);
-      }, 5000); // Hide the message after 5 seconds
-
-      // Clear the timeout when the component unmounts or when showPopup changes
-      return () => {
-        clearTimeout(timeoutId);
-      };
-    }
-  }, [showPopup]);
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -141,12 +123,13 @@ const Settings = () => {
       if (response.status === 200) {
         console.log('User profile updated successfully:');
         localStorage.setItem('userdata', JSON.stringify(data));
-        setMessage('User profile updated successfully');
-        setShowPopup(true);
+        toast.success('User profile updated successfully')
       } else {
+        toast.error(data.message)
         console.log('Error updating user profile:', data.message);
       }
     } catch (error) {
+      toast.error('Server Error')
       console.log('Error during user profile update:', error);
     }
     setUpdating(false);
@@ -156,7 +139,6 @@ const Settings = () => {
 
   return (
     <div className="relative">
-      {showPopup && <SucessMessage message={message} />}
       <div className="mx-auto max-w-270">
         <Breadcrumb pageName="Settings" />
 

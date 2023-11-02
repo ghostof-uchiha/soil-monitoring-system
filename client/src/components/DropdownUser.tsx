@@ -61,13 +61,13 @@ const DropdownUser = () => {
         to="#"
       >
         <span className="hidden text-right lg:block">
-          <span className="block text-sm font-medium text-black dark:text-white">
+          <span className="block text-sm font-medium text-black dark:text-white capitalize">
             {userdata?.name}
           </span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
-          <img src={userdata?.profileImage || UserOne} alt="User" className='w-full h-full object-cover rounded-full' loading="lazy"/>
+          <img src={userdata?.profileImage || UserOne} alt="User" className='w-full h-full object-cover rounded-full'/>
         </span>
 
         <svg

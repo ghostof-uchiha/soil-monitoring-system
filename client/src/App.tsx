@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
 import Home from './pages/Home';
@@ -17,6 +17,7 @@ const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
 
 
 function App() {
+  const navigate = useNavigate();
 
   const getUser = async () => {
     try {
@@ -32,6 +33,8 @@ function App() {
       
       localStorage.setItem('userdata', JSON.stringify(data.user)); // Store the token in localStorage
       localStorage.setItem('token', data.token); // Store the token in localStorage
+      navigate("/ml")
+
       
     } catch (err) {
       console.log(err);

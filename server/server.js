@@ -14,6 +14,7 @@ const soilDataRoutes = require('./routes/soilDataRoutes');
 const authRoutes = require('./routes/authRoutes'); 
 const settingRoutes = require('./routes/settingRoutes'); 
 const googleAuthRoutes = require('./routes/googleAuthRoute');
+const admin = require('./routes/admin');
 
 dotenv.config(); // Load environment variables from .env file
 const app = express();
@@ -60,6 +61,7 @@ async function main() {
     app.use('/g', googleAuthRoutes); // Auth routes
     app.use('/setting', settingRoutes); // setting update routes
     app.use('/api/soil', soilDataRoutes); // Soil data routes
+    app.use('/api/admin', admin); // Soil data routes
 
     // Default route
     app.get('/', (req, res) => {

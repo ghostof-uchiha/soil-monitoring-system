@@ -46,7 +46,7 @@ const GoogleSignInButton = () => {
         </defs>
       </svg>
     </span>
-    Sign up with Google
+    Contunue with Google
   </button>
 
   );

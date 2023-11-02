@@ -90,7 +90,7 @@ soil-monitoring-system
    │  ├─ authentication.js
    │  ├─ profile.js
    │  └─ userOTP.js
-   ├─ db
+   ├─ db\
    │  └─ db.js
    ├─ middleware
    │  ├─ apiKeyMiddleware.js
