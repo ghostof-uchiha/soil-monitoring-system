@@ -1,5 +1,5 @@
 const express = require('express');
-const SoilData = require('../models/soilDataModel');
+const SoilData = require('../models/soilData.models');
 const { requireAuth } = require('../middleware/authMiddleware');
 
 const router = express.Router();

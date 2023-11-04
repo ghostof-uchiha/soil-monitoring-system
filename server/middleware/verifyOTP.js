@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const OTP = require('../models/OTPSchema');
+const OTP = require('../models/OTP.models');
 
 async function checkOTP(emailOrMobile, otp) {
   // Find the OTP document associated with the provided email or mobile number

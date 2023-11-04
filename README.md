@@ -23,7 +23,7 @@ or in root directory
 npm i
 npm start
 ```
-you don't need to sever and client seperately.
+you don't need to run and client seperately.
 
 ```
 soil-monitoring-system
