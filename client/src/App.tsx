@@ -2,6 +2,8 @@ import { Suspense, lazy, useEffect, useState } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
+import ScrollToTop from './components/scrolltoTop';
+
 import Home from './pages/Home';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
@@ -71,6 +73,8 @@ function App() {
         reverseOrder={false}
         containerClassName="overflow-auto"
       />
+
+      <ScrollToTop />
       <Routes>
           <Route path="/auth/signin" element={userdata? <Home />: <SignIn setToken={setToken}/>} />
           <Route path="/auth/signup" element={userdata? <Home />:<SignUp />} />

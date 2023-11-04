@@ -4,13 +4,14 @@ import { useParams } from 'react-router-dom';
 import { crops } from './crops';
 import Crophead from '../../components/Crophead';
 
+
+
 const CropDetails: React.FC = () => {
   const { cropName = '' } = useParams<{ cropName?: string }>(); // Provide a default empty string for cropName
   const normalizedCropName = cropName.toLowerCase();
   const crop = crops.find((crop) => crop.name.toLowerCase() === normalizedCropName);
 
   useEffect(() => {
-    // Scroll to the top of the page when the component is mounted
     window.scrollTo(0, 0);
   }, []);
   
