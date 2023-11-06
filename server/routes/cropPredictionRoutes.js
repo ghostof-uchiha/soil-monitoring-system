@@ -1,54 +1,46 @@
 const express = require('express');
 const router = express.Router();
-const SoilData = require('../models/soilDataModel'); // Import the Mongoose model
-const pickle = require('pickle'); // For loading the pickled model
+const fetch = require('isomorphic-fetch'); // Import the isomorphic-fetch module
 
-// Load the trained model using pickle
-const modelData = require('');
-const modelBytes = Buffer.from(modelData.model_scaler_encoder, 'base64');
-const [loadedModel, loadedScaler, loadedLabelEncoder] = pickle.loads(modelBytes);
-
-// POST route to handle user's soil nutrient data
-router.post('/submit-soil-data', async (req, res) => {
+router.post('/soil-data', async (req, res) => {
   try {
-    const {
-      N_level,
-      P_level,
-      K_level,
-      temperature,
-      ph,
-      rainfall,
-      moistureLevel,
-      userId,
-    } = req.body;
+    // Extract soil nutrient data from the request body
+    const { N_level, P_level, K_level, temperature, humidity, ph, rainfall } = req.body;
 
-    // Standardize the user's soil nutrient data using the loaded scaler
-    const standardizedData = loadedScaler.transform([[N_level, P_level, K_level, temperature, ph, rainfall, moistureLevel]]);
+    // Make a POST request to the Flask server for prediction
+    console.log('Making request to Flask server...');
 
-    // Make prediction using the loaded model
-    const predictedCropLabel = loadedModel.predict(standardizedData)[0];
-    const predictedCrop = loadedLabelEncoder.inverse_transform([predictedCropLabel])[0];
-
-    // Create a new SoilData instance and save it to the database
-    const soilData = new SoilData({
-      userId,
-      N_level,
-      P_level,
-      K_level,
-      temperature,
-      ph,
-      rainfall,
-      moistureLevel,
-      prediction: {
-        crop: predictedCrop,
+    const response = await fetch('http://127.0.0.1:5000/predict', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
       },
+      body: JSON.stringify({
+        N: N_level,
+        P: P_level,
+        K: K_level,
+        temperature,
+        humidity,
+        ph,
+        rainfall
+      })
     });
 
-    await soilData.save();
+    // Parse JSON response
+    const responseData = await response.json();
 
-    res.status(201).json({ message: 'Soil data saved successfully!', predictedCrop });
+    // Log response details
+    console.log('Response status:', response.status);
+    console.log('Response data:', responseData);
+
+    // Extract predicted crop data from the Flask server response
+    const predictedCrop = responseData.predicted_crop;
+
+    // Send a success response with the predicted crop
+    res.status(201).json({ message: 'Soil data stored successfully!', predictedCrop });
   } catch (error) {
-    console.error(error);
+    // Handle errors
+    console.error('Error making request:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });

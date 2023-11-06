@@ -10,6 +10,7 @@ const soilDataSchema = new mongoose.Schema({
   P_level: Number,
   K_level: Number,
   tempreture: Number,
+  humidity: Number,
   ph: Number,
   rainfall: Number,
   moistureLevel: Number,

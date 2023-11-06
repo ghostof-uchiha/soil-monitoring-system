@@ -24,11 +24,6 @@ const PORT = process.env.PORT || 3000;
 
 // Initialize Passport middleware
 app.use(session({ secret: 'genshin-impact', resave: true, saveUninitialized: true }));
-// app.use(cookieSession({ 
-//   name:"session",
-//   keys:["cyberwolve"],
-//   maxAge:24*60*60*100,
-// }));
 app.use(passport.initialize());
 app.use(passport.session());
 
