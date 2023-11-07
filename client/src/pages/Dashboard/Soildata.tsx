@@ -45,6 +45,8 @@ const Soildata = () => {
   };
 
   useEffect(() => {
+    console.log(samples);
+    
     // Initialize the expandedSamples state when the component mounts
     // or when samples.length changes
     setExpandedSamples((prevExpandedSamples) => {

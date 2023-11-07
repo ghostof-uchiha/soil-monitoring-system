@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run dev:server\" \"npm run dev:client\" \"npm run dev:flask\"",
+    "start": "concurrently --kill-others  \"npm run dev:server\" \"npm run dev:client\" \"npm run dev:flask\"",
+    "jitesh": "concurrently --kill-others  \"npm run dev:server\" \"npm run dev:client\"",
     "dev:client": "cd client && npm run dev",
     "dev:server": "cd server && npm run dev",
     "dev:flask": "cd MlServer && .\\venv\\Scripts\\activate && python app.py"

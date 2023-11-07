@@ -1,11 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const fetch = require('isomorphic-fetch'); // Import the isomorphic-fetch module
+const validateApiKey = require('../middleware/apiKeyMiddleware'); 
+const { requireAuth } = require('../middleware/authMiddleware');
 
-router.post('/soil-data', async (req, res) => {
+
+router.post('/soil-data',validateApiKey,requireAuth, async (req, res) => {
   try {
     // Extract soil nutrient data from the request body
-    const { N_level, P_level, K_level, temperature, humidity, ph, rainfall } = req.body;
+    const { N, P, K, tempreture, humidity, ph, rainfall } = req.body;
+    console.log(rainfall);
 
     // Make a POST request to the Flask server for prediction
     console.log('Making request to Flask server...');
@@ -16,10 +20,10 @@ router.post('/soil-data', async (req, res) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        N: N_level,
-        P: P_level,
-        K: K_level,
-        temperature,
+        N: N.level,
+        P: P.level,
+        K: K.level,
+        temperature:tempreture,
         humidity,
         ph,
         rainfall
@@ -34,10 +38,10 @@ router.post('/soil-data', async (req, res) => {
     console.log('Response data:', responseData);
 
     // Extract predicted crop data from the Flask server response
-    const predictedCrop = responseData.predicted_crop;
+    const predictedCrop = responseData.predicted_crops;
 
     // Send a success response with the predicted crop
-    res.status(201).json({ message: 'Soil data stored successfully!', predictedCrop });
+    res.status(200).json({ message: 'Soil data stored successfully!', responseData });
   } catch (error) {
     // Handle errors
     console.error('Error making request:', error);

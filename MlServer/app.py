@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import joblib
 from flask_cors import CORS
+from collections import Counter
 
 app = Flask(__name__)
 CORS(app)
@@ -37,6 +38,7 @@ unique_crop_list = {
 def predict():
     # Get data from JSON request
     data = request.get_json(force=True)
+    print(data)
     
     # Extract features from JSON data
     features = [
@@ -49,17 +51,23 @@ def predict():
         data['rainfall']
     ]
     
-    # Convert int64 prediction result to int for JSON serialization
-    prediction = int(model.predict([features])[0])
+    # Predict probabilities for all classes
+    probabilities = model.predict_proba([features])[0]
     
-    # Prepare JSON response with predicted crop name
-    response = {
-        'prediction': prediction,
-        'predicted_crop': unique_crop_list[prediction]
-    }
+    # Prepare JSON response with predicted crops and their probabilities
+    predicted_crops = []
+    for idx, probability in enumerate(probabilities):
+        crop_name = unique_crop_list[idx]
+        nutrient_requirements = {}  # Retrieve nutrient requirements for each crop from your data source
+        probability_percentage = f'{probability * 100:.2f}%'
+        predicted_crops.append({
+            'crop': crop_name,
+            'probability': probability_percentage,
+            'nutrient_requirements': nutrient_requirements  # Provide appropriate nutrient requirements for each crop
+        })
     
     # Convert response to JSON and send it back
-    return jsonify(response)
+    return jsonify(predicted_crops)
 
 if __name__ == '__main__':
     app.run(port=5000)
