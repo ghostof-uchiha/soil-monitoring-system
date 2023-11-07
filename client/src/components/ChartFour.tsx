@@ -28,7 +28,7 @@ const ChartFour: React.FC = () => {
       toolbar: {
         show: false,
       },
-    }
+    },
     plotOptions: {
       bar: {
         horizontal: false,

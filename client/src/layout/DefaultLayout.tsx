@@ -1,24 +1,22 @@
 import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet  } from 'react-router-dom';
+import ScrollToTop from '.././components/scrolltoTop';
 import Home from '../pages/Home';
 // its only starting layout we have to make another one once again .
 
-
-
 const DefaultLayout = () => {
-  const navigate = useNavigate()
+  <ScrollToTop />
+  
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const location = useLocation();
-
-
-  const isHomePage = location.pathname === '/';
+  const isHomePage = window.location.pathname === '/';
   return (
     <>
       {isHomePage ? (
-        <Home/>
+        <Home />
       ) : (
         <div className="dark:bg-boxdark-2 dark:text-bodydark">
           {/* <!-- ===== Page Wrapper Start ===== --> */}

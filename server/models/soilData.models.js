@@ -6,11 +6,17 @@ const soilDataSchema = new mongoose.Schema({
     ref: 'User', // Reference to the User model
     required: true,
   },
-  nutrient1: Number,
-  nutrient2: Number,
-  nutrient3: Number,
+  N_level: Number,
+  P_level: Number,
+  K_level: Number,
+  tempreture: Number,
+  humidity: Number,
+  ph: Number,
+  rainfall: Number,
   moistureLevel: Number,
-  otherData: String,
+  pridiction:{
+    crop:String,
+  },
   timestamp: {
     type: Date,
     default: Date.now,

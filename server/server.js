@@ -1,7 +1,9 @@
+// databade modules
 const dotenv = require('dotenv'); // For loading environment variables from .env file
 const mongoose = require('mongoose');
 const connectDB = require('./db/db');
 const express = require('express');
+//authentication
 const session = require('express-session');
 const cookieSession = require('cookie-session');
 const cors = require('cors'); // For handling CORS issues
@@ -13,6 +15,7 @@ const authRoutes = require('./routes/authRoutes');
 const settingRoutes = require('./routes/settingRoutes'); 
 const googleAuthRoutes = require('./routes/googleAuthRoute');
 const admin = require('./routes/admin');
+const cropPrediction = require('./routes/cropPredictionRoutes');
 
 dotenv.config(); // Load environment variables from .env file
 const app = express();
@@ -21,11 +24,6 @@ const PORT = process.env.PORT || 3000;
 
 // Initialize Passport middleware
 app.use(session({ secret: 'genshin-impact', resave: true, saveUninitialized: true }));
-// app.use(cookieSession({ 
-//   name:"session",
-//   keys:["cyberwolve"],
-//   maxAge:24*60*60*100,
-// }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -60,6 +58,7 @@ async function main() {
     app.use('/setting', settingRoutes); // setting update routes
     app.use('/api/soil', soilDataRoutes); // Soil data routes
     app.use('/api/admin', admin); // Soil data routes
+    app.use('/soil', cropPrediction);  // Predict
 
     // Default route
     app.get('/', (req, res) => {
