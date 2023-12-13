@@ -10,7 +10,7 @@ type Sample = {
   K: {
     level: number;
   };
-  tempreture:number;
+  temperature:number;
   humidity:number;
   ph:number;
 };
@@ -18,7 +18,7 @@ type Sample = {
 // In SoilDataTable component file
 type SoilDataTableProps = {
   sample: Sample;
-  // Add other props specific to SoilDataTable component if needed
+  
 };
 const SoilDataTable: React.FC<SoilDataTableProps>  = ({sample}) => {
   return (
@@ -26,129 +26,111 @@ const SoilDataTable: React.FC<SoilDataTableProps>  = ({sample}) => {
       
 
       <div className=" w-full flex flex-col">
-        <div className="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4">
+        <div className="grid grid-cols-2 rounded-sm bg-gray-2 dark:bg-meta-4">
           <div className="p-2.5 xl:p-5">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
+            <h5 className="text-base font-medium uppercase xsm:text-base">
               Nutrients
             </h5>
           </div>
           <div className="p-2.5 text-center xl:p-5">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
+            <h5 className="text-base font-medium uppercase xsm:text-base">
               Level
             </h5>
           </div>
-          <div className=" p-2.5 text-center block xl:p-5">
-            <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Percentage
-            </h5>
-          </div>
         </div>
 
-        <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark ">
+        <div className="grid grid-cols-2 border-b border-stroke dark:border-strokedark ">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
-            <p className=" text-black dark:text-white sm:block">Nitrogen</p>
+            <p className=" text-black dark:text-white sm:block font-semibold">Nitrogen</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">{sample?.N?.level}</p>
+            <p className="text-meta-5 dark:text-meta-5">{sample?.N?.level} mg/kg</p>
           </div>
 
-          <div className=" items-center justify-center p-2.5 flex xl:p-5">
-            <p className="text-meta-5">{((sample?.N?.level/140)*100).toFixed(1)}%</p>
-          </div>
         </div>
 
-        <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark">
+        <div className="grid grid-cols-2 border-b border-stroke dark:border-strokedark">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">
+            <p className="text-black dark:text-white font-semibold">
              Phosphorus
             </p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">{sample?.P?.level}</p>
-          </div>
-
-          <div className="items-center justify-center p-2.5 flex xl:p-5">
-            <p className="text-meta-5">{((sample?.P?.level/145)*100).toFixed(1)}%</p>
+            <p className="text-meta-5 dark:text-meta-5">{sample?.P?.level} mg/kg</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark">
+        <div className="grid grid-cols-2 border-b border-stroke dark:border-strokedark">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
-            <p className=" text-black dark:text-white">Potassium</p>
+            <p className=" text-black dark:text-white font-semibold">Potassium</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">{sample?.K?.level}</p>
+            <p className="text-meta-5 dark:text-meta-5">{sample?.K?.level} mg/kg</p>
           </div>
 
-          <div className="items-center justify-center p-2.5 flex xl:p-5">
-            <p className="text-meta-5">{((sample?.K?.level/205)*100).toFixed(1)}%</p>
-          </div>
         </div>
 
-        <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark">
+        <div className="grid grid-cols-2 border-b border-stroke dark:border-strokedark">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
-            <p className=" text-black dark:text-white ">Tempreture</p>
+            <p className=" text-black dark:text-white font-semibold">Temperature</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">{sample.tempreture.toFixed(1)}°C</p>
+            <p className="text-meta-5 dark:text-meta-5 ">{sample.temperature.toFixed(1)}°C</p>
           </div>
 
-          <div className=" items-center justify-center p-2.5 flex xl:p-5">
-            <p className="text-meta-5">{sample.tempreture.toFixed(1)}°C</p>
-          </div>
         </div>
 
-        <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark">
+        <div className="grid grid-cols-2 border-b border-stroke dark:border-strokedark">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
             
-            <p className=" text-black dark:text-white block">
+            <p className=" text-black dark:text-white block font-semibold">
               Local Humidity
             </p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">{sample.humidity}</p>
+            <p className="text-meta-5 dark:text-meta-5">{sample.humidity}</p>
           </div>
 
-          <div className=" items-center justify-center p-2.5 flex xl:p-5">
-            <p className="text-meta-5">{(((sample.humidity-14.3)/(100-14.3))*100).toFixed(1)}%</p>
-          </div>
         </div>
 
-        <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark">
+        <div className="grid grid-cols-2 border-b border-stroke dark:border-strokedark">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
             
-            <p className=" text-black dark:text-white block">
+            <p className=" text-black dark:text-white block font-semibold">
               PH of soil
             </p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">{sample.ph}</p>
+            <p className="text-meta-5 dark:text-meta-5">{sample.ph}</p>
           </div>
 
       
         </div>
 
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-2">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
             
-            <p className=" text-black dark:text-white block">
+            <p className=" text-black dark:text-white block font-semibold">
               Rainfall During the season
             </p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">202.93</p>
+          <input
+                  type="text"
+                  placeholder="Rainfall"
+                  className="w-36 text-center rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary dark:disabled:bg-black"
+                /> <p>
+                   . in mm
+                  </p>
           </div>
 
-          <div className=" items-center justify-center p-2.5 flex xl:p-5">
-            <p className="text-meta-5">76.9%</p>
-          </div>
         </div>
       </div>
     </div>

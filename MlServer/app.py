@@ -57,13 +57,11 @@ def predict():
     # Prepare JSON response with predicted crops and their probabilities
     predicted_crops = []
     for idx, probability in enumerate(probabilities):
-        crop_name = unique_crop_list[idx]
-        nutrient_requirements = {}  # Retrieve nutrient requirements for each crop from your data source
+        crop_name = unique_crop_list[idx]# Retrieve nutrient requirements for each crop from your data source
         probability_percentage = f'{probability * 100:.2f}%'
         predicted_crops.append({
             'crop': crop_name,
-            'probability': probability_percentage,
-            'nutrient_requirements': nutrient_requirements  # Provide appropriate nutrient requirements for each crop
+            'probability': probability_percentage # Provide appropriate nutrient requirements for each crop
         })
     
     # Convert response to JSON and send it back

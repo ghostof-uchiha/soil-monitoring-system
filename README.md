@@ -4,25 +4,26 @@ after cloning
 
 ## To start the Project 
 
+
+### Install server dependencies
 ``` bash
 cd server
 npm i
 ```
 
-then in fronend which is client
-
+### install frontend dependencies
 ```
 cd client
 npm i
 ```
 
-for running flask server 
+### Setup Your Flask Server
 
 ```
 cd MlServer
 ```
 
-Create a Virtual Environment:
+#### Create a Virtual Environment:
 Run the following command to create a virtual environment. You can replace venv_name with the name you want to give to your virtual environment.
 ```
 python3 -m venv venv_name
@@ -35,13 +36,13 @@ python3 -m venv venv
 This command will create a new directory with the specified name (venv_name) containing the virtual environment files.
 
 
-Activate the Virtual Environment:
+#### Activate the Virtual Environment:
 On Windows:
 ```
 venv\Scripts\activate
 ```
 
-Install Dependencies:
+#### Install Dependencies:
 Once the virtual environment is activated, use pip to install the packages listed in the requirements.txt file. Navigate to the directory where requirements.txt is located and run:
 
 ```
@@ -53,7 +54,7 @@ start server by python server
 python app.py
 ```
 
-
+## Start Project
 or in root directory (for all server)
 ```
 npm i

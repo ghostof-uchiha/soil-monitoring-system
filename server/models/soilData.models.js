@@ -9,14 +9,16 @@ const soilDataSchema = new mongoose.Schema({
   N_level: Number,
   P_level: Number,
   K_level: Number,
-  tempreture: Number,
+  temperature: Number,
   humidity: Number,
   ph: Number,
   rainfall: Number,
-  moistureLevel: Number,
-  pridiction:{
-    crop:String,
-  },
+  predictions: [
+    {
+      crop: String,
+      probability: Number,
+    },
+  ],
   timestamp: {
     type: Date,
     default: Date.now,

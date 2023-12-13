@@ -14,7 +14,7 @@ type Sample = {
   K: {
     level: number;
   };
-  tempreture:number;
+  temperature:number;
   humidity:number;
   ph:number;
 };
@@ -67,7 +67,7 @@ const options: ApexOptions = {
   },
 
   xaxis: {
-    categories: ['N', 'P', 'K', 'Tempreture', 'Humidity', 'pH', 'Rainfall'],
+    categories: ['N', 'P', 'K', 'temperature', 'Humidity', 'pH'],
   },
   legend: {
     position: 'top',
@@ -98,17 +98,17 @@ const SoilBarGraph: React.FC<SoilDataBarGraph>  = ({sample}) => {
     series: [
       {
         name: 'Soil',
-        data: [sample.N.level, sample.P.level, sample.K.level, sample.tempreture, sample.humidity,sample.ph, 202.93],
+        data: [sample.N.level, sample.P.level, sample.K.level, sample.temperature, sample.humidity,sample.ph],
       },
       {
         name: 'Max',
-        data: [140, 145, 205, 43.7, 100, 9.94, 299],
+        data: [140, 145, 205, 43.7, 100, 9.94],
       },
     ],
   });
 
   return (
-    <div className="h-full col-span-12 rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
+    <div className="h-full col-span-12 rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4 overscroll-y-auto">
       <div className="mb-4 justify-between gap-4 sm:flex">
         <div>
           <h4 className="text-xl font-semibold text-black dark:text-white">

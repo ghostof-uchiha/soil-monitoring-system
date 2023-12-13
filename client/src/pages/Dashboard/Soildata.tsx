@@ -4,9 +4,10 @@ import SoilBarGraph from '../../components/SoilBarGraph';
 import Analyze from './Analyze';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Sample } from './types';
 
 const Soildata = () => {
-  const [samples, setSoilData] = useState<{ id: number }[]>([]);
+  const [samples, setSoilData] = useState<Sample[]>([]);
   const [expandedSamples, setExpandedSamples] = useState<boolean[]>([]);
   const [fetchingsoilData, setFetchingsoilData] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -17,7 +18,6 @@ const Soildata = () => {
       newExpandedSamples[index] = !newExpandedSamples[index];
       return newExpandedSamples;
     });
-    console.log(expandedSamples[index]);
   };
 
   const addSample = async () => {
@@ -29,13 +29,15 @@ const Soildata = () => {
           id: samples.length + 1,
         },
       });
-
+      
+      
       const newSample = response.data;
-
+      console.log(response.data);
+      
+      
       const newExpandedSamples = Array(samples.length + 1).fill(false);
       newExpandedSamples[newExpandedSamples.length - 1] = true; // Set the last index to true (latest sample)
       setExpandedSamples(newExpandedSamples);
-
       setSoilData([...samples, newSample]);
     } catch (error) {
       console.error('Error adding soil sample:', error);
@@ -45,7 +47,6 @@ const Soildata = () => {
   };
 
   useEffect(() => {
-    console.log(samples);
     
     // Initialize the expandedSamples state when the component mounts
     // or when samples.length changes
@@ -57,6 +58,7 @@ const Soildata = () => {
       return newExpandedSamples;
     });
   }, [samples.length]);
+
 
   return (
     <>
@@ -100,10 +102,12 @@ const Soildata = () => {
       {samples.map((sample, index) => (
         <div
           key={index}
-          className="relative cursor-pointer bg-white px-5 mb-2 rounded-md pt-6 pb-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-6
+          className="relative  bg-white px-5 mb-2 rounded-md pt-6 pb-6 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-6
           "
-          onClick={() => handleSampleToggle(index)}
+          
         >
+          <div className=' cursor-pointer h-full w-full' onClick={() => handleSampleToggle(index)}>
+
           <svg
             className={`absolute right-10 top-10 -translate-y-1/2 fill-current ${
               expandedSamples[index] && 'rotate-180'
@@ -125,13 +129,14 @@ const Soildata = () => {
           <h4 className="mb-2 text-xl font-semibold text-black dark:text-white">
             Sample {index + 1}
           </h4>
+          </div>
 
           <div
-            className={`max-h-0 overflow-hidden transition-max-h ease-custom ease-in-out ${
+            className={`max-h-0 overflow-scroll transition-max-h ease-custom ease-in-out ${
               expandedSamples[index] ? 'max-h-screen' : ''
             }`}
           >
-            <div className="flex flex-col xl:flex-row h-full">
+            <div className="flex flex-col xl:flex-row h-full justify-around">
               <SoilDataTable sample={sample} />
               <SoilBarGraph sample={sample} />
             </div>

@@ -24,7 +24,7 @@ interface Sample {
   K: {
     level: number;
   };
-  tempreture: number;
+  temperature: number;
   humidity: number;
   ph: number;
   rainfall:number;
@@ -47,7 +47,7 @@ function calculateAverage(samples: Sample[]): Sample {
     K: {
       level: 0
     },
-    tempreture: 0,
+    temperature: 0,
     humidity: 0,
     ph: 0,
     id: 0,
@@ -60,7 +60,7 @@ function calculateAverage(samples: Sample[]): Sample {
     averageSample.N.level += sample.N.level;
     averageSample.P.level += sample.P.level;
     averageSample.K.level += sample.K.level;
-    averageSample.tempreture += sample.tempreture;
+    averageSample.temperature += sample.temperature;
     averageSample.humidity += sample.humidity;
     averageSample.ph += sample.ph;
   });
@@ -70,7 +70,7 @@ function calculateAverage(samples: Sample[]): Sample {
   averageSample.N.level /= totalSamples;
   averageSample.P.level /= totalSamples;
   averageSample.K.level /= totalSamples;
-  averageSample.tempreture /= totalSamples;
+  averageSample.temperature /= totalSamples;
   averageSample.humidity /= totalSamples;
   averageSample.ph /= totalSamples;
   averageSample.rainfall= 10.93;
@@ -83,14 +83,17 @@ function calculateAverage(samples: Sample[]): Sample {
 const Analyze: React.FC<AnalyzeProps> = ({ samples }) => {
   const handleAnalyzeClick = async () => {
     const averageSample = calculateAverage(samples);
+    const userdataString = localStorage.getItem('userdata');  
+    const userdata = userdataString ? JSON.parse(userdataString) : null;
     console.log(averageSample);
+    
     
     
     const data = {
       N_level: 20,
       P_level: 42,
       K_level: 43,
-      tempreture: 20.36050601,
+      temperature: 20.36050601,
       humidity: 82.35608208,
       ph: 7.335158382,
       rainfall: 100.2266885,
@@ -99,7 +102,7 @@ const Analyze: React.FC<AnalyzeProps> = ({ samples }) => {
 
     try {
       const response = await axios.post(
-        'http://localhost:4000/soil/soil-data',
+        `http://localhost:4000/soil/soil-data/${userdata.userId}`,
         averageSample,
         {
           headers: {

@@ -1,46 +1,61 @@
 const express = require('express');
 const router = express.Router();
-const fetch = require('isomorphic-fetch'); // Import the isomorphic-fetch module
-const validateApiKey = require('../middleware/apiKeyMiddleware'); 
+const fetch = require('isomorphic-fetch');
+const validateApiKey = require('../middleware/apiKeyMiddleware');
 const { requireAuth } = require('../middleware/authMiddleware');
+const SoilData = require('../models/soilData.models');
 
-
-router.post('/soil-data',validateApiKey,requireAuth, async (req, res) => {
+router.post('/soil-data/:userId', validateApiKey, requireAuth, async (req, res) => {
+  const userId = req.params.userId;
   try {
     // Extract soil nutrient data from the request body
     const { N, P, K, tempreture, humidity, ph, rainfall } = req.body;
-    console.log(rainfall);
 
     // Make a POST request to the Flask server for prediction
     console.log('Making request to Flask server...');
-
     const response = await fetch('http://127.0.0.1:5000/predict', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         N: N.level,
         P: P.level,
         K: K.level,
-        temperature:tempreture,
+        temperature: tempreture,
         humidity,
         ph,
-        rainfall
-      })
+        rainfall,
+      }),
     });
 
-    // Parse JSON response
+    // Parse JSON response from Flask server
     const responseData = await response.json();
-
-    // Log response details
-    console.log('Response status:', response.status);
-    console.log('Response data:', responseData);
+    console.log('Flask server response:', responseData); // Log the Flask response
 
     // Extract predicted crop data from the Flask server response
-    const predictedCrop = responseData.predicted_crops;
+    const predictedCrops = responseData.map(prediction => ({
+      crop: prediction.crop,
+      probability: parseFloat(prediction.probability), // Parse probability as float
+    }));
 
-    // Send a success response with the predicted crop
+    // Create a new SoilData document with the received data and predicted crop information
+    const soilData = new SoilData({
+      userId: userId,
+      N_level: N.level,
+      P_level: P.level,
+      K_level: K.level,
+      temperature:tempreture,
+      humidity,
+      ph,
+      rainfall,
+      predictions: predictedCrops,
+    });
+
+    // Save the soil data to MongoDB
+    await soilData.save();
+
+    // Send a success response
     res.status(200).json({ message: 'Soil data stored successfully!', responseData });
   } catch (error) {
     // Handle errors

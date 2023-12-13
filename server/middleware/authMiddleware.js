@@ -3,6 +3,7 @@ const User = require('../models/user.models'); // Assuming you have a User model
 
 const requireAuth = (req, res, next) => {
   const token = req.headers.authorization;
+  console.log(token);
 
   if (token) {
     jwt.verify(token, process.env.JWT_SECRET, async (err, decodedToken) => {
