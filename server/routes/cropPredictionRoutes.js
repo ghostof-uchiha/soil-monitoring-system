@@ -9,7 +9,12 @@ router.post('/soil-data/:userId', validateApiKey, requireAuth, async (req, res) 
   const userId = req.params.userId;
   try {
     // Extract soil nutrient data from the request body
-    const { N, P, K, tempreture, humidity, ph, rainfall } = req.body;
+    const { N, P, K, temperature, humidity, ph, rainfall } = req.body;
+
+    const totalNPK = N.level + P.level + K.level;
+    const N_ratio = N.level / totalNPK;
+    const P_ratio = P.level / totalNPK;
+    const K_ratio = K.level / totalNPK;
 
     // Make a POST request to the Flask server for prediction
     console.log('Making request to Flask server...');
@@ -19,10 +24,10 @@ router.post('/soil-data/:userId', validateApiKey, requireAuth, async (req, res) 
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        N: N.level,
-        P: P.level,
-        K: K.level,
-        temperature: tempreture,
+        N: N_ratio,
+        P: P_ratio,
+        K: K_ratio,
+        temperature: temperature,
         humidity,
         ph,
         rainfall,
@@ -45,7 +50,7 @@ router.post('/soil-data/:userId', validateApiKey, requireAuth, async (req, res) 
       N_level: N.level,
       P_level: P.level,
       K_level: K.level,
-      temperature:tempreture,
+      temperature:temperature,
       humidity,
       ph,
       rainfall,

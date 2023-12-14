@@ -22,6 +22,7 @@ const Soildata = () => {
 
   const addSample = async () => {
     setFetchingsoilData(true);
+    
     setShowError(false);
     try {
       const response = await axios.get('http://agroapi.local/soildata', {

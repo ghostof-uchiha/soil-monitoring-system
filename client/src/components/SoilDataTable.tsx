@@ -93,7 +93,7 @@ const SoilDataTable: React.FC<SoilDataTableProps>  = ({sample}) => {
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-meta-5 dark:text-meta-5">{sample.humidity}</p>
+            <p className="text-meta-5 dark:text-meta-5">{sample.humidity} g.m<sup>-3</sup></p>
           </div>
 
         </div>
@@ -122,13 +122,7 @@ const SoilDataTable: React.FC<SoilDataTableProps>  = ({sample}) => {
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-          <input
-                  type="text"
-                  placeholder="Rainfall"
-                  className="w-36 text-center rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary dark:disabled:bg-black"
-                /> <p>
-                   . in mm
-                  </p>
+            <p className="text-meta-5 dark:text-meta-5">67 mm</p>
           </div>
 
         </div>
