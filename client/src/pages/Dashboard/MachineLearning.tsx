@@ -1,38 +1,63 @@
+import { useState, useEffect } from 'react';
+import Breadcrumb from '../../components/Breadcrumb';
+import { Link } from 'react-router-dom';
+import { fetchData, convertUTCtoIST } from './PredictedData';
 
-import CardFour from '../../components/CardFour.tsx';
-import CardOne from '../../components/CardOne.tsx';
-import CardThree from '../../components/CardThree.tsx';
-import CardTwo from '../../components/CardTwo.tsx';
-import ChartOne from '../../components/ChartOne.tsx';
-import ChartThree from '../../components/ChartThree.tsx';
-import ChartTwo from '../../components/ChartTwo.tsx';
-import ChatCard from '../../components/ChatCard.tsx';
-import TableOne from '../../components/TableOne.tsx';
-const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
-
+interface PredictedSoilData {
+  _id: any;
+  timestamp: number; // Replace 'number' with the actual type of timestamp
+  probability: number; // Replace 'number' with the actual type of probability
+}
 
 const Machine = () => {
-  
+  const [predictedSoilData, setPredictedSoilData] = useState<
+    PredictedSoilData[]
+  >([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDataAndSetState = async () => {
+      try {
+        const data = await fetchData();
+        if (data) {
+          setPredictedSoilData(data);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDataAndSetState();
+  }, []); // The empty dependency array ensures that this effect runs only once when the component mounts
+
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5 hidden">
-        <CardOne />
-        <CardTwo />
-        <CardThree />
-        <CardFour />
-      </div>
+      <Breadcrumb pageName="Agro Forecast" />
 
-      <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
-        <ChartOne />
-        <ChartTwo />
-        <ChartThree />    
-        <div className="col-span-12 xl:col-span-8">
-          <TableOne />
-        </div>
-        <ChatCard />
+      {/* Your JSX content here */}
+
+      {/* Render loading state */}
+      {loading && <p>Loading...</p>}
+
+      {/* Example rendering predicted soil data list */}
+      <div>
+        <ul>
+          {predictedSoilData.map((data, index) => (
+            <li key={index}>
+              <Link to={`/ml/${data._id}`}>
+                {' '}
+                {/* Use _id for navigation */}
+                Date: {convertUTCtoIST(data.timestamp)}, Probability:{' '}
+                {data.probability}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </>
-  );  
+  );
 };
 
 export default Machine;

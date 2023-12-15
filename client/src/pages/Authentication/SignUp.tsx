@@ -46,7 +46,7 @@ const SignUp = () => {
     handleClose()
     setSendOtp(2);
     try {
-      const response = await fetch('http://localhost:4000/api/users/userotp', {
+      const response = await fetch('http://localhost:4000/auth/userotp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

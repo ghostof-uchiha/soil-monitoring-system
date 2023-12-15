@@ -10,9 +10,10 @@ const Tables = lazy(() => import('../pages/Tables'));
 const Alerts = lazy(() => import('../pages/UiElements/Alerts'));
 const Buttons = lazy(() => import('../pages/UiElements/Buttons'));
 const dashML = lazy(() => import('../pages/Dashboard/MachineLearning'));
-const dashsoildata = lazy(() => import('../pages/Dashboard/Soildata'));
+const dashsoildata = lazy(() => import('../pages/Soildata/Soildata'));
 const CropList = lazy(() => import('../pages/Crops/CropList'));
 const CropDetails = lazy(() => import('../pages/Crops/CropDetails'));
+import ForecastDetails from '../pages/Dashboard/ForcastDetails'; // Adjust the path based on your file structure
 
 
 const coreRoutes = [
@@ -20,6 +21,11 @@ const coreRoutes = [
     path: '/ml',
     title: 'MachineLearning',
     component: dashML,
+  },
+  {
+    path: '/ml/:id',
+    title: 'Forecast Information',
+    component: ForecastDetails, // Add the ForecastDetails component route
   },
   {
     path: '/Soildata',
