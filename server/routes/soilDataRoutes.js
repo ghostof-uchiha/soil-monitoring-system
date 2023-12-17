@@ -59,9 +59,10 @@ router.get('/predicted-soil-data', validateApiKey, requireAuth, async (req, res)
 });
 
 // Route to fetch specific soil data based on _id
-router.get('/soil-data/:id', validateApiKey, requireAuth, async (req, res) => {
+router.get('/single-soil-data/:id', validateApiKey, requireAuth, async (req, res) => {
   const userId = req.user._id;
   const soilDataId = req.params.id;
+  console.log('ok');
 
   try {
     // Fetch specific soil data from MongoDB for the specified user and _id
@@ -80,5 +81,25 @@ router.get('/soil-data/:id', validateApiKey, requireAuth, async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+// Route to delete specific soil data based on _id
+router.delete('/delete-soil-data/:id', validateApiKey, requireAuth, async (req, res) => {
+  const userId = req.user._id;
+  const soilDataId = req.params.id;
+
+  try {
+    const deletedSoilData = await SoilData.findOneAndRemove({ _id: soilDataId, userId });
+
+    if (!deletedSoilData) {
+      return res.status(404).json({ error: 'Soil data not found' });
+    }
+
+    res.status(200).json({ message: 'Soil data deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting soil data:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 module.exports = router;

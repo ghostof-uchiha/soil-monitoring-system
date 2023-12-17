@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Breadcrumb from '../../components/Breadcrumb';
 import { Link } from 'react-router-dom';
-import { crops } from './crops';
+import { crops } from '../../utils/crops';
 import '../../styles/cards.css';
 import SearchBar from '../../components/SearchBar';
 

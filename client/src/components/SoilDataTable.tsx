@@ -15,12 +15,11 @@ type Sample = {
   ph:number;
 };
 
-// In SoilDataTable component file
-type SoilDataTableProps = {
-  sample: Sample;
-  
+type SoilBarGraphProps = {
+  sample: Sample | SoilSample; // Use a union type to allow both Sample and SoilSample
 };
-const SoilDataTable: React.FC<SoilDataTableProps>  = ({sample}) => {
+
+const SoilDataTable: React.FC<SoilBarGraphProps>  = ({sample}) => {
   return (
     <div className=" rounded-sm  bg-white px-5 pt-6 pb-2.5 dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       

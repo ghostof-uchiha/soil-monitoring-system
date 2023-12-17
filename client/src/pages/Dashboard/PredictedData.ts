@@ -15,7 +15,6 @@ const fetchData = async () => {
     if (response.status === 200) {
       const responseData = await response.json();
       console.log('Data fetched successfully:');
-      console.log(responseData);
       return responseData.predictedSoilData;
     } else {
       // Handle errors here
@@ -28,6 +27,7 @@ const fetchData = async () => {
     return null;
   }
 };
+
 
 const convertUTCtoIST = (utcTimestamp: string | number | Date) => {
   const utcDate = new Date(utcTimestamp);
@@ -42,4 +42,26 @@ const convertUTCtoIST = (utcTimestamp: string | number | Date) => {
   return `${formattedDate} ${formattedTime}`;
 };
 
-export { fetchData ,convertUTCtoIST};
+const convertTimestampToCustomFormat = (utcTimestamp: string | number | Date) => {
+  console.log(utcTimestamp);
+  
+  const utcDate = new Date(utcTimestamp);
+
+  const options = {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    weekday: 'long' as const, 
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  };
+
+  // Adjust for IST (UTC + 5 hours 30 minutes)
+  const istDate = new Date(utcDate.getTime() + 5.5 * 60 * 60 * 1000);
+
+  // Format the date and time as per your requirement
+  return istDate.toLocaleString('en-US', options);
+};
+
+export { fetchData ,convertUTCtoIST,convertTimestampToCustomFormat};

@@ -19,10 +19,10 @@ type Sample = {
   ph:number;
 };
 
+
 // In SoilDataTable component file
 type SoilDataBarGraph = {
-  sample: Sample;
-  // Add other props specific to SoilDataTable component if needed
+  sample: Sample | SoilSample; // Use a union type to allow both Sample and SoilSample
 };
 
 const options: ApexOptions = {

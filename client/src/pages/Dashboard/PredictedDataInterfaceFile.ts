@@ -1,12 +1,16 @@
+import { ReactNode } from "react";
+
 // Create an interface for the prediction object
 interface Prediction {
+  desc: ReactNode;
+  gradientFrom: any;
   crop: string;
   probability: number;
   _id: string;
 }
 
 // Create an interface for the predictedSoilData object
-interface PredictedSoilData {
+interface soilData {
   _id: string;
   userId: string;
   N_level: number;
@@ -21,4 +25,4 @@ interface PredictedSoilData {
   __v: number;
 }
 
-export type { PredictedSoilData, Prediction };
+export type { soilData, Prediction };
