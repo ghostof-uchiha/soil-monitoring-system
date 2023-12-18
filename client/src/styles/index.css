@@ -469,3 +469,36 @@ span.flatpickr-weekday,
   box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2);
   -ms-interpolation-mode: bicubic;
 }
+
+.gradient-border {
+  --border-width: 3px;
+  position: relative;
+  text-transform: uppercase;
+  color: white;
+  background: #1c2434;
+}
+.gradient-border::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg, #5f86f2, #a65ff2, #f25fd0, #f25f61, #f2cb5f, #abf25f, #5ff281, #5ff2f0);
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: 9999px;
+  animation: moveGradient 4s alternate infinite;
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.zoom111:hover{
+  transform: scale(1.01);
+}
+

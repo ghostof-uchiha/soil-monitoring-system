@@ -126,7 +126,6 @@ const LoginUser = async (req, res) => {
 const ResetPassword = async (req, res) => {
   const { password, confirmpassword } = req.body;
   const userId = req.userId;
-  console.log(userId);
 
   // Validate password and confirmpassword
   if (password !== confirmpassword) {

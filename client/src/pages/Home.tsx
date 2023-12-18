@@ -1,15 +1,145 @@
-import { Link } from "react-router-dom";
+import { BestRecipes } from '../components/ourBestRecipes/BestRecipes';
+import { Contact } from '../components/contact/Contact';
+import { Team } from '../components/Ourteammates/team';
+import { Link } from 'react-scroll';
+import DarkModeSwitcher from '../components/DarkModeSwitcher';
+// import '../styles/background.css';
+// import '../js/background.js';
 
 const Home = () => {
   // const storedToken = localStorage.getItem('token');
   const token = localStorage.getItem('userdata');
 
-
   return (
     <>
-      <div className="antialiased font-sans h-screen ">
-        <nav
-          className="bg-transparent py-4 px-4 lg:px-16 xl:py-8 fixed top-0 z-50 w-full md:px-8 xl:px-24 xxl:px-40"
+      <section id="background">
+        <div id="blob"></div>
+        <div id="blur"></div>
+      </section>
+      <div className="antialiased font-sans h-screen pt-8 ">
+        <nav className="flex justify-between  mx-28 " aria-label="Breadcrumb">
+          <div className="mb-2 sm:mb-0 flex flex-row">
+            <div className="h-10 w-10 self-center mb-4">
+              <img
+                className="h-10 w-16 self-center"
+                src="https://bytewebster.com/img/logo.png"
+              />
+            </div>
+            <div>
+              <a
+                href="/ml"
+                className="text-3xl no-underline text-[#1976D2] font-sans font-bold"
+              >
+                Agro -<span className="text-[#2E7D32]">API</span>
+              </a>
+              <br />
+              <span className="text-xs text-grey-dark">
+                Grow your farming with agro!
+              </span>
+            </div>
+          </div>
+          <ol className="inline-flex text-lg items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+            <DarkModeSwitcher />
+            {token ? (
+              <li className="inline-flex items-center">
+                <a
+                  href="/ml"
+                  className="inline-flex items-center font-medium text-white-700 hover:text-gray-600 dark:text-gray-400 dark:hover:text-white"
+                >
+                  <svg
+                    className="w-3 h-3 me-2.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
+                  </svg>
+                  <div className="mr-2">Home</div>
+                  <svg
+                    className="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 6 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 9 4-4-4-4"
+                    />
+                  </svg>
+                </a>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <div className="flex items-center">
+                    <a
+                      href="/auth/signup"
+                      className="ms-1 font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white"
+                    >
+                      Sign-Up
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <div className="flex items-center gap-3">
+                    <svg
+                      className="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 6 10"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m1 9 4-4-4-4"
+                      />
+                    </svg>
+                    <a
+                      href="/auth/signin"
+                      className="ms-1 font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white"
+                    >
+                      Sign-In
+                    </a>
+                    <svg
+                      className="rtl:rotate-180 w-3 h-3 text-gray-400 mx-1"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 6 10"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="m1 9 4-4-4-4"
+                      />
+                    </svg>
+                  </div>
+                </li>
+              </>
+            )}
+            <li aria-current="page">
+              <div className="flex items-center">
+                <span className="ms-1 font-medium text-gray-500 md:ms-2 dark:text-gray-400">
+                  <Link to="#about" smooth={true} duration={500}>
+                    About
+                  </Link>
+                </span>
+              </div>
+            </li>
+          </ol>
+        </nav>
+        {/* <nav
+          className="bg-transparent py-4 px-4 lg:px-16 xl:py-8  top-0 z-50 w-full md:px-8 xl:px-24 xxl:px-40"
           id="navbar"
         >
           <div className="flex items-center justify-between flex-wrap relative">
@@ -42,7 +172,7 @@ const Home = () => {
               </button>
             </div>
 
-            <div className="w-full navigation-menu hidden custom md:w-3/4 relative">
+            <div className="w-full navigation-menu  custom md:w-3/4 relative">
               <div className="flex flex-col md:flex-row pt-8 pb-2 md:pt-0 md:pb-0 md:ml-auto md:items-center relative">
                 <a
                   href="#"
@@ -71,7 +201,7 @@ const Home = () => {
                 {token ? (
                   <a
                     href="/ml"
-                    className="block mt-3  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold md:ml-6 md:mt-0 bg-green-home"
+                    className="block mt-3 sm:flex  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold md:ml-6 md:mt-0 bg-green-home"
                   >
                     Dashboard
                   </a>
@@ -85,7 +215,7 @@ const Home = () => {
                     </a>
                     <a
                       href="/auth/signup"
-                      className="block mt-3  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold md:ml-6 md:mt-0 bg-green-home"
+                      className="block mt-3  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold  md:mt-0 bg-green-home"
                     >
                       Sign - Up
                     </a>
@@ -94,20 +224,19 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </nav>
+        </nav> */}
 
-
-        <header className="relative flex pt-32 pb-48 sm:pt-32 sm:pb-64 lg:pb-48 px-4 bg-blue-100 w-full md:pb-40 lg:px-16 lg:pt-48 xl:pt-40 xl:pb-64 xl:h-screen md:px-8 xl:px-24 xxl:px-40">
+        <header className="relative flex  pb-48 sm:pt-32 sm:pb-64 lg:pb-48 px-4 bg-blue-100 w-full md:pb-40 lg:px-16 lg:pt-48 xl:pt-20 xl:pb-64 xl:h-screen md:px-8 xl:px-24 xxl:px-40">
           <div className="text-center md:text-left md:w-1/2 z-10 xxl:max-w-2xl">
             <h1 className="text-3xl xl:text-5xl text-gray-900 font-bold leading-tight">
               Welcome To AGRO-API
             </h1>
-            <p className="text-base xl:text-xl text-gray-600 mt-4">
+            <p className="text-base xl:text-xl text-gray-500 mt-4">
               Unlocking the Secrets of Soil: Precision Agriculture at Your
               Fingertips
             </p>
 
-            <p className="text-sm xl:text-base text-gray-600 mt-8">
+            <p className="text-sm xl:text-base  mt-8">
               Our Projects focus on - Empowering Farmers, Nourishing the World:
               Cultivating Innovation from the Ground Up
             </p>
@@ -116,7 +245,7 @@ const Home = () => {
             </button>
           </div>
 
-          <div className="w-full absolute bottom-0 right-0">
+          <div className="w-full absolute bottom-25 right-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               xlinkHref="http://www.w3.org/1999/xlink"
@@ -1132,6 +1261,17 @@ const Home = () => {
             </svg>
           </div>
         </header>
+
+        <div>
+          <h1
+            id="about"
+            className="text-4xl flex justify-center font-extrabold"
+          >
+            About us
+          </h1>
+        </div>
+        <Contact />
+        <Team />
       </div>
     </>
   );

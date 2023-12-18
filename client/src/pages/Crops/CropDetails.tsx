@@ -1,7 +1,7 @@
 // CropDetails.tsx
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { crops } from './crops';
+import { crops } from '../../utils/crops';
 import Crophead from '../../components/Crophead';
 
 

@@ -22,6 +22,7 @@ const Soildata = () => {
 
   const addSample = async () => {
     setFetchingsoilData(true);
+    
     setShowError(false);
     try {
       const response = await axios.get('http://agroapi.local/soildata', {
@@ -63,7 +64,7 @@ const Soildata = () => {
   return (
     <>
       <div className="flex justify-between">
-        <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
+        <h4 className="text-title-md2 font-semibold text-black dark:text-white">
           Soil Information
         </h4>
         <button className="flex items-center gap-2 mb-6 text-xl font-semibold text-black dark:text-white">
