@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { fetchData, convertUTCtoIST } from './PredictedData';
+import { fetchData, convertUTCtoIST, truncateDescription } from './PredictedData';
 import { soilData } from './PredictedDataInterfaceFile';
 import Breadcrumb from '../../components/Breadcrumb';
 import DeleteConfirmationModal from '../../components/DeleteConfirmationModal';
@@ -64,6 +64,7 @@ const ForecastDetails = () => {
           },
         );
         const data = await response.json();
+        console.log(data);
 
         if (response.status === 200) {
           setSoilData(data.soilData);
@@ -127,28 +128,40 @@ const ForecastDetails = () => {
     );
   }
 
-  const sortedPredictions = soilData.predictions.sort(
-    (a: { probability: number }, b: { probability: number }) =>
-      b.probability - a.probability,
-  );
+  const sortedPredictions = soilData.predictions
+    .filter((prediction) => prediction.probability > 0)
+    .sort((a, b) => b.probability - a.probability);
 
   const transformedSoilSample = transformSoilData(soilData);
 
-  const timestampDate = new Date(convertUTCtoIST(soilData.timestamp));
-  const formattedDate = timestampDate.toLocaleDateString();
-  const formattedTime = timestampDate.toLocaleTimeString();
+  const convertUTCtoIST = (utcTimestamp: string | number | Date) => {
+    const utcDate = new Date(utcTimestamp);
+    const istOffset = 5.5 * 60 * 60 * 1000; // IST is UTC+5:30
+    const istDate = new Date(utcDate.getTime() + istOffset);
+    return istDate;
+  };
+
+  const timestampDate = convertUTCtoIST(soilData.timestamp);
+
+  const formattedDate = timestampDate.toLocaleDateString(
+    undefined,
+  ) as unknown as string;
+  const formattedTime = timestampDate.toLocaleTimeString(
+    undefined,
+  ) as unknown as string;
 
   return (
     <div>
       <Breadcrumb pageName="Forecast Details" />
 
-      <div className="flex justify-between items-center">
-        <h3 className="text-8xl font-extrabold text-gradient">Predictions</h3>
-        <p className="description ml-2 text-md font-medium text-black dark:text-white">
-          {formattedDate} at
-          <br />
-          {formattedTime}
-        </p>
+      <div className="flex md:justify-between items-center  flex-wrap justify-center">
+        <h3 className="xl:text-6xl md:text-6xl text-4xl ml-4 font-extrabold text-gradient">
+          Predictions
+        </h3>
+        <div className="hidden md:flex-col flex-wrap font-medium md:flex justify-center items-center uppercase description mr-4 p-4 rounded-lg dark:text-white border-stroke xl:text-2xl md:text-xl  text-md bg-white shadow-default dark:border-strokedark dark:bg-[#333]">
+          <p>{formattedTime}</p>
+          <p>{formattedDate}</p>
+        </div>
       </div>
 
       <ul className="wrap">
@@ -157,36 +170,34 @@ const ForecastDetails = () => {
           className="crops_card h-100"
           id="tomb"
           style={{
-            backgroundImage: `url(${getCropImage(
-              soilData.predictions[0].crop,
-            )})`,
+            backgroundImage: `url(${getCropImage(sortedPredictions[0].crop)})`,
           }}
         >
-          <div className="info_section">
+          <div className="info_section relative w-full">
             <div className="crops_header">
               <h1 className="capitalize text-white font-black text-5xl  ">
-                {soilData.predictions[0].crop}
+                {sortedPredictions[0].crop}
               </h1>
-              <h4 className="text-base md:py-2 text-md font-medium text-gray-500">
-                Probability: {soilData.predictions[0].probability}%
-              </h4>
             </div>
             <div className="crops_desc ">
               <p className="text ml-2 text-md font-medium text-gray-100">
-                {getCropDescription(soilData.predictions[0].crop)}
+                {truncateDescription(
+                  getCropDescription(sortedPredictions[0].crop),
+                  30,
+                )}
               </p>
             </div>
             <Link
-              to={`/crops/${encodeURIComponent(soilData.predictions[0].crop)}`}
-              className=" items-center  transition ease-in-out justify-center  
-                hover:text-blue-500 xl:ml-8  text-center font-medium duration-400 text-primary "
+              to={`/crops/${encodeURIComponent(sortedPredictions[0].crop)}`}
+              className=" items-center  transition ease-in-out justify-center absolute bottom-0 md:left-9 left-1/2
+                hover:text-blue-500  mb-10 text-center font-medium duration-400 text-primary drop-shadow"
             >
               Read More
             </Link>
           </div>
         </div>
 
-        {sortedPredictions.slice(1, 7).map((prediction, index) => (
+        {sortedPredictions.slice(1, -1).map((prediction, index) => (
           <div
             key={index}
             className="box rounded-lg border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark"
@@ -198,12 +209,9 @@ const ForecastDetails = () => {
                 className="box-image rounded-lg "
               />
               <header className="flex items-center justify-between leading-tight md:p-2">
-                <h1 className="text-black dark:text-white font-bold text-title-md capitalize">
+                <h1 className="text-black underline  underline-offset-8 dark:text-white font-bold text-title-md capitalize">
                   {prediction.crop}
                 </h1>
-                <p className="text-base md:p-2 text-md font-medium text-black dark:text-white">
-                  Probability: {prediction.probability}%
-                </p>
               </header>
               <p className="description ml-2 text-md font-medium text-black dark:text-white">
                 {getCropDescription(prediction.crop)}
@@ -212,8 +220,8 @@ const ForecastDetails = () => {
 
             <Link
               to={`/crops/${encodeURIComponent(prediction.crop)}`}
-              className=" items-center dark:text-white transition ease-in-out justify-center 
-                hover:text-white px-10 text-center font-medium duration-400 text-primary pb-5"
+              className=" items-center  transition ease-in-out justify-center  
+              hover:text-blue-500  mb-5 text-center font-medium duration-400 text-primary "
             >
               Read More
             </Link>

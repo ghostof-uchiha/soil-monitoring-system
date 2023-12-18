@@ -29,6 +29,7 @@ module.exports = {
       'pink-600': '#D81B60',
       'grad1':'#1CB5E0',
       'grad2':'#000851',
+      'gray-900':'#212121',
       bodydark: '#AEB7C0',
       bodydark1: '#DEE4EE',
       bodydark2: '#8A99AF',

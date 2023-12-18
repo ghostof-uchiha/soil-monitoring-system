@@ -36,7 +36,6 @@ const Machine = () => {
         const data = await fetchData();
         if (data) {
           setPredictedSoilData(data);
-          console.log(data);
         }
       } catch (error) {
         console.error('Error fetching data:', error);

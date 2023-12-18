@@ -4,7 +4,7 @@ export const crops = [
     id: 1,
     name: "Rice",
     image: "https://images.unsplash.com/photo-1614091066096-4c6521fbea3f?auto=format&fit=crop&q=60&w=600&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHJpY2V8ZW58MHx8MHx8fDA%3D",
-    desc: "Rice is a staple food for more than half of the world's population. It is a versatile grain used in various cuisines and provides essential nutrients for a balanced diet.",
+    desc: "Rice, a primary dietary component for over half the global populace, is a versatile and indispensable grain enjoyed across diverse cuisines. Cultivated in varied strains, such as long-grain, medium-grain, and short-grain, rice serves as a substantial source of energy and nutrients. Known for its adaptability, it complements dishes ranging from savory to sweet. Beyond its culinary significance, rice plays a vital role in cultural rituals and traditions worldwide, symbolizing prosperity and sustenance. Rich in carbohydrates and gluten-free, rice continues to be a crucial element in fostering food security and supporting agricultural economies.",
   },
   {
     id: 2,

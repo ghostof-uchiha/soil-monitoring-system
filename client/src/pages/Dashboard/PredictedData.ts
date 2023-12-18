@@ -64,4 +64,14 @@ const convertTimestampToCustomFormat = (utcTimestamp: string | number | Date) =>
   return istDate.toLocaleString('en-US', options);
 };
 
-export { fetchData ,convertUTCtoIST,convertTimestampToCustomFormat};
+const truncateDescription = (text, limit) => {
+  const words = text.split(' ');
+  if (words.length > limit) {
+    return words.slice(0, limit).join(' ') + '...';
+  } else {
+    return text;
+  }
+};
+
+
+export { fetchData ,convertUTCtoIST,convertTimestampToCustomFormat,truncateDescription};
