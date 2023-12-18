@@ -87,6 +87,9 @@ const LoginUser = async (req, res) => {
       if (!existingUser) {
         return res.status(401).json({ message: 'Invalid Id or password' });
       }
+      if (existingUser.googleId) {
+        return res.status(402).json({ message: 'Please Sign in with google' });
+      }
 
 
       bcrypt.compare(password, existingUser.password, function (err, result) {
