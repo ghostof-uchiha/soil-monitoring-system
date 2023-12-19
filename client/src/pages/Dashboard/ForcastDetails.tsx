@@ -158,7 +158,7 @@ const ForecastDetails = () => {
         <h3 className="xl:text-6xl md:text-6xl text-4xl ml-4 font-extrabold text-gradient">
           Predictions
         </h3>
-        <div className="hidden md:flex-col flex-wrap font-medium md:flex justify-center items-center uppercase description mr-4 p-4 rounded-lg dark:text-white border-stroke xl:text-2xl md:text-xl  text-md bg-white shadow-default dark:border-strokedark dark:bg-[#333]">
+        <div className="hidden md:flex-col flex-wrap font-medium md:flex justify-center items-center uppercase description mr-4 p-4 rounded-lg dark:text-white border-stroke xl:text-xl md:text-lg  text-md bg-white shadow-default dark:border-strokedark dark:bg-[#333]">
           <p>{formattedTime}</p>
           <p>{formattedDate}</p>
         </div>

@@ -502,3 +502,7 @@ span.flatpickr-weekday,
   transform: scale(1.01);
 }
 
+
+html, body {
+  scroll-behavior: smooth;
+}

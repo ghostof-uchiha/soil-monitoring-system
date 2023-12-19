@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
 
 interface Sample {
@@ -81,6 +82,7 @@ function calculateAverage(samples: Sample[]): Sample {
 
 const Analyze: React.FC<AnalyzeProps> = ({ samples }) => {
   const [analzing, setAnalzing] = useState(false);
+  const Navigate = useNavigate();
 
   const handleAnalyzeClick = async () => {
     setAnalzing(true);
@@ -106,6 +108,8 @@ const Analyze: React.FC<AnalyzeProps> = ({ samples }) => {
         // Handle the successful response here, if needed
         console.log('Data sent successfully');
         console.log(response.data);
+        console.log(response.data.soilData._id);
+        Navigate(`/ml/${response.data.soilData._id}`);
       } else {
         // Handle errors here
         console.error('Error sending data');
