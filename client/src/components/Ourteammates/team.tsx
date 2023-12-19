@@ -72,9 +72,9 @@ export const Team = () => {
           </div>
           <div className="text-center text-gray-500 dark:text-gray-400">
             <img
-              className="mx-auto mb-4 w-36 h-36 rounded-full"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/helene-engels.png"
-              alt="Helene Avatar"
+              className="mx-auto mb-4 w-36 h-36 object-cover rounded-full"
+              src="https://res.cloudinary.com/dya8zifir/image/upload/v1703013460/IMG_20231126_140422_2_qp5sue.jpg"
+              alt="Jitesh Avatar"
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               <a href="#">Jitesh Ayam</a>
