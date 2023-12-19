@@ -6,12 +6,11 @@ const About = () => {
 
   return (
     <div>
-      <section id="about" className="section-bg">
+      <section id="about" className="section-bg md:pt-10 xl:pt-0">
         <div className="container mx-auto">
-          <div className="section-header">
-            <h3 className="section-title text-4xl font-bold">About Us</h3>
-            <span className="section-divider border-b-2 my-2"></span>
-            <p className="section-description">
+          <div className="section-header w-full flex justify-center flex-col items-center gap-6 ">
+            <h3 className="text-[#64748b] xl:text-6xl md:text-5xl text-4xl  font-extrabold font-satoshi ">About Us</h3>
+            <p className="section-description md:w-3/4 lg:w-1/2 flex mb-6">
             Agro API transforms agriculture with data-driven insights, predictive analytics, and enhanced crop predictions. Empowering farmers for sustainable and informed decisions.
             </p>
           </div>

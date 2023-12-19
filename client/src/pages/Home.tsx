@@ -134,7 +134,7 @@ const Home = () => {
           </ol>
         </nav>
 
-        <header  className="relative flex  pb-4 sm:pt-32 sm:pb-6 lg:pb-4 px-4 bg-blue-100 w-full md:pb-4 lg:px-16 lg:pt-48 xl:pt-20 xl:pb-6 xl:h-screen md:px-8 xl:px-24">
+        <header  className="relative flex  pb-4 sm:pt-32 sm:pb-6 lg:pb-4 px-4 bg-blue-100 w-full md:pb-4 lg:px-16 lg:pt-48 xl:pt-20 xl:pb- xl:h-screen md:px-8 xl:px-24">
           <div className="text-center md:text-left md:w-1/2 z-10 xxl:max-w-2xl">
             <h1 className="xl:text-6xl md:text-4xl font-bold mb-8">
               Welcome To AGRO-API
