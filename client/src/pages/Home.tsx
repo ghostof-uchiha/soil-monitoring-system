@@ -8,7 +8,6 @@ import '../styles/index.css';
 import '../styles/background.css';
 import logo from '../images/logo/logo.png';
 import logoname from '../images/logo/logo-name.png';
-// import '../js/background.js';
 
 const Home = () => {
   // const storedToken = localStorage.getItem('token');
@@ -23,7 +22,7 @@ const Home = () => {
 
   return (
     <>
-      <div id='home-bg' className="antialiased font-sans h-screen pt-8 bg-white">
+      <div id='home-bg' className="antialiased font-sans h-screen pt-8 bg-white overflow-scroll -ms-overflow-style-none list">
         <nav className="flex justify-between z-10 relative   mx-28 " aria-label="Breadcrumb">
           <div className="mb-2 sm:mb-0 flex flex-row">
             <div className="h-10 w-full self-center mb-4 relative">

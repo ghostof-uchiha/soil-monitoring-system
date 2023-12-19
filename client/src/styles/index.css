@@ -513,3 +513,8 @@ html, body {
 /* #home-bg:hover {
   background: 0px 0px 120px -55px rgba(19, 160, 134, 0.6);
 } */
+
+.list::-webkit-scrollbar { 
+  width: 0 !important;
+  display: none; 
+}
