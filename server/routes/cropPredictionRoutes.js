@@ -61,7 +61,7 @@ router.post('/soil-data/:userId', validateApiKey, requireAuth, async (req, res) 
     await soilData.save();
 
     // Send a success response
-    res.status(200).json({ message: 'Soil data stored successfully!', responseData });
+    res.status(200).json({ message: 'Soil data stored successfully!', soilData  });
   } catch (error) {
     // Handle errors
     console.error('Error making request:', error);

@@ -1,45 +1,41 @@
-import { BestRecipes } from '../components/ourBestRecipes/BestRecipes';
 import { Contact } from '../components/contact/Contact';
 import { Team } from '../components/Ourteammates/team';
-import { Link } from 'react-scroll';
 import DarkModeSwitcher from '../components/DarkModeSwitcher';
-// import '../styles/background.css';
+import About from '../components/about';
+import { Blog } from '../components/blog/Blog';
+import Process from '../components/process';
+
+import '../styles/index.css';
+import '../styles/background.css';
+import logo from '../images/logo/logo.png';
+import logoname from '../images/logo/logo-name.png';
 // import '../js/background.js';
 
 const Home = () => {
   // const storedToken = localStorage.getItem('token');
   const token = localStorage.getItem('userdata');
 
+  const handleClickAbout = () => {
+    setTimeout(() => {
+      const element = document.getElementById('about');
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }, 0);
+  };
+
   return (
     <>
-      <section id="background">
-        <div id="blob"></div>
-        <div id="blur"></div>
-      </section>
       <div className="antialiased font-sans h-screen pt-8 ">
         <nav className="flex justify-between  mx-28 " aria-label="Breadcrumb">
           <div className="mb-2 sm:mb-0 flex flex-row">
-            <div className="h-10 w-10 self-center mb-4">
-              <img
-                className="h-10 w-16 self-center"
-                src="https://bytewebster.com/img/logo.png"
-              />
-            </div>
-            <div>
-              <a
-                href="/ml"
-                className="text-3xl no-underline text-[#1976D2] font-sans font-bold"
-              >
-                Agro -<span className="text-[#2E7D32]">API</span>
-              </a>
-              <br />
-              <span className="text-xs text-grey-dark">
-                Grow your farming with agro!
-              </span>
+            <div className="h-10 w-full self-center mb-4 relative">
+              <div className='flex'>
+                <img className="w-18  self-center" src={logo} />
+                <img className="w-40  self-center" src={logoname} />
+              </div>
             </div>
           </div>
           <ol className="inline-flex text-lg items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-            <DarkModeSwitcher />
+            
             {token ? (
               <li className="inline-flex items-center">
                 <a
@@ -129,106 +125,19 @@ const Home = () => {
             )}
             <li aria-current="page">
               <div className="flex items-center">
-                <span className="ms-1 font-medium text-gray-500 md:ms-2 dark:text-gray-400">
-                  <Link to="#about" smooth={true} duration={500}>
+                <button onClick={handleClickAbout}>
+                  <span className="ms-1 font-medium text-gray-500 md:ms-2 dark:text-gray-400">
                     About
-                  </Link>
-                </span>
+                  </span>
+                </button>
               </div>
             </li>
           </ol>
         </nav>
-        {/* <nav
-          className="bg-transparent py-4 px-4 lg:px-16 xl:py-8  top-0 z-50 w-full md:px-8 xl:px-24 xxl:px-40"
-          id="navbar"
-        >
-          <div className="flex items-center justify-between flex-wrap relative">
-            <div className="mb-2 sm:mb-0 flex flex-row">
-              <div className="h-10 w-10 self-center mb-4">
-                <img
-                  className="h-10 w-16 self-center"
-                  src="https://bytewebster.com/img/logo.png"
-                />
-              </div>
-              <div>
-                <a
-                  href="https://bytewebster.com/"
-                  className="text-3xl no-underline text-blue-700 font-sans font-bold"
-                >
-                  Agro -<span className="text-green-800">API</span>
-                </a>
-                <br />
-                <span className="text-xs text-grey-dark">
-                  Grow your farming with agro!
-                </span>
-              </div>
-            </div>
 
-            <div className="w-1/2 text-right sm:hidden">
-              <button type="button" className="navbar-toggler">
-                <span className="navbar-toggler-bar"></span>
-                <span className="navbar-toggler-bar"></span>
-                <span className="navbar-toggler-bar"></span>
-              </button>
-            </div>
-
-            <div className="w-full navigation-menu  custom md:w-3/4 relative">
-              <div className="flex flex-col md:flex-row pt-8 pb-2 md:pt-0 md:pb-0 md:ml-auto md:items-center relative">
-                <a
-                  href="#"
-                  className="block mt-4 font-semibold max-w-3xl  md:ml-6 lg:inline hover:text-gray-600 md:mt-0"
-                >
-                  About Us
-                </a>
-                <a
-                  href="#"
-                  className="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0 menu_item"
-                >
-                  Agro-special
-                </a>
-                <a
-                  href="#"
-                  className="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0"
-                >
-                  Know more
-                </a>
-                <a
-                  href="#"
-                  className="block mt-3 font-semibold md:ml-6 hover:text-gray-600 md:mt-0"
-                >
-                  Services
-                </a>
-                {token ? (
-                  <a
-                    href="/ml"
-                    className="block mt-3 sm:flex  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold md:ml-6 md:mt-0 bg-green-home"
-                  >
-                    Dashboard
-                  </a>
-                ) : (
-                  <>
-                    <a
-                      href="/auth/signin"
-                      className="block mt-3 hover:bg-blue-700 py-2 rounded text-gray-600 font-semibold md:ml-6 md:mt-0"
-                    >
-                      Sign - In
-                    </a>
-                    <a
-                      href="/auth/signup"
-                      className="block mt-3  hover:bg-blue-700 px-4 py-2 rounded-full text-white font-semibold  md:mt-0 bg-green-home"
-                    >
-                      Sign - Up
-                    </a>
-                  </>
-                )}
-              </div>
-            </div>
-          </div>
-        </nav> */}
-
-        <header className="relative flex  pb-48 sm:pt-32 sm:pb-64 lg:pb-48 px-4 bg-blue-100 w-full md:pb-40 lg:px-16 lg:pt-48 xl:pt-20 xl:pb-64 xl:h-screen md:px-8 xl:px-24 xxl:px-40">
+        <header className="relative flex  pb-4 sm:pt-32 sm:pb-6 lg:pb-4 px-4 bg-blue-100 w-full md:pb-4 lg:px-16 lg:pt-48 xl:pt-20 xl:pb-6 xl:h-screen md:px-8 xl:px-24 xxl:px-40">
           <div className="text-center md:text-left md:w-1/2 z-10 xxl:max-w-2xl">
-            <h1 className="text-3xl xl:text-5xl text-gray-900 font-bold leading-tight">
+            <h1 className="xl:text-6xl md:text-4xl font-bold mb-8">
               Welcome To AGRO-API
             </h1>
             <p className="text-base xl:text-xl text-gray-500 mt-4">
@@ -236,7 +145,7 @@ const Home = () => {
               Fingertips
             </p>
 
-            <p className="text-sm xl:text-base  mt-8">
+            <p className="text-xs xl:text-xl text-gray-500 mt-2">
               Our Projects focus on - Empowering Farmers, Nourishing the World:
               Cultivating Innovation from the Ground Up
             </p>
@@ -245,7 +154,7 @@ const Home = () => {
             </button>
           </div>
 
-          <div className="w-full absolute bottom-25 right-0">
+          <div className="w-full absolute bottom-0 right-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               xlinkHref="http://www.w3.org/1999/xlink"
@@ -1262,15 +1171,10 @@ const Home = () => {
           </div>
         </header>
 
-        <div>
-          <h1
-            id="about"
-            className="text-4xl flex justify-center font-extrabold"
-          >
-            About us
-          </h1>
-        </div>
+        <About />
         <Contact />
+        <Process />
+        <Blog />
         <Team />
       </div>
     </>

@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import Logo from '../images/logo/logo.svg';
 import testlogo from '../images/logo/test.png';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import crop from '../images/logo/crop2.png';
+
+import logo from '../images/logo/logo.png';
+import logoname from '../images/logo/logo-name.png';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -67,7 +69,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
         <NavLink to="/">
-          <img src={Logo} alt="Logo" />
+          <div className='flex items-center gap-4'>
+            <img className="w-20" src={logo} alt="Logo" />
+            <img className="w-30" src={logoname} alt="Logo" />
+          </div>
         </NavLink>
 
         <button
@@ -96,7 +101,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
         {/* <!-- Sidebar Menu --> */}
-        <nav className="mt-5 py-4 px-4 lg:mt-9 lg:px-6">
+        <nav className=" py-4 px-4  lg:px-6">
           {/* <!-- Menu Group --> */}
           <div>
             <h3 className="mb-4 ml-4 text-sm font-semibold text-bodydark2">
@@ -246,7 +251,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             : setSidebarExpanded(true);
                         }}
                       > */}
-                        {/* <svg
+                      {/* <svg
                           className="fill-current"
                           width="18"
                           height="18"
@@ -275,8 +280,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             fill="white"
                           />
                         </svg> */}
-                        {/* Forms */}
-                        {/* <svg
+                      {/* Forms */}
+                      {/* <svg
                           className={`absolute right-4 top-1/2 -translate-y-1/2 fill-current ${
                             open && 'rotate-180'
                           }`}
