@@ -19,6 +19,7 @@ const About = () => {
           <div className="flex flex-col lg:flex-row items-start lg:justify-around">
             <div className="lg:w-6/12 " data-aos="fade-right">
               <img
+              id="tomb"
                 src="https://images.unsplash.com/photo-1597916829826-02e5bb4a54e0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt=""
                 className="w-[500px] h-[500px] object-cover rounded-full xl:ml-45"

@@ -1,6 +1,5 @@
 import { Contact } from '../components/contact/Contact';
 import { Team } from '../components/Ourteammates/team';
-import DarkModeSwitcher from '../components/DarkModeSwitcher';
 import About from '../components/about';
 import { Blog } from '../components/blog/Blog';
 import Process from '../components/process';
@@ -24,11 +23,11 @@ const Home = () => {
 
   return (
     <>
-      <div className="antialiased font-sans h-screen pt-8 ">
-        <nav className="flex justify-between  mx-28 " aria-label="Breadcrumb">
+      <div id='home-bg' className="antialiased font-sans h-screen pt-8 bg-white">
+        <nav className="flex justify-between z-10 relative   mx-28 " aria-label="Breadcrumb">
           <div className="mb-2 sm:mb-0 flex flex-row">
             <div className="h-10 w-full self-center mb-4 relative">
-              <div className='flex'>
+              <div className='flex '>
                 <img className="w-18  self-center" src={logo} />
                 <img className="w-40  self-center" src={logoname} />
               </div>
@@ -135,7 +134,7 @@ const Home = () => {
           </ol>
         </nav>
 
-        <header className="relative flex  pb-4 sm:pt-32 sm:pb-6 lg:pb-4 px-4 bg-blue-100 w-full md:pb-4 lg:px-16 lg:pt-48 xl:pt-20 xl:pb-6 xl:h-screen md:px-8 xl:px-24 xxl:px-40">
+        <header  className="relative flex  pb-4 sm:pt-32 sm:pb-6 lg:pb-4 px-4 bg-blue-100 w-full md:pb-4 lg:px-16 lg:pt-48 xl:pt-20 xl:pb-6 xl:h-screen md:px-8 xl:px-24">
           <div className="text-center md:text-left md:w-1/2 z-10 xxl:max-w-2xl">
             <h1 className="xl:text-6xl md:text-4xl font-bold mb-8">
               Welcome To AGRO-API
@@ -154,7 +153,7 @@ const Home = () => {
             </button>
           </div>
 
-          <div className="w-full absolute bottom-0 right-0">
+          <div className="w-full absolute lg:bottom-0 xl:bottom-22 bottom-0 right-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               xlinkHref="http://www.w3.org/1999/xlink"

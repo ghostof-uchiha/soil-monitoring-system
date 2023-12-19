@@ -126,8 +126,8 @@ export const Team = () => {
           <div className="text-center text-gray-500 dark:text-gray-400">
             <img
               className="mx-auto mb-4 w-36 h-36 rounded-full"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-              alt="Jese Avatar"
+              src="https://res.cloudinary.com/dya8zifir/image/upload/v1703012672/ashu_xikc7d.png"
+              alt="Ashutosh Avatar"
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               <a href="#">Ashutosh</a>
@@ -178,9 +178,9 @@ export const Team = () => {
           </div>
           <div className="text-center text-gray-500 dark:text-gray-400">
             <img
-              className="mx-auto mb-4 w-36 h-36 rounded-full"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
-              alt="Joseph Avatar"
+              className="mx-auto mb-4 w-36 h-36 rounded-full object-cover"
+              src="https://res.cloudinary.com/dya8zifir/image/upload/v1703012278/Amithesh.png"
+              alt="Amithesh Avatar"
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               <a href="#">Amitesh Keshri</a>

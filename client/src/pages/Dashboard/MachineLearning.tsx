@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import Breadcrumb from '../../components/Breadcrumb';
 import {
   fetchData,
-  convertUTCtoIST,
-  convertTimestampToCustomFormat,
+  formatToDateTimeString,
+  formatToDayMonthString,
 } from './PredictedData';
 import { crops } from '../../utils/crops';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -22,10 +22,8 @@ interface PredictedSoilData {
 }
 
 const Machine = () => {
-  const itemsPerPage = 5; // Adjust the number of items per page as needed
-  const [predictedSoilData, setPredictedSoilData] = useState<
-    PredictedSoilData[]
-  >([]);
+  const itemsPerPage = 5;
+  const [predictedSoilData, setPredictedSoilData] = useState<PredictedSoilData[]>([]);
   const [loading, setLoading] = useState(true);
   const [dateFilter, setDateFilter] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -47,9 +45,7 @@ const Machine = () => {
     fetchDataAndSetState();
   }, []);
 
-  const handleDateFilterChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
+  const handleDateFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedDate = event.target.value;
     setDateFilter(selectedDate);
     setCurrentPage(1); // Reset to the first page when changing the date filter
@@ -58,6 +54,20 @@ const Machine = () => {
   const clearDateFilter = () => {
     setDateFilter(null);
     setCurrentPage(1); // Reset to the first page when clearing the date filter
+  };
+
+  const filterByDate = (data: PredictedSoilData, selectedDate: string | null) => {
+    if (!selectedDate) {
+      return true; // No date filter applied
+    }
+
+    const istDate = new Date(data.timestamp);
+    istDate.setHours(istDate.getHours() ); // Adjust for IST
+
+    const filterDateUTC = new Date(`${selectedDate}T00:00:00Z`);
+    filterDateUTC.setHours(filterDateUTC.getHours()); // Adjust for UTC
+
+    return istDate.toISOString().slice(0, 10) === filterDateUTC.toISOString().slice(0, 10);
   };
 
   const getCropWithHighestProbability = (predictions: CropPrediction[]) => {
@@ -74,32 +84,11 @@ const Machine = () => {
     return crop ? crop.image : '';
   };
 
-  // Apply date filtering
-  const filteredPredictedSoilData = dateFilter
-    ? predictedSoilData.filter((data) => {
-        const istDate = new Date(data.timestamp);
-        istDate.setHours(istDate.getHours() + 5, istDate.getMinutes() + 30); // Adjust for IST
+  const filteredPredictedSoilData = predictedSoilData.filter((data) => filterByDate(data, dateFilter));
 
-        const filterDateUTC = new Date(`${dateFilter}T00:00:00Z`);
-        filterDateUTC.setHours(
-          filterDateUTC.getHours() - 5,
-          filterDateUTC.getMinutes() - 30,
-        ); // Adjust for UTC
-
-        return (
-          istDate.toISOString().slice(0, 10) ===
-          filterDateUTC.toISOString().slice(0, 10)
-        );
-      })
-    : predictedSoilData;
-
-  // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredPredictedSoilData.slice(
-    indexOfFirstItem,
-    indexOfLastItem,
-  );
+  const currentItems = filteredPredictedSoilData.slice(indexOfFirstItem, indexOfLastItem);
 
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -112,7 +101,6 @@ const Machine = () => {
       {loading && <p>Loading...</p>}
 
       <section className="flex gap-3 flex-col items-end">
-        {/* Date filter UI elements */}
         <div className="flex items-center mb-3">
           <label className="mr-2">Filter by Date:</label>
           <div className="relative">
@@ -130,45 +118,43 @@ const Machine = () => {
         {currentItems.map((data, index) => (
           <article
             key={index}
-            className=" w-full overflow-hidden rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark transition duration-300 ease-in-out transform zoom111"
+            className="w-full overflow-hidden rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark transition duration-300 ease-in-out transform zoom111"
           >
             <Link to={`/ml/${data._id}`}>
               <div className="flex justify-between items-center p-4">
                 <div>
-                  <p className="text-black dark:text-white font-bold">
-                    Date: {convertUTCtoIST(new Date(data.timestamp))}
+                  <p className="text-black flex dark:text-white font-bold ">
+                    Date: <p className='text-black flex dark:text-white font-bold uppercase'>{formatToDateTimeString(new Date(data.timestamp))}</p>
                   </p>
-                  <p className="text-black dark:text-white  font-bold">
-                    Date:{' '}
-                    {convertTimestampToCustomFormat(new Date(data.timestamp))}
+                  <p className="text-black capitalize dark:text-white font-bold">
+                    Day:{' '}
+                    {formatToDayMonthString(new Date(data.timestamp))}
                   </p>
-                  </div>
-                  <div
-                    className="w-16 h-16 overflow-hidden rounded-lg relative"
-                    style={{
-                      backgroundImage: `url(${getCropImage(
-                        getCropWithHighestProbability(data.predictions),
-                      )})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                    }}
-                  >
-                    <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-black opacity-50"></div>
-                    <img
-                      src={getCropImage(
-                        getCropWithHighestProbability(data.predictions),
-                      )}
-                      alt="Crop"
-                      className="w-full h-full object-cover transition duration-300 ease-in-out transform hover:scale-105"
-                    />
-                  </div>
-                
+                </div>
+                <div
+                  className="w-16 h-16 overflow-hidden rounded-lg relative"
+                  style={{
+                    backgroundImage: `url(${getCropImage(
+                      getCropWithHighestProbability(data.predictions),
+                    )})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                >
+                  <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-black opacity-50"></div>
+                  <img
+                    src={getCropImage(
+                      getCropWithHighestProbability(data.predictions),
+                    )}
+                    alt="Crop"
+                    className="w-full h-full object-cover transition duration-300 ease-in-out transform hover:scale-105"
+                  />
+                </div>
               </div>
             </Link>
           </article>
         ))}
 
-        {/* Pagination */}
         <div className="flex justify-end mt-4">
           <ul className="flex">
             {Array(Math.ceil(filteredPredictedSoilData.length / itemsPerPage))

@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { fetchData, convertUTCtoIST, truncateDescription } from './PredictedData';
+import {
+  truncateDescription,
+  formatToDayMonthString,
+  formatToDateTimeString,
+} from './PredictedData';
 import { soilData } from './PredictedDataInterfaceFile';
 import Breadcrumb from '../../components/Breadcrumb';
 import DeleteConfirmationModal from '../../components/DeleteConfirmationModal';
@@ -141,15 +145,6 @@ const ForecastDetails = () => {
     return istDate;
   };
 
-  const timestampDate = convertUTCtoIST(soilData.timestamp);
-
-  const formattedDate = timestampDate.toLocaleDateString(
-    undefined,
-  ) as unknown as string;
-  const formattedTime = timestampDate.toLocaleTimeString(
-    undefined,
-  ) as unknown as string;
-
   return (
     <div>
       <Breadcrumb pageName="Forecast Details" />
@@ -158,9 +153,9 @@ const ForecastDetails = () => {
         <h3 className="xl:text-6xl md:text-6xl text-4xl ml-4 font-extrabold text-gradient">
           Predictions
         </h3>
-        <div className="hidden md:flex-col flex-wrap font-medium md:flex justify-center items-center uppercase description mr-4 p-4 rounded-lg dark:text-white border-stroke xl:text-xl md:text-lg  text-md bg-white shadow-default dark:border-strokedark dark:bg-[#333]">
-          <p>{formattedTime}</p>
-          <p>{formattedDate}</p>
+        <div className="hidden md:flex-col flex-wrap font-medium md:flex justify-center items-center uppercase description mr-4 p-4 rounded-lg dark:text-white border-stroke xl:text-md md:text-md  text-md bg-white shadow-default dark:border-strokedark dark:bg-[#333]">
+          <p>{formatToDayMonthString(new Date(soilData.timestamp))}</p>
+          <p>{formatToDateTimeString(new Date(soilData.timestamp))}</p>
         </div>
       </div>
 
@@ -209,7 +204,7 @@ const ForecastDetails = () => {
                 className="box-image rounded-lg "
               />
               <header className="flex items-center justify-between leading-tight md:p-2">
-                <h1 className="text-black underline  underline-offset-8 dark:text-white font-bold text-title-md capitalize">
+                <h1 className="text-black dark:text-white font-bold text-title-md capitalize">
                   {prediction.crop}
                 </h1>
               </header>
@@ -237,7 +232,10 @@ const ForecastDetails = () => {
           <SoilBarGraph sample={transformedSoilSample} />
         </div>
       </div>
-      <button onClick={() => setIsDeleteModalOpen(true)}>
+      <button
+        className="px-3 py-1 text-base hover:text-white hover:border-danger rounded-md text-danger"
+        onClick={() => setIsDeleteModalOpen(true)}
+      >
         Delete Forecast
       </button>
 

@@ -8,7 +8,7 @@ const Process = () => {
 
         <div className="flex flex-wrap justify-center gap-12">
           {/* Data Collection Card */}
-          <div className="max-w-lg bg-white p-8 rounded-xl  transition-transform transform hover:scale-105 shadow-2xl hover:shadow-color-green-500 duration-500">
+          <div id="tomb" className="max-w-lg  bg-white p-8 rounded-xl  transition-transform transform hover:scale-105 shadow-2xl hover:shadow-color-green-500 duration-500">
             <div className="text-4xl mb-6">Smart Data Collection</div>
             <i className="fas fa-database text-6xl text-blue-500 mb-6"></i>
             <p className="text-gray-700">
@@ -17,7 +17,7 @@ const Process = () => {
           </div>
 
           {/* Intelligent Analysis Card */}
-          <div className="max-w-lg bg-white p-8 rounded-xl  transition-transform transform hover:scale-105 shadow-2xl hover:shadow-color-green duration-500">
+          <div id="tomb"  className="max-w-lg bg-white p-8 rounded-xl  transition-transform transform hover:scale-105 shadow-2xl hover:shadow-color-green duration-500">
             <div className="text-4xl mb-6">Intelligent Data Analysis</div>
             <i className="fas fa-brain text-6xl text-green-500 mb-6"></i>
             <p className="text-gray-700">
@@ -26,7 +26,7 @@ const Process = () => {
           </div>
 
           {/* Predictive Crop Modeling Card */}
-          <div className="max-w-lg bg-white p-8 rounded-xl  transition-transform transform hover:scale-105 shadow-2xl hover:shadow-color-green duration-500">
+          <div id="tomb" className="max-w-lg bg-white p-8 rounded-xl  transition-transform transform hover:scale-105 shadow-2xl hover:shadow-color-green duration-500">
             <div className="text-4xl mb-6">Predictive Crop Modeling</div>
             <i className="fas fa-chart-line text-6xl text-purple-500 mb-6"></i>
             <p className="text-gray-700">
@@ -35,7 +35,7 @@ const Process = () => {
           </div>
 
           {/* Fertilizer Recommendations Card */}
-          <div className="max-w-lg bg-white p-8 rounded-xl  transition-transform transform hover:scale-105 shadow-2xl hover:shadow-color-green-500 duration-500">
+          <div id="tomb"  className="max-w-lg bg-white p-8 rounded-xl  transition-transform transform hover:scale-105 shadow-2xl hover:shadow-color-green-500 duration-500">
             <div className="text-4xl mb-6">Tailored Fertilizer Recommendations</div>
             <i className="fas fa-flask text-6xl text-orange-500 mb-6"></i>
             <p className="text-gray-700">

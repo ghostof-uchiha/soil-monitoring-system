@@ -15,6 +15,8 @@ const fetchData = async () => {
     if (response.status === 200) {
       const responseData = await response.json();
       console.log('Data fetched successfully:');
+      console.log(responseData);
+      
       return responseData.predictedSoilData;
     } else {
       // Handle errors here
@@ -29,21 +31,32 @@ const fetchData = async () => {
 };
 
 
-const convertUTCtoIST = (utcTimestamp: string | number | Date) => {
-  const utcDate = new Date(utcTimestamp);
 
-  // Adjust for IST (UTC + 5 hours 30 minutes)
-  const istDate = new Date(utcDate.getTime() + 5.5 * 60 * 60 * 1000);
 
-  // Format the date and time as per your requirement
-  const formattedDate = istDate.toLocaleDateString(); // Adjust options as needed
-  const formattedTime = istDate.toLocaleTimeString(); // Adjust options as needed
+function formatToDateTimeString(dateString: string | number | Date) {
+  const date = new Date(dateString);
+  const options = {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  };
+  const formattedDate = new Intl.DateTimeFormat('en-IN', options).format(date);
+  return formattedDate;
+}
+function formatToDayOfWeekString(dateString: string | number | Date) {
+  const date = new Date(dateString);
+  const options = {
+    weekday: 'long',
+  };
+  const dayOfWeek = new Intl.DateTimeFormat('en-IN', options).format(date);
+  return dayOfWeek;
+}
 
-  return `${formattedDate} ${formattedTime}`;
-};
 
 const convertTimestampToCustomFormat = (utcTimestamp: string | number | Date) => {
-  console.log(utcTimestamp);
   
   const utcDate = new Date(utcTimestamp);
 
@@ -73,5 +86,15 @@ const truncateDescription = (text, limit) => {
   }
 };
 
+function formatToDayMonthString(dateString: string | number | Date) {
+  const date = new Date(dateString);
+  const options = {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  };
+  const formattedDate = new Intl.DateTimeFormat('en-IN', options).format(date);
+  return formattedDate;
+}
 
-export { fetchData ,convertUTCtoIST,convertTimestampToCustomFormat,truncateDescription};
+export { fetchData,formatToDateTimeString,formatToDayMonthString ,convertTimestampToCustomFormat,truncateDescription};
