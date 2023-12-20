@@ -22,9 +22,8 @@
 }
 
 .middleBlog h2 {
-  color: rgb(3, 3, 82);
-  line-height: 2rem;
- 
+ font-size: 1.5rem;
+ color: #64748b;
   width: 85%;
   
 }

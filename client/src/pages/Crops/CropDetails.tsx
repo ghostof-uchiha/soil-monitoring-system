@@ -1,34 +1,233 @@
-// CropDetails.tsx
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { crops } from '../../utils/crops';
 import Crophead from '../../components/Crophead';
-
-
+import '../../styles/cropcard.css';
 
 const CropDetails: React.FC = () => {
-  const { cropName = '' } = useParams<{ cropName?: string }>(); // Provide a default empty string for cropName
+  const { cropName = '' } = useParams<{ cropName?: string }>();
   const normalizedCropName = cropName.toLowerCase();
-  const crop = crops.find((crop) => crop.name.toLowerCase() === normalizedCropName);
+  const crop = crops.find(
+    (crop) => crop.name.toLowerCase() === normalizedCropName,
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   if (!crop) {
     return <div>Crop not found</div>;
   }
 
   return (
     <div>
-      <Crophead pageName={crop.name}/>
-      <div className='overflow-hidden rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark'>
-        <div className="">
-        <img src={crop.image} alt={crop.name} className='w-full h-65 object-cover box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'/>
-
+      <Crophead pageName={crop.name} />
+      <div
+        className="overflow-hidden rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark
+          text-boxdark-2 dark:text-white"
+      >
+        <div className="md:flex-row flex items-center w-full px-16 pt-10 justify-around gap-10 sm:flex-col">
+          <img
+            src={crop.image}
+            alt={crop.name}
+            id="tomb"
+            className="h-90 md:h-96 rounded-lg object-cover md:w-1/2 sm:w-full hover:scale-105 transition-scale duration-300 "
+          />
+          <div className="md:w-1/2 flex flex-col gap-2 sm:w-full">
+            <h2 className="lg:text-6xl font-extrabold text-4xl text-boxdark-2 font-satoshi dark:text-white dynamic-text-shadow">
+              {crop.name}
+            </h2>
+            <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+              {crop.desc}
+            </p>
+          </div>
         </div>
-        <article className='py-8 px-16 text-justify'>
-          {crop.name} Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ea dignissimos maiores laborum temporibus voluptatum iste sequi eaque libero dicta numquam delectus dolorum, facilis dolores optio! Obcaecati voluptatum molestias sunt repudiandae quae autem expedita sequi saepe, quod ullam mollitia cumque, rem eum quia laborum. Unde, harum et? Voluptatum repellendus dolore, fugiat illum inventore quisquam nemo maiores. Suscipit illo repellendus ipsam incidunt sint quae, nulla voluptatibus modi enim mollitia quam provident ipsum culpa eum assumenda, ut reprehenderit facere, totam sed optio corrupti harum necessitatibus. Id qui, corrupti amet pariatur voluptatem quo saepe debitis nostrum ea sed consectetur quis. Repudiandae provident quisquam, dolores facere fugiat, cumque tempore alias nemo non cupiditate, nesciunt dolore in deserunt rerum eaque. Nostrum quisquam amet recusandae soluta unde a. Saepe provident laboriosam sint, magni harum aliquid, veniam eligendi tempore sunt, obcaecati deleniti similique consequuntur beatae asperiores consequatur totam reprehenderit. Rerum esse sit culpa quia accusamus, hic, obcaecati tempora natus deserunt voluptas magni commodi ipsa qui similique consequatur incidunt suscipit fugiat! Soluta repellat pariatur, sapiente labore accusantium dolores illo ex similique perferendis itaque, modi sed quam repellendus voluptates, tempore quis fugit delectus ipsum veniam libero harum beatae voluptatum? Perspiciatis ducimus animi sunt labore consequuntur laudantium laborum a earum possimus est natus consectetur, non itaque eveniet magnam numquam! Expedita, odit ipsam temporibus minima, debitis doloremque, tempora quasi quidem dolores provident culpa eum delectus pariatur cumque. Quos at rem dolore, accusantium eveniet excepturi vitae commodi! Odio dicta sint aut cum autem provident nobis asperiores quis! Est error quis ut dolores officia ullam reiciendis deleniti repellat unde necessitatibus libero odio, omnis explicabo eaque repellendus voluptatum sit quibusdam tenetur consequatur quod, minima nesciunt ad iusto iste. Modi harum possimus maxime et voluptatibus illo corrupti! Voluptatum ipsam voluptates velit adipisci soluta temporibus, unde suscipit, nulla eveniet qui pariatur consequatur distinctio. Accusamus magni explicabo mollitia! Aspernatur illum id commodi doloremque facere minus assumenda beatae eligendi fugiat quisquam laudantium consequatur sit corporis quod ab amet quos iusto, aperiam ex! Asperiores fuga consequatur totam delectus blanditiis reprehenderit voluptas explicabo doloribus natus culpa sit, in laborum obcaecati maiores, ea, pariatur id! Asperiores doloremque ducimus quia a. Illum eos ratione asperiores, repellendus praesentium neque at rerum doloremque aperiam qui earum nostrum architecto nisi perspiciatis. Nulla nam nobis labore accusantium quisquam sunt vero dicta, amet aliquid iusto earum corrupti quos eligendi autem omnis quibusdam quod nesciunt perspiciatis in delectus ea sed impedit explicabo. Optio consequuntur totam doloribus sint natus quod veritatis fugit quae tempora odio nihil eos, cumque, atque tenetur porro? Officiis, impedit ut. At voluptatibus beatae voluptas ipsa numquam in fuga reprehenderit animi nulla! Numquam obcaecati, ipsam ipsum eaque asperiores in minima possimus error blanditiis repellat. Nulla fugiat aliquam eligendi harum, voluptatibus earum mollitia quod hic est assumenda iste laborum asperiores quo aut maxime possimus vero similique nobis ipsum? Veritatis reiciendis illo quis voluptates sunt odio, minus voluptate omnis recusandae repudiandae saepe eveniet inventore, excepturi soluta eaque expedita maxime amet cumque officiis officia velit porro. Veritatis, ad, possimus nostrum dolore explicabo magni commodi necessitatibus veniam harum deserunt atque.
+        <article className="p-6 md:p-16 text-justify">
+          {/* Cultivation Section */}
+          <section className="my-8">
+            <h2 className="text-2xl md:text-4xl font-medium mb-4 text-boxdark-2 font-satoshi dark:text-white">
+              Cultivation
+            </h2>
+            <img
+              src={crop.cultivation.image}
+              alt="Cultivation"
+              className="w-full h-40 object-cover mb-4 rounded-md"
+            />
+            <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+              {crop.cultivation.methods}
+            </p>
+            <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+              {crop.cultivation.fertilizers}
+            </p>
+            <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+              {crop.cultivation.challenges}
+            </p>
+          </section>
+
+          {/* Nutrition Section */}
+          <section className="my-8 ">
+            <h2 className="text-2xl md:text-4xl font-medium mb-4 text-boxdark-2 font-satoshi dark:text-white">
+              Nutrition
+            </h2>
+            <img
+              src={crop.nutrition.image}
+              alt="Nutrition"
+              className="w-full h-40 object-cover mb-4 rounded-md"
+            />
+            <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+              {crop.nutrition.content}
+            </p>
+            <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+              {crop.nutrition.health_benefits}
+            </p>
+            <table className="w-full my-4">
+              <thead>
+                <tr>
+                  {Object.keys(crop.nutrition.table).map((key) => (
+                    <th
+                      key={key}
+                      className="text-boxdark-2 font-satoshi dark:text-white capitalize"
+                    >
+                      {key.replace(/_/g, ' ')}{' '}
+                      {/* Replace underscores with spaces */}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  {Object.values(crop.nutrition.table).map((value, index) => (
+                    <td
+                      key={index}
+                      className="text-boxdark-2 font-satoshi dark:text-white"
+                    >
+                      {value}
+                    </td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          {/* Production Section */}
+          <section className="my-8">
+            <h2 className="text-2xl md:text-4xl font-medium mb-4 text-boxdark-2 font-satoshi dark:text-white">
+              Production
+            </h2>
+            <img
+              src={crop.production.image}
+              alt="Production"
+              className="w-full h-40 object-cover mb-4 rounded-md"
+            />
+            <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+              {crop.production.global_statistics}
+            </p>
+            <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+              {crop.production.environmental_impact}
+            </p>
+          </section>
+
+          {/* Varieties Section */}
+          <section className="my-8">
+            <h2 className="text-2xl md:text-4xl font-medium mb-4 text-boxdark-2 font-satoshi dark:text-white">
+              Varieties
+            </h2>
+            <img
+              src={crop.varieties.image}
+              alt="Varieties"
+              className="w-full h-40 object-cover mb-4 rounded-md"
+            />
+            <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+              {crop.varieties.types}
+            </p>
+          </section>
+
+          {/* Economy Section */}
+          <section className="my-8 flex gap-4 w-full justify-center items-center">
+            <div className="w-full md:w-1/2">
+              <h2 className="text-2xl md:text-4xl font-medium mb-4 text-boxdark-2 font-satoshi dark:text-white">
+                Economy
+              </h2>
+              <img
+                src={crop.economy.image}
+                alt="Economy"
+                className="w-full  object-cover mb-4 rounded-md"
+              />
+            </div>
+            <div className="md:w-1/2 ">
+              <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+                {crop.economy.economic_significance}
+              </p>
+              <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+                {crop.economy.technology_innovation}
+              </p>
+            </div>
+          </section>
+
+          {/* Culinary Uses Section */}
+          <section className="my-8 grid grid-cols-2 gap-4 w-full justify-center items-center">
+            <div className="w-full ">
+              <h2 className="text-2xl md:text-4xl font-medium mb-4 text-boxdark-2 font-satoshi dark:text-white">
+                Culinary Uses
+              </h2>
+              <img
+                src={crop.culinary.image}
+                alt="Culinary Uses"
+                className="w-full  object-cover mb-4 rounded-md h-90"
+              />
+            </div>
+            <div className="w-full">
+              <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+                {crop.culinary.uses}
+              </p>
+            </div>
+
+            <div className="w-full">
+              <h2 className="text-xl font-semibold mb-4 text-boxdark-2 font-satoshi dark:text-white">
+                Harvesting Process
+              </h2>
+              <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+                {crop.culinary.harvesting_process}
+              </p>
+            </div>
+            <div className="w-full ">
+              <img
+                src={crop.culinary.image2}
+                alt="Culinary Uses"
+                className="w-full  object-cover mb-4 rounded-md h-90"
+              />
+            </div>
+            <div className="w-full ">
+              <img
+                src={crop.culinary.image3}
+                alt="Culinary Uses"
+                className="w-full  object-cover mb-4 rounded-md h-90"
+              />
+            </div>
+            <div className="w-full">
+              <h2 className="text-xl font-semibold mb-4 text-boxdark-2 font-satoshi dark:text-white">
+                Cooking Tips
+              </h2>
+              <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+                {crop.culinary.cooking_tips}
+              </p>
+            </div>
+          </section>
+
+          {/* Cultural Significance Section */}
+          <section className="my-8">
+            <h2 className="text-2xl md:text-4xl font-medium mb-4 text-boxdark-2 font-satoshi dark:text-white">
+              Cultural Significance
+            </h2>
+            <img
+              src={crop?.cultural_significance.image}
+              alt="Cultural Significance"
+              className="w-full h-80 object-cover mb-4 rounded-md"
+            />
+            <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+              {crop?.cultural_significance.description}
+            </p>
+          </section>
         </article>
       </div>
     </div>

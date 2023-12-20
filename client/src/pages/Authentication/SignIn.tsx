@@ -25,6 +25,8 @@ const SignIn: React.FC<SignInProps> = ({ setToken }) => {
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     if (storedToken) {
+      console.log('running');
+      
       navigate('/ml');
     }
   }, []);

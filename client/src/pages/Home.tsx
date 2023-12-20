@@ -2,7 +2,7 @@ import { Contact } from '../components/contact/Contact';
 import { Team } from '../components/Ourteammates/team';
 import About from '../components/about';
 import { Blog } from '../components/blog/Blog';
-import Process from '../components/process';
+import Process from '../components/Process';
 
 import '../styles/index.css';
 import '../styles/background.css';
@@ -22,18 +22,23 @@ const Home = () => {
 
   return (
     <>
-      <div id='home-bg' className="antialiased font-sans h-screen pt-8 bg-white overflow-scroll -ms-overflow-style-none list">
-        <nav className="flex justify-between z-10 relative   mx-28 " aria-label="Breadcrumb">
+      <div
+        id="home-bg"
+        className="antialiased font-sans h-screen pt-8 bg-white overflow-scroll -ms-overflow-style-none list"
+      >
+        <nav
+          className="flex justify-between z-10 relative   mx-28 "
+          aria-label="Breadcrumb"
+        >
           <div className="mb-2 sm:mb-0 flex flex-row">
             <div className="h-10 w-full self-center mb-4 relative">
-              <div className='flex '>
+              <div className="flex ">
                 <img className="w-18  self-center" src={logo} />
                 <img className="w-40  self-center" src={logoname} />
               </div>
             </div>
           </div>
           <ol className="inline-flex text-lg items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-            
             {token ? (
               <li className="inline-flex items-center">
                 <a
@@ -133,7 +138,7 @@ const Home = () => {
           </ol>
         </nav>
 
-        <header  className="relative flex  pb-4 sm:pt-32 sm:pb-6 lg:pb-4 px-4 bg-blue-100 w-full md:pb-4 lg:px-16 lg:pt-48 xl:pt-20 xl:pb- xl:h-screen md:px-8 xl:px-24">
+        <header className="relative flex  pb-4 sm:pt-32 sm:pb-6 lg:pb-4 px-4 bg-blue-100 w-full md:pb-4 lg:px-16 lg:pt-48 xl:pt-20 xl:pb- xl:h-screen md:px-8 xl:px-24">
           <div className="text-center md:text-left md:w-1/2 z-10 xxl:max-w-2xl">
             <h1 className="xl:text-6xl md:text-4xl font-bold mb-8">
               Welcome To AGRO-API
@@ -147,9 +152,9 @@ const Home = () => {
               Our Projects focus on - Empowering Farmers, Nourishing the World:
               Cultivating Innovation from the Ground Up
             </p>
-            <button className="bg-blue-500 hover:bg-blue-700 px-6 py-4 text-white rounded block sm:inline-block mt-4 text-center font-bold">
-              Connect with us
-            </button>
+            <a href="/auth/signup">
+              <button className="button-86 ">Connect with us</button>
+            </a>
           </div>
 
           <div className="w-full absolute lg:bottom-0 xl:bottom-22 bottom-0 right-0">
