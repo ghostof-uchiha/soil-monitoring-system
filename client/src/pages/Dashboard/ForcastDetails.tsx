@@ -182,13 +182,13 @@ const ForecastDetails = () => {
                 )}
               </p>
             </div>
-            <Link
-              to={`/crops/${encodeURIComponent(sortedPredictions[0].crop)}`}
+            <a
+              href={`/crops/${encodeURIComponent(sortedPredictions[0].crop)}`}
               className=" items-center  transition ease-in-out justify-center absolute bottom-0 md:left-9 left-1/2
                 hover:text-blue-500  mb-10 text-center font-medium duration-400 text-primary drop-shadow"
             >
               Read More
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -209,17 +209,17 @@ const ForecastDetails = () => {
                 </h1>
               </header>
               <p className="description ml-2 text-md font-medium text-black dark:text-white">
-                {getCropDescription(prediction.crop)}
+                {truncateDescription(getCropDescription(prediction.crop),25)}
               </p>
             </div>
 
-            <Link
-              to={`/crops/${encodeURIComponent(prediction.crop)}`}
+            <a
+              href={`/crops/${encodeURIComponent(prediction.crop)}`}
               className=" items-center  transition ease-in-out justify-center  
               hover:text-blue-500  mb-5 text-center font-medium duration-400 text-primary "
             >
               Read More
-            </Link>
+            </a>
           </div>
         ))}
       </ul>

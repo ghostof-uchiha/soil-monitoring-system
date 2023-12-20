@@ -51,7 +51,7 @@ const CropDetails: React.FC = () => {
             <img
               src={crop.cultivation.image}
               alt="Cultivation"
-              className="w-full h-40 object-cover mb-4 rounded-md"
+              className="w-full h-60 object-cover mb-4 rounded-md"
             />
             <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
               {crop.cultivation.methods}
@@ -114,17 +114,23 @@ const CropDetails: React.FC = () => {
             <h2 className="text-2xl md:text-4xl font-medium mb-4 text-boxdark-2 font-satoshi dark:text-white">
               Production
             </h2>
+            <div className='grid grid-cols-2 gap-4'>
+
             <img
               src={crop.production.image}
               alt="Production"
-              className="w-full h-40 object-cover mb-4 rounded-md"
-            />
+              className="w-full h-80 object-cover mb-4 rounded-md"
+              />
+              <div>
+
             <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
               {crop.production.global_statistics}
             </p>
             <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
               {crop.production.environmental_impact}
             </p>
+              </div>
+              </div>
           </section>
 
           {/* Varieties Section */}
@@ -135,7 +141,7 @@ const CropDetails: React.FC = () => {
             <img
               src={crop.varieties.image}
               alt="Varieties"
-              className="w-full h-40 object-cover mb-4 rounded-md"
+              className="w-full h-80 object-cover mb-4 rounded-md"
             />
             <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
               {crop.varieties.types}

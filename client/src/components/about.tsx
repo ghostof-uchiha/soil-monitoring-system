@@ -6,7 +6,7 @@ const About = () => {
 
   return (
     <div>
-      <section id="about" className="section-bg md:pt-10 xl:pt-0">
+      <section id="about" className="section-bg md:pt-10 lg:pt-10">
         <div className="container mx-auto">
           <div className="section-header w-full flex justify-center flex-col items-center gap-6 ">
             <h3 className="text-[#64748b] xl:text-6xl md:text-5xl text-4xl  font-extrabold font-satoshi ">About Us</h3>

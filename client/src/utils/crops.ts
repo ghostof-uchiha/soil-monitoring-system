@@ -167,7 +167,7 @@ export const crops = [
   // Kidney Beans
   {
     "id": 4,
-    "name": "Kidney Beans",
+    "name": "KidneyBeans",
     "image": "https://res.cloudinary.com/dya8zifir/image/upload/v1698764333/agroApiProfile/kidney-beans_u9imzs.jpg",
     "desc": "Kidney beans are a rich source of protein, fiber, and various vitamins and minerals. They are commonly used in salads, soups, and various cuisines around the world.",
     "cultivation": {
@@ -280,17 +280,17 @@ export const crops = [
   // Moth Beans
   {
     "id": 6,
-    "name": "Moth Beans",
+    "name": "MothBeans",
     "image": "https://ooofarms.com/cdn/shop/products/MothBean1_whole.jpg?v=1672251298&width=3840",
-    "desc": "Moth beans, also known as matki, are a type of legume that is rich in protein and nutrients. They are commonly used in Indian cuisine in various dishes.",
+    "desc": "Moth beans, also known as matki, are a type of legume that is rich in protein and nutrients. They are commonly used in Indian cuisine in various dishes.Moth beans are not only a great source of protein but also pack essential vitamins and minerals, including iron, potassium, and B vitamins. Their versatility in the kitchen extends beyond Indian cuisine, as they can be incorporated into salads, stews, and sprouted for added nutritional benefits. Additionally, the fiber content in moth beans promotes digestive health, making them a wholesome choice for those seeking a well-rounded and nutritious diet.",
     "cultivation": {
-      "image": "URL_TO_CULTIVATION_IMAGE",
+      "image": "https://cdn.permacultureplants.com/wp-content/uploads/Untitled-1-1024x768.webp",
       "methods": "Moth beans, well-adapted to arid and semi-arid regions, are cultivated using various methods such as direct seeding or transplanting seedlings. The choice of cultivation method depends on local agro-climatic conditions and resource availability. Traditional practices, including intercropping and crop rotation, are employed for sustainable and diversified agriculture.",
       "fertilizers": "Moth beans exhibit nitrogen-fixing capabilities, enriching the soil with this essential nutrient. However, farmers may use organic fertilizers or supplements of phosphorus and potassium to enhance overall soil fertility and optimize yield. Sustainable nutrient management practices aim to reduce environmental impact.",
       "challenges": "Cultivation faces challenges related to water scarcity, soil degradation, and susceptibility to pests and diseases. Water-efficient irrigation methods, soil conservation techniques, and pest-resistant varieties contribute to overcoming these challenges. Research and extension services play a vital role in addressing emerging issues and promoting sustainable moth bean cultivation."
     },
     "nutrition": {
-      "image": "URL_TO_MOTH_BEANS_NUTRITION_IMAGE",
+      "image": "https://vanitascorner.com/wp-content/uploads/2019/04/Sprouted-Matki-768x576.jpg",
       "content": "Moth beans are a good source of protein, dietary fiber, and essential nutrients. They contribute to a balanced diet and may offer various health benefits.",
       "health_benefits": "Potential health benefits of moth beans include supporting digestion, providing sustained energy, and contributing to overall well-being.",
       "table": {
@@ -450,9 +450,9 @@ export const crops = [
     "id": 9,
     "name": "Pomegranate",
     "image": "https://images.unsplash.com/photo-1580157508103-2a4e9fe8ed29?auto=format&fit=crop&q=60&w=600&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9tZWdyYW5hdGV8ZW58MHx8MHx8fDA%3D",
-    "desc": "Pomegranate is a delicious and nutrient-rich fruit. It is known for its juicy seeds and is consumed fresh, juiced, or used as a flavorful addition to various dishes.",
+    "desc": "Pomegranate is a delicious and nutrient-rich fruit. It is known for its juicy seeds and is consumed fresh, juiced, or used as a flavorful addition to various dishes. Beyond its delightful taste, pomegranate boasts impressive health benefits. Packed with antioxidants, such as punicalagins and anthocyanins, it supports heart health by reducing oxidative stress and inflammation. The high concentration of vitamin C in pomegranates boosts the immune system, while the presence of punicalagins may have anti-inflammatory effects. Additionally, studies suggest that pomegranate may contribute to improved memory and exercise performance, making it a not only a tasty but also a nutritionally valuable addition to your diet.",
     "cultivation": {
-      "image": "URL_TO_CULTIVATION_IMAGE",
+      "image": "https://i.ytimg.com/vi/ZuzZXT3A1aQ/maxresdefault.jpg",
       "methods": "Pomegranates are cultivated using both traditional and modern agricultural methods. The crop requires well-drained soil and a sunny climate for optimal growth. Farmers employ practices such as pruning, mulching, and proper irrigation to enhance yield and fruit quality. Pomegranates can be grown in orchards or as ornamental shrubs, and the cultivation method may vary based on the intended use of the fruit.",
       "fertilizers": "Fertilization is essential for pomegranate cultivation to ensure healthy growth and fruit development. Organic fertilizers, such as compost and well-rotted manure, are commonly used to enrich the soil with essential nutrients. Additionally, balanced chemical fertilizers are applied based on soil nutrient assessments. Regular soil testing helps farmers adjust fertilizer applications to meet the specific needs of pomegranate trees.",
       "pruning": "Pruning is a crucial practice in pomegranate cultivation to shape the tree, promote air circulation, and facilitate sunlight penetration. Proper pruning helps manage the size of the tree, encourages fruiting wood, and improves overall fruit quality. It also aids in pest and disease control by reducing dense foliage and promoting a healthier tree structure.",
@@ -460,45 +460,45 @@ export const crops = [
     }
     ,
     "nutrition": {
-      "image": "URL_TO_POMEGRANATE_IMAGE",
+      "image": "https://www.verywellfit.com/thmb/JAEBFV0smKJ51fAVPxZlfsRBu-0=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/pomegranate_annotated-fc55d28a215f4a2db638fbcdff4d6b64.jpg",
       "content": "Pomegranate is a nutrient-rich fruit known for its juicy, gem-like seeds and refreshing taste.",
       "health_benefits": "Pomegranates are a good source of antioxidants, vitamin C, and fiber. They may contribute to heart health, anti-inflammatory effects, and overall well-being.",
       "table": {
-        "calories": "100g: XX kcal",
-        "carbohydrates": "XXg",
-        "protein": "XXg",
-        "fat": "XXg",
-        "fiber": "XXg"
+        "calories": "100g: 234 kcal",
+        "carbohydrates": "29g",
+        "protein": "4.7g",
+        "fat": "3.3g",
+        "fiber": "11.3g"
       }
     }
     ,
     "production": {
-      "image": "URL_TO_POMEGRANATE_PRODUCTION_IMAGE",
+      "image": "https://www.asiafarming.com/wp-content/uploads/2023/01/Growing-Pomegranate-Organically-in-Maharashtra4.jpg",
       "global_statistics": "Pomegranates are cultivated in various regions around the world, with major producers including India, Iran, Turkey, and the United States. These countries contribute significantly to the global production of pomegranates, meeting the demand for this nutritious and flavorful fruit. Ongoing efforts in agricultural practices aim to enhance productivity, quality, and sustainability in pomegranate cultivation.",
       "environmental_impact": "The environmental impact of pomegranate production involves considerations such as water usage, soil health, and pest management. Sustainable practices focus on efficient water use, organic farming methods, and integrated pest management to minimize environmental impact. Initiatives to enhance biodiversity and promote eco-friendly approaches contribute to the overall sustainability of pomegranate farming."
     }
     ,
     "varieties": {
-      "image": "URL_TO_POMEGRANATE_IMAGE",
+      "image": "https://www.researchgate.net/publication/333183991/figure/fig4/AS:759741173223424@1558147819908/Fruit-peel-and-arils-of-various-varieties-in-the-Israeli-pomegranate-collection-display.png",
       "types": "Pomegranates (Punica granatum) are cultivated in various varieties, each offering unique characteristics in terms of taste, color, and seediness. Common varieties include Wonderful, Haku Botan, and Ambrosia. The choice of pomegranate varieties depends on factors such as sweetness, juiciness, and intended use. Pomegranates are known for their juicy seeds, called arils, which are rich in antioxidants. They are grown in warm and arid regions around the world. Ongoing research focuses on developing pomegranate varieties with improved disease resistance, extended shelf life, and enhanced nutritional benefits to meet consumer preferences and market demands."
     }
     ,
     "economy": {
-      "image": "URL_TO_POMEGRANATE_IMAGE",
+      "image": "https://images.unsplash.com/photo-1606914998137-d9b33982be02?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "economic_significance": "Essential in international trade, Pomegranate is a staple for millions globally, providing livelihoods for a substantial number of farmers. The economic impact of Pomegranate extends beyond consumption, influencing global trade dynamics and agricultural economies. The demand for various Pomegranate varieties creates market opportunities for farmers, fostering economic sustainability. Innovations in Pomegranate farming techniques, along with advancements in post-harvest processing, contribute to the economic efficiency of the Pomegranate industry. Moreover, the value chain associated with Pomegranate production, distribution, and marketing plays a crucial role in supporting rural livelihoods and enhancing economic resilience in various regions."
     }
     ,
     "culinary": {
-      "image": "URL_TO_POMEGRANATE_CULINARY_IMAGE",
-      "image2": "URL_TO_ANOTHER_POMEGRANATE_CULINARY_IMAGE",
-      "image3": "URL_TO_YET_ANOTHER_POMEGRANATE_CULINARY_IMAGE",
+      "image": "https://images.unsplash.com/photo-1602920806537-38a10c952b69?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fFBvbWVncmFuYXRlfGVufDB8fDB8fHww",
+      "image2": "https://pbs.twimg.com/media/Eks9gWvXYAEd7UD.jpg",
+      "image3": "https://assets.epicurious.com/photos/5db9fbd3ef70180008e72679/16:9/w_1920%2Cc_limit/TornPotatoes_RECIPE_102319_4521.jpg",
       "uses": "Pomegranate is a versatile fruit with a unique combination of sweet and tart flavors, making it a popular ingredient in various culinary creations. Pomegranate arils, the juicy seeds inside the fruit, are commonly used fresh in salads, yogurt parfaits, and desserts. Pomegranate juice is a refreshing beverage and is also used as a base for cocktails and mocktails. Pomegranate molasses, a concentrated syrup, adds depth of flavor to both sweet and savory dishes. The arils can be sprinkled on top of savory dishes like couscous or used in desserts like cakes and fruit salads.",
       "harvesting_process": "The harvesting process for pomegranates involves waiting for the fruit to reach maturity on the tree. Once mature, pomegranates are carefully handpicked to avoid damage to the delicate skin and arils. After harvesting, they undergo washing and sorting processes to ensure quality. Pomegranates are then packed for distribution to maintain their freshness and flavor.",
       "cooking_tips": "When using pomegranates in cooking, consider the vibrant color and burst of flavor they provide. Extracting the arils can be done by carefully cutting the fruit and tapping the back of the fruit over a bowl. Pomegranate arils can be added to both sweet and savory dishes for a burst of freshness. Pomegranate juice and molasses can be used as a flavor enhancer in sauces, dressings, and marinades. Experimenting with different culinary combinations allows cooks to explore the diverse uses of pomegranates."
     }
     ,
     "cultural_significance": {
-      "image": "URL_TO_POMEGRANATE_CULTURAL_IMAGE",
+      "image": "https://plus.unsplash.com/premium_photo-1676310601341-a5a4d062085e?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "description": "Pomegranate holds deep cultural significance in various societies, symbolizing fertility, abundance, and spiritual significance. Revered for its jewel-like seeds and sweet-tart flavor, the pomegranate is often associated with prosperity, good fortune, and the cycle of life. In many cultures, pomegranates are featured in traditional rituals, ceremonies, and art, signifying the richness of the land and the divine blessings of nature. The cultivation and harvesting of pomegranates are accompanied by cultural practices that emphasize the fruit's role in cultural heritage. Pomegranates, with their vibrant appearance and symbolic significance, are a cherished part of cultural expressions, representing the interconnectedness of humanity with the natural world."
     }
   }
@@ -565,54 +565,54 @@ export const crops = [
     "id": 11,
     "name": "Mango",
     "image": "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?auto=format&fit=crop&q=80&w=1935&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "desc": "Mango is a tropical fruit known for its sweet and flavorful taste. It is rich in vitamins, minerals, and antioxidants. Mangoes are enjoyed fresh, juiced, or in various dishes.",
+    "desc": "Mango is a tropical fruit known for its sweet and flavorful taste. It is rich in vitamins, minerals, and antioxidants. Mangoes are enjoyed fresh, juiced, or in various dishes. In addition to its delectable taste, mangoes are a nutritional powerhouse, providing a significant dose of vitamin C, vitamin A, and potassium. These vitamins and minerals contribute to skin health, vision, and overall immune function. The antioxidants in mangoes, such as beta-carotene and quercetin, help combat oxidative stress and inflammation in the body. Whether sliced into a refreshing fruit salad, blended into a smoothie, or featured in savory dishes, mangoes add a burst of tropical goodness while promoting a spectrum of health benefits.",
     "cultivation": {
-      "image": "URL_TO_CULTIVATION_IMAGE",
+      "image": "https://cdn.britannica.com/05/75905-050-C7AE0733/Mangoes-tree.jpg",
       "methods": "Mango trees are commonly propagated through seeds, grafting, or budding. They thrive in tropical and subtropical climates, requiring well-drained soil and ample sunlight for optimal growth. Pruning is often practiced to shape the tree and facilitate harvesting.",
       "fertilizers": "Mango trees benefit from regular fertilization, particularly with nitrogen, phosphorus, and potassium. Organic fertilizers, such as compost and manure, contribute to soil fertility and overall tree health.",
       "challenges": "Challenges in mango cultivation include susceptibility to pests like mango aphids and diseases such as anthracnose. Integrated pest management (IPM) and disease-resistant varieties are employed to address these challenges."
     }
     ,
     "nutrition": {
-      "image": "URL_TO_MANGO_IMAGE",
+      "image": "https://images.unsplash.com/photo-1631178306815-7f9a2cb0aafb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "content": "Mango is a tropical fruit known for its sweet and juicy flavor. It is not only delicious but also packed with essential nutrients.",
       "health_benefits": "Mangoes are rich in vitamins (especially vitamin C and A), minerals, and antioxidants. They may support immune health, vision, and skin health.",
       "table": {
-        "calories": "100g: XX kcal",
-        "carbohydrates": "XXg",
-        "protein": "XXg",
-        "fat": "XXg",
-        "fiber": "XXg"
+        "calories": "100g: 99 kcal",
+        "carbohydrates": "25g",
+        "protein": "1.4g",
+        "fat": "0.6g",
+        "fiber": "2.6g"
       }
     }
     ,
     "production": {
-      "image": "URL_TO_MANGO_PRODUCTION_IMAGE",
+      "image": "https://www.gaonconnection.com/h-upload/2022/05/05/359385-mango-production-pai.webp",
       "global_statistics": "Mangoes are widely cultivated around the world, with major producers including India, China, Thailand, Indonesia, and the Philippines. These countries contribute significantly to the global mango production, meeting the high demand for this popular tropical fruit. Ongoing efforts in agricultural practices, such as improved cultivation techniques and pest management, aim to enhance mango yield and quality.",
       "environmental_impact": "The environmental impact of mango production is influenced by factors like land use, water management, and pesticide application. Sustainable mango farming practices focus on efficient water usage, integrated pest management, and the preservation of biodiversity. Initiatives promoting organic mango cultivation contribute to reducing the ecological footprint associated with mango production."
     }
     ,
     "varieties": {
-      "image": "URL_TO_MANGO_IMAGE",
+      "image": "https://sukhis.com/app/uploads/2022/09/image3-1536x1063.png",
       "types": "Mangoes (Mangifera indica) are cultivated in a diverse range of varieties, each known for its unique flavor, aroma, and texture. Common varieties include Alphonso, Haden, Kent, and Ataulfo. The choice of mango varieties depends on factors such as sweetness, acidity, and fiber content. Mangoes are celebrated for their juicy and tropical taste, making them a popular fruit worldwide. They are grown in tropical and subtropical regions. Ongoing research focuses on developing mango varieties with improved disease resistance, extended shelf life, and enhanced nutritional qualities to meet consumer preferences and market demands."
     }
     ,
     "economy": {
-      "image": "URL_TO_MANGO_IMAGE",
+      "image": "https://image.cnbcfm.com/api/v1/image/101635613-101686436.jpg?v=1532564495&w=740&h=416&ffmt=webp&vtcrop=y",
       "economic_significance": "Essential in international trade, Mango is a staple for millions globally, providing livelihoods for a substantial number of farmers. The economic impact of Mango extends beyond consumption, influencing global trade dynamics and agricultural economies. The demand for various Mango varieties creates market opportunities for farmers, fostering economic sustainability. Innovations in Mango farming techniques, along with advancements in post-harvest processing, contribute to the economic efficiency of the Mango industry. Moreover, the value chain associated with Mango production, distribution, and marketing plays a crucial role in supporting rural livelihoods and enhancing economic resilience in various regions."
     }
     ,
     "culinary": {
-      "image": "URL_TO_MANGO_CULINARY_IMAGE",
-      "image2": "URL_TO_ANOTHER_MANGO_CULINARY_IMAGE",
-      "image3": "URL_TO_YET_ANOTHER_MANGO_CULINARY_IMAGE",
+      "image": "https://images.unsplash.com/photo-1625772299361-f973a7040e20?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "image2": "https://live.staticflickr.com/65535/48034863902_29ac343a49_b.jpg",
+      "image3": "https://images.unsplash.com/photo-1546173159-315724a31696?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "uses": "Mango is a versatile tropical fruit with a rich, sweet flavor that enhances a wide range of culinary creations. It is commonly enjoyed fresh, sliced, or diced in fruit salads. Mangoes are a key ingredient in smoothies, sorbets, and fruity desserts such as mango sticky rice. They are also used in savory dishes, including salsas, chutneys, and marinades for a sweet and tangy kick. Mangoes can be pureed and used in beverages, cocktails, and as a base for refreshing cold soups.",
       "harvesting_process": "The harvesting process for mangoes involves waiting for the fruit to reach maturity on the tree. Once mature, mangoes are carefully handpicked to avoid bruising and damage to the delicate skin. After harvesting, they undergo washing and sorting processes to ensure quality. Mangoes are then packed for distribution to maintain their freshness and flavor.",
       "cooking_tips": "When using mangoes in cooking, consider their natural sweetness and aroma. Mangoes can be peeled, pitted, and diced for use in both sweet and savory dishes. Experimenting with different mango varieties allows cooks to explore unique flavor profiles. Mango puree can be used as a base for sauces, dressings, and desserts. Combining mango with contrasting flavors such as chili, lime, or mint adds depth to culinary creations."
     }
     ,
     "cultural_significance": {
-      "image": "URL_TO_MANGO_CULTURAL_IMAGE",
+      "image": "https://i.pinimg.com/originals/43/5f/01/435f019993b87578e907d033b17338d0.jpg",
       "description": "Mango holds deep cultural significance in various societies, symbolizing sweetness, abundance, and the tropical spirit. Revered for its succulent and flavorful flesh, the mango is often associated with joy, fertility, and prosperity. In many cultures, mangoes are featured in traditional cuisines, desserts, and celebrations, signifying the richness of the land and the blessings of nature. The cultivation and harvesting of mangoes are accompanied by rituals and festivities that honor the fruit's role in cultural heritage. The vibrant colors and luscious taste of mangoes make them a symbol of indulgence and a cherished part of cultural expressions, reflecting the love for life's pleasures."
     }
   }
@@ -736,16 +736,16 @@ export const crops = [
     "id": 14,
     "name": "Muskmelon",
     "image": "https://images.unsplash.com/photo-1646992122113-bd1f335187ac?auto=format&fit=crop&q=60&w=600&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bXVza21lbG9ufGVufDB8fDB8fHww",
-    "desc": "Muskmelon, also known as cantaloupe, is a sweet and aromatic fruit. It is rich in vitamins and minerals, making it a healthy and delicious addition to fruit salads and desserts.",
+    "desc": "Muskmelon, also known as cantaloupe, is a sweet and aromatic fruit cherished for its luscious flavor and refreshing qualities. Its vibrant orange flesh not only delights the taste buds but also provides a burst of vitamins and minerals, contributing to a wholesome and nutritious diet. Whether enjoyed on its own, in fruit salads, or incorporated into delectable desserts, muskmelon stands as a delightful and healthful choice, embodying the essence of a sun-kissed treat that appeals to both the palate and well-being.",
     "cultivation": {
-      "image": "URL_TO_CULTIVATION_IMAGE",
+      "image": "https://www.sanlucar.com/wp-content/uploads/2017/07/Galia.jpg",
       "methods": "Muskmelons, also known as cantaloupes, thrive in warm climates with plenty of sunlight. They are usually grown from seeds in well-drained soil, and the use of raised beds or mounds aids in proper drainage. Adequate spacing between plants ensures good air circulation and prevents diseases.",
       "fertilizers": "Muskmelons benefit from a balanced fertilizer with a higher ratio of potassium, which promotes fruit development. Organic fertilizers, like compost or well-rotted manure, contribute to soil fertility. Nitrogen-rich fertilizers can be applied during the early stages, but excessive nitrogen may lead to excessive vine growth and reduced fruiting. It's essential to monitor nutrient levels and adjust fertilization based on plant needs and soil conditions.",
       "challenges": "Common challenges for muskmelon cultivation include pests such as aphids, cucumber beetles, and spider mites. These pests can affect the plant's health and reduce fruit quality. Implementing preventive measures, such as using row covers to protect against pests and applying integrated pest management strategies, is crucial. Additionally, muskmelons are susceptible to fungal diseases like powdery mildew, which can be addressed by proper spacing, providing good air circulation, and applying fungicides when necessary."
     }
     ,
     "nutrition": {
-      "image": "URL_TO_MUSKMELON_IMAGE",
+      "image": "https://www.healthifyme.com/blog/wp-content/uploads/2020/04/Muskmelon-cover-1.jpg",
       "content": "Muskmelons, also known as cantaloupes, are a refreshing fruit with a high water content. They are a good source of vitamins and minerals.",
       "health_benefits": "Muskmelons are known for their hydrating properties and are rich in vitamin C, vitamin A, and potassium. They contribute to skin health and may aid in hydration.",
       "table": {
@@ -758,32 +758,32 @@ export const crops = [
     }
     ,
     "production": {
-      "image": "URL_TO_MUSKMELON_PRODUCTION_IMAGE",
+      "image": "https://agriculturalmagazine.com/wp-content/uploads/2023/06/1-Acre-MuskmelonCantaloupe-Farming-Cost-and-Profit-1.jpg",
       "global_statistics": "Muskmelon production is widespread, with major cultivating countries including China, India, Turkey, and Iran. These countries contribute significantly to the global production of muskmelons, ensuring a steady supply for local consumption and international markets. The cultivation of muskmelons involves various agricultural practices to optimize yield and quality.",
       "environmental_impact": "The environmental impact of muskmelon production is influenced by factors such as cultivation methods and resource usage. Sustainable practices, such as organic farming and water-efficient irrigation, are increasingly adopted to minimize the environmental footprint. Efforts are made to reduce pesticide use and promote biodiversity in muskmelon farms. Sustainable practices aim to balance the economic viability of muskmelon production with environmental conservation."
     }
     ,
     "varieties": {
-      "image": "URL_TO_MUSKMELON_IMAGE",
+      "image": "https://i0.wp.com/blog.bigbasket.com/wp-content/uploads/2021/02/melons.jpeg?fit=5000%2C3532&ssl=1",
       "types": "Muskmelons, also known as cantaloupes, come in various varieties with distinct flavors and textures. Common varieties include Honeydew, Cantaloupe, and Galia. The choice of muskmelon varieties depends on factors such as sweetness, aroma, and texture. Muskmelons are prized for their juicy and sweet flesh, making them a popular choice for fresh consumption, salads, and desserts. They are cultivated in warm and temperate regions around the world. Ongoing research focuses on developing muskmelon varieties with improved resistance to diseases, extended shelf life, and enhanced nutritional content."
     }
     ,
     "economy": {
-      "image": "URL_TO_MUSKMELON_IMAGE",
+      "image": "https://miro.medium.com/v2/resize:fit:828/format:webp/1*wg0dbWeVN7aOJNAKQjW1Lw.jpeg",
       "economic_significance": "Essential in international trade, Muskmelon is a staple for millions globally, providing livelihoods for a substantial number of farmers. The economic impact of Muskmelon extends beyond consumption, influencing global trade dynamics and agricultural economies. The demand for various Muskmelon varieties creates market opportunities for farmers, fostering economic sustainability. Innovations in Muskmelon farming techniques, along with advancements in post-harvest processing, contribute to the economic efficiency of the Muskmelon industry. Moreover, the value chain associated with Muskmelon production, distribution, and marketing plays a crucial role in supporting rural livelihoods and enhancing economic resilience in various regions."
     }
     ,
     "culinary": {
-      "image": "URL_TO_MUSKMELON_CULINARY_IMAGE",
-      "image2": "URL_TO_ANOTHER_MUSKMELON_CULINARY_IMAGE",
-      "image3": "URL_TO_YET_ANOTHER_MUSKMELON_CULINARY_IMAGE",
+      "image": "https://www.theblurrylime.com/wp-content/uploads/2021/03/4-3.jpg",
+      "image2": "https://www.texasagriculture.gov/portals/0/Files/FarmFreshFriday/Food%20Safety/washproduce.jpg",
+      "image3": "https://img-global.cpcdn.com/recipes/1f2bbca6b31955e1/1200x630cq70/photo.jpg",
       "uses": "Muskmelon, with its sweet and juicy flesh, is a delightful ingredient in various culinary creations. It is commonly enjoyed fresh, either on its own or in fruit salads. Muskmelon pairs well with prosciutto or other cured meats in savory dishes. The sweet flavor of muskmelon is also perfect for desserts, including sorbets, ice creams, and fruit-based cocktails. Additionally, muskmelon can be blended into smoothies or used in refreshing cold soups during hot weather.",
       "harvesting_process": "The harvesting process for muskmelon involves waiting for the fruit to reach maturity on the vine. Once mature, muskmelons are carefully handpicked to avoid damage to the delicate skin. After harvesting, they undergo washing and sorting processes to ensure quality. Muskmelons are then packed for distribution to maintain their freshness and flavor.",
       "cooking_tips": "When using muskmelon in cooking, consider its sweet and aromatic qualities. Muskmelon can be diced for use in fruit salads or blended into purees for desserts. Experimenting with complementary flavors such as mint, lime, or basil enhances the overall culinary experience. Chilled muskmelon soups can be a refreshing appetizer or dessert option during warmer seasons."
     }
     ,
     "cultural_significance": {
-      "image": "URL_TO_MUSKMELON_CULTURAL_IMAGE",
+      "image": "https://www.nippon.com/en/ncommon/contents/views/45668/45668.jpg",
       "description": "Muskmelon holds cultural significance in various societies, symbolizing sweetness, refreshment, and the bounty of nature. Revered for its juicy and aromatic flesh, muskmelon is often associated with vitality and indulgence. In many cultures, muskmelon is featured in traditional cuisines and desserts, serving as a delightful treat during special occasions and celebrations. The cultivation and harvesting of muskmelon are sometimes accompanied by rituals that celebrate the sweetness of life and the interconnectedness of communities with the land. Muskmelon's vibrant colors and succulent taste make it a symbol of joy and abundance in cultural expressions and rituals."
     }
   }
@@ -850,54 +850,54 @@ export const crops = [
     "id": 16,
     "name": "Orange",
     "image": "https://images.unsplash.com/photo-1580052614034-c55d20bfee3b?auto=format&fit=crop&q=60&w=600&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8T3JhbmdlfGVufDB8fDB8fHww",
-    "desc": "Orange is a citrus fruit known for its sweet and tangy flavor. It is a rich source of vitamin C and is enjoyed fresh, juiced, or used in various culinary applications.",
+    "desc": "Orange, a radiant citrus fruit, not only captivates with its sweet and tangy flavor but also serves as a nutritional powerhouse. Bursting with the goodness of vitamin C, oranges contribute to immune system support and overall health. The versatility of this vibrant fruit extends beyond simple enjoyment as a refreshing snack. Whether savored fresh, juiced to perfection, or employed in diverse culinary creations, oranges add a zesty brightness to salads, desserts, and a myriad of dishes. Embodying a harmonious balance of taste and nutrition, the orange remains a timeless and indispensable delight in the world of fruits.",
     "cultivation": {
-      "image": "URL_TO_CULTIVATION_IMAGE",
+      "image": "https://www.alimentarium.org/sites/default/files/media/image/2017-02/AL022-06_orangeraie_Espagne_0.jpg",
       "methods": "Orange trees are propagated through seeds or grafting onto rootstocks. They prefer well-drained, sandy-loam soil with a slightly acidic to neutral pH. Regular irrigation is essential, and mulching helps in moisture retention and weed control. Pruning is done to maintain tree shape and facilitate air circulation.",
       "fertilizers": "Oranges require a balanced fertilizer regimen, with nitrogen, phosphorus, and potassium being key elements. Nitrogen promotes vegetative growth, phosphorus supports root development, and potassium enhances fruit quality. Additionally, micronutrients like zinc and iron are vital. Organic fertilizers, such as compost or well-rotted manure, contribute to soil health. However, excessive fertilizer application can lead to issues like nutrient imbalances or environmental pollution, necessitating precise nutrient management.",
       "challenges": "Common challenges in orange cultivation include citrus greening disease (huanglongbing), which affects tree health and fruit quality. Pests like aphids, citrus leaf miners, and spider mites can also pose threats. Integrated pest management (IPM) practices, such as beneficial insect release and regular monitoring, are essential. Frost during the flowering stage can lead to crop damage, so frost protection measures may be required in colder regions. Additionally, proper water management is crucial to avoid water-related issues like root rot."
     }
     ,
     "nutrition": {
-      "image": "URL_TO_ORANGE_IMAGE",
+      "image": "https://img.livestrong.com/-/clsd/6/3/5ce012f341fd43aa86d88a2a5484f1ae.jpg",
       "content": "Oranges are an excellent source of vitamin C, providing antioxidants that support immune health. They also contain dietary fiber and various essential nutrients.",
       "health_benefits": "The high vitamin C content in oranges contributes to collagen formation, aids in iron absorption, and promotes overall well-being.",
       "table": {
-        "calories": "100g: XX kcal",
-        "carbohydrates": "XXg",
-        "protein": "XXg",
+        "calories": "1 large fruit: 86 kcal",
+        "carbohydrates": "21.6g",
+        "protein": "1.7g",
         "fat": "XXg",
-        "fiber": "XXg"
+        "fiber": "4.4g"
       }
     }
     ,
     "production": {
-      "image": "URL_TO_ORANGE_PRODUCTION_IMAGE",
+      "image": "https://i1.wp.com/citrusindustry.net/wp-content/uploads/2019/09/oranges-production.shutterstock_1079463020.jpg?resize=846%2C563&ssl=1",
       "global_statistics": "Orange production is widespread globally, with major cultivating countries including Brazil, China, India, the United States, and Spain. These nations contribute significantly to the world's orange production, meeting the demand for fresh oranges and various orange-derived products. The cultivation of oranges is adapted to diverse climatic conditions, with a focus on optimizing yield and quality.",
       "environmental_impact": "Orange cultivation, when managed sustainably, can have a moderate environmental impact. Sustainable practices include water-efficient irrigation methods, integrated pest management, and soil conservation measures. Efforts are made to reduce the use of synthetic pesticides and fertilizers, promoting eco-friendly alternatives. Additionally, orange orchards play a role in preserving biodiversity and providing habitat for beneficial organisms."
     }
     ,
     "varieties": {
-      "image": "URL_TO_ORANGE_IMAGE",
+      "image": "https://www.thespruceeats.com/thmb/tjR0T4Xg8jnl_surrJTDOijz5L4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/oranges-and-tangerines-2216772_color-4c38bcedd98e480f93dd1a369dd7593f.png",
       "types": "Oranges (Citrus sinensis) are cultivated in various varieties, each with unique characteristics. Common varieties include Navel, Valencia, and Blood Orange. The choice of orange varieties depends on factors such as taste, sweetness, and intended use. Oranges are known for their juicy and tangy flavor, rich in vitamin C. They are widely grown in citrus-producing regions around the world. Ongoing research focuses on developing orange varieties with improved disease resistance, enhanced fruit quality, and adaptability to different climatic conditions, ensuring a consistent and high-quality supply of this popular citrus fruit."
     }
     ,
     "economy": {
-      "image": "URL_TO_ORANGE_IMAGE",
+      "image": "https://images.pond5.com/farmer-picking-fresh-oranges-orange-090389361_prevstill.jpeg",
       "economic_significance": "Essential in international trade, Orange is a staple for millions globally, providing livelihoods for a substantial number of farmers. The economic impact of Orange extends beyond consumption, influencing global trade dynamics and agricultural economies. The demand for various Orange varieties creates market opportunities for farmers, fostering economic sustainability. Innovations in Orange farming techniques, along with advancements in post-harvest processing, contribute to the economic efficiency of the Orange industry. Moreover, the value chain associated with Orange production, distribution, and marketing plays a crucial role in supporting rural livelihoods and enhancing economic resilience in various regions."
     }
     ,
     "culinary": {
-      "image": "URL_TO_ORANGE_CULINARY_IMAGE",
-      "image2": "URL_TO_ANOTHER_ORANGE_CULINARY_IMAGE",
-      "image3": "URL_TO_YET_ANOTHER_ORANGE_CULINARY_IMAGE",
+      "image": "https://www.loveandoliveoil.com/wp-content/uploads/2014/10/antioxidant-cocktail2-1.jpg",
+      "image2": "https://i.ytimg.com/vi/K1TjRSV1e_M/maxresdefault.jpg",
+      "image3": "https://www.southernliving.com/thmb/jgxqmYMEd7zotmpmBR88aVm9Ym0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Orange_chiffon_cake_3x4_005_preview-2000-bcd065fb05d747bd8a6fb4e0116693fe.jpg",
       "uses": "Oranges are a versatile citrus fruit with numerous culinary applications. The sweet and tangy flavor of oranges makes them a popular choice for fresh consumption, as well as in various culinary creations. Oranges are commonly juiced for refreshing beverages and used as a base for cocktails. Orange zest adds citrusy aroma and flavor to desserts, baked goods, and savory dishes. Orange segments are used in salads, fruit salsas, and desserts, while orange marmalade is a classic spread for bread and pastries.",
       "harvesting_process": "The harvesting process for oranges involves waiting for the fruit to reach maturity on the tree. Once mature, oranges are carefully handpicked to avoid damage to the peel. After harvesting, the oranges undergo washing and sorting processes to ensure quality. Oranges are then packed for distribution, maintaining their freshness and flavor.",
       "cooking_tips": "When using oranges in cooking, consider using both the juice and zest for a well-rounded citrus flavor. Freshly squeezed orange juice can be used as a marinade for meats, a glaze for desserts, or a refreshing beverage. Orange zest is a versatile ingredient, enhancing the aroma of both sweet and savory dishes. Experimenting with different varieties of oranges allows cooks to explore unique flavor profiles in various culinary creations."
     }
     ,
     "cultural_significance": {
-      "image": "URL_TO_ORANGE_CULTURAL_IMAGE",
+      "image": "https://plus.unsplash.com/premium_photo-1678912672636-6abae2adeb71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "description": "Oranges hold cultural significance in various societies, embodying symbolism related to vitality, prosperity, and the vibrant colors of nature. Revered for their refreshing taste and rich nutritional content, oranges are often associated with good health and abundance. In many cultures, oranges are featured in traditional rituals and celebrations, symbolizing the sweetness of life and the potential for new beginnings. The orange tree is sometimes regarded as a symbol of resilience, bearing fruit even in challenging conditions. The cultivation and harvesting of oranges are accompanied by cultural practices that express gratitude for the nourishment and joy provided by this citrus fruit."
     }
   }
@@ -907,54 +907,54 @@ export const crops = [
     "id": 17,
     "name": "Papaya",
     "image": "https://images.unsplash.com/photo-1623492229905-ebc1202e8904?auto=format&fit=crop&q=80&w=2080&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "desc": "Papaya is a tropical fruit with sweet and vibrant orange flesh. It is rich in vitamins, enzymes, and antioxidants. Papaya is enjoyed fresh and is used in smoothies and salads.",
+    "desc": "Papaya is a tropical fruit with sweet and vibrant orange flesh. It is rich in vitamins, enzymes, and antioxidants. Papaya is enjoyed fresh and is used in smoothies and salads.In addition to its delicious taste, papaya is renowned for its health benefits, such as aiding digestion and promoting skin health due to its high content of papain, an enzyme with anti-inflammatory properties. This tropical fruit also provides a significant dose of vitamin C, essential for immune function and collagen production, making it a wholesome addition to a balanced diet.",
     "cultivation": {
-      "image": "URL_TO_CULTIVATION_IMAGE",
+      "image": "https://i.ytimg.com/vi/CNvRKvFySAY/maxresdefault.jpg",
       "methods": "Papaya is typically propagated through seeds, and it thrives in tropical and subtropical climates. Well-drained soil with good organic content is ideal for papaya cultivation. Planting is done at the beginning of the rainy season, ensuring consistent moisture for young plants. Pruning helps maintain a sturdy and manageable plant structure.",
       "fertilizers": "Papayas benefit from a balanced fertilizer regimen, with nitrogen, phosphorus, and potassium being essential elements. Nitrogen promotes healthy leaf and stem growth, phosphorus supports root development, and potassium aids in fruit formation. Regular applications of organic fertilizers, such as compost or well-rotted manure, enhance soil fertility. However, excessive fertilizer use can lead to nutrient imbalances, affecting plant health and fruit quality. Precision in nutrient management is crucial for optimal papaya cultivation.",
       "challenges": "Common challenges in papaya cultivation include diseases like papaya ringspot virus and papaya mosaic virus, which can affect plant health and fruit quality. Pests like aphids, whiteflies, and mites can also pose threats. Integrated pest management (IPM) practices, such as the use of beneficial insects and proper sanitation, are essential. Adequate water management is crucial, as papayas are susceptible to waterlogging, which can lead to root rot. Additionally, maintaining proper spacing between plants helps reduce the risk of diseases and ensures optimal airflow."
     }
     ,
     "nutrition": {
-      "image": "URL_TO_PAPAYA_IMAGE",
+      "image": "https://www.verywellfit.com/thmb/GQypDc_cvjnQfGxIJuaAEPsIkr0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/papaya_annotated-c9161680edf2487d9ffa44206ee896f1.jpg",
       "content": "Papayas are rich in vitamins A and C, folate, and dietary fiber. They contribute to a healthy diet and support immune function and digestion.",
       "health_benefits": "The nutritional profile of papayas provides antioxidant benefits, aids in digestion, and promotes skin health.",
       "table": {
-        "calories": "100g: XX kcal",
-        "carbohydrates": "XXg",
-        "protein": "XXg",
-        "fat": "XXg",
-        "fiber": "XXg"
+        "calories": "1-inch piece: 62 kcal",
+        "carbohydrates": "16g",
+        "protein": "0.7g",
+        "fat": "0.4g",
+        "fiber": "2.5g"
       }
     }
     ,
     "production": {
-      "image": "URL_TO_PAPAYA_PRODUCTION_IMAGE",
+      "image": "https://www.asiafarming.com/wp-content/uploads/2023/05/Papaya-Orchard-Management4-1024x683.jpg",
       "global_statistics": "Papaya is a tropical fruit widely cultivated in countries with warm climates, including India, Brazil, Indonesia, Nigeria, and Mexico. These nations contribute significantly to the global production of papayas. Papaya cultivation is adapted to various agro-climatic conditions, with a focus on providing optimal conditions for growth. Traditional farming practices and modern agricultural technologies are employed to meet the demand for fresh papayas and processed products.",
       "environmental_impact": "Papaya cultivation, when managed sustainably, can have a moderate environmental impact. Sustainable practices include integrated pest management, organic farming methods, and soil conservation measures. Efforts are made to minimize the use of synthetic pesticides and fertilizers, promoting eco-friendly approaches. Additionally, the recycling of organic waste from papaya processing can contribute to environmental sustainability in papaya cultivation."
     }
     ,
     "varieties": {
-      "image": "URL_TO_PAPAYA_IMAGE",
+      "image": "https://toagriculture.com/wp-content/uploads/2023/05/papaya-varieties.jpg",
       "types": "Papaya (Carica papaya) comes in various varieties, including the Solo or Hawaiian type and the Sunrise or Caribbean type. These varieties differ in size, shape, and flavor. Papayas are known for their sweet and juicy flesh, rich in vitamins and enzymes. They are cultivated in tropical and subtropical regions around the world. Farmers select papaya varieties based on local climate conditions and market preferences. Ongoing research focuses on developing papaya varieties with improved disease resistance, extended shelf life, and enhanced nutritional content to promote the sustainable production of this popular tropical fruit."
     }
     ,
     "economy": {
-      "image": "URL_TO_PAPAYA_IMAGE",
+      "image": "https://agriculturalmagazine.com/wp-content/uploads/2023/04/Frequently-Asked-Questions-About-Papaya-Farming-2.jpg",
       "economic_significance": "Essential in international trade, Papaya is a staple for millions globally, providing livelihoods for a significant number of farmers. The economic impact of Papaya extends beyond consumption, influencing global trade dynamics and agricultural economies. The demand for various Papaya varieties creates market opportunities for farmers, fostering economic sustainability. Innovations in Papaya farming techniques, along with advancements in post-harvest processing, contribute to the economic efficiency of the Papaya industry. Moreover, the value chain associated with Papaya production, distribution, and marketing plays a crucial role in supporting rural livelihoods and enhancing economic resilience in various regions."
     }
     ,
     "culinary": {
-      "image": "URL_TO_PAPAYA_CULINARY_IMAGE",
-      "image2": "URL_TO_ANOTHER_PAPAYA_CULINARY_IMAGE",
-      "image3": "URL_TO_YET_ANOTHER_PAPAYA_CULINARY_IMAGE",
+      "image": "https://images.unsplash.com/photo-1617112848923-cc2234396a8d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "image2": "https://images.newindianexpress.com/uploads/user/imagelibrary/2020/11/20/w900X450/papaya_farmers_eps.jpg?w=640&dpr=1.3",
+      "image3": "https://createdelicious.com/wp-content/uploads/2014/08/Papaya-Pepper2-1024x768.jpg",
       "uses": "Papaya is a versatile tropical fruit with various culinary applications. Its sweet, orange flesh is enjoyed fresh as a snack, in fruit salads, or blended into smoothies. Papaya is also used in savory dishes, particularly in salsas, salads, and marinades. In many cuisines, unripe or green papaya is used in savory dishes, such as papaya salad or pickles. Additionally, papaya is a popular ingredient in desserts like papaya puddings, sorbets, and pastries.",
       "harvesting_process": "The harvesting process for papaya involves waiting for the fruit to reach ripeness on the tree. Once ripe, papayas are handpicked, taking care to avoid damage to the delicate skin. The fruit is then washed, and the seeds and skin are removed, leaving the edible flesh. Papayas are often harvested when they are still slightly green to prevent overripening during transportation.",
       "cooking_tips": "When using papaya in cooking, it's important to select ripe fruit for sweet applications and slightly unripe fruit for savory dishes. The enzymes in papaya can be used as a natural meat tenderizer in marinades. Papaya seeds, although bitter, can be ground and used as a peppery spice. Experimenting with different ripeness levels and culinary techniques allows cooks to explore the diverse flavor profiles of papaya in various dishes."
     }
     ,
     "cultural_significance": {
-      "image": "URL_TO_PAPAYA_CULTURAL_IMAGE",
+      "image": "https://images.slurrp.com/prodarticles/lsb4k4lztfc.webp?impolicy=slurrp-20210601&width=1200&height=900&q=75",
       "description": "Papaya holds cultural significance in various societies, representing a symbol of abundance, health, and tropical heritage. Revered for its vibrant color and sweet taste, papaya is often associated with fertility and prosperity. In many cultures, papaya is incorporated into traditional cuisines, offering both nutritional benefits and a burst of tropical flavor. The papaya tree is featured in folklore and celebrations, representing the richness of nature and the interconnectedness of communities with the land. The cultivation and harvesting of papaya are sometimes accompanied by rituals that celebrate the cycles of growth and the bountiful gifts provided by this tropical fruit."
     }
   }
@@ -1084,15 +1084,15 @@ export const crops = [
     "id": 20,
     "name": "Jute",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Jute_Cultivation_and_Processing_Bangladesh_%288%29.JPG/1200px-Jute_Cultivation_and_Processing_Bangladesh_%288%29.JPG?20091217072323",
-    "desc": "Jute is a natural fiber crop used for making burlap, sacks, and other eco-friendly products. It is known for its strength and versatility, making it an important crop in various industries.",
+    "desc": "Jute is a natural fiber crop used for making burlap, sacks, and other eco-friendly products. It is known for its strength and versatility, making it an important crop in various industries. Jute, a remarkable natural fiber crop, not only finds its place in the creation of burlap and sacks but extends its influence to a broad spectrum of eco-friendly products. Renowned for its robust strength and remarkable versatility, jute has become an essential cornerstone in numerous industries. Its environmentally friendly attributes, coupled with the ability to be woven into diverse products, have propelled jute into a sustainable material of choice. Beyond the realm of traditional uses, jute continues to inspire innovation in the development of eco-conscious items, contributing to a greener and more sustainable future.",
     "cultivation": {
-      "image": "URL_TO_CULTIVATION_IMAGE",
+      "image": "https://www.climatelinks.org/sites/default/files/styles/default/public/photos/1.jpg?itok=zDkvNnCO",
       "methods": "Jute is an annual crop grown mainly for its fibers. It thrives in warm and humid climates with well-distributed rainfall. The cultivation process involves preparing the soil by plowing and leveling the land. Jute seeds are then sown directly in the field. Jute plants grow quickly, reaching maturity within a few months. Harvesting is typically done when the plants are in full bloom, and the fibers are at their peak quality. Traditional methods of harvesting involve cutting the plants at the base, while modern techniques may include the use of machinery.",
       "fertilizers": "Jute cultivation benefits from organic matter in the soil. While jute plants have relatively low nutrient requirements, the addition of organic fertilizers, such as well-rotted manure or compost, enhances soil fertility. Nitrogen is a crucial element for jute fiber development, and farmers may use nitrogen-rich fertilizers judiciously. Sustainable practices focus on maintaining soil health and reducing reliance on synthetic fertilizers.",
       "challenges": "Jute cultivation faces challenges related to pest infestations, including nematodes and mites. Integrated pest management practices are employed to control pests without excessive use of chemical pesticides. Weeds can also affect jute fields, necessitating weed control measures. Weather conditions, particularly excessive rainfall or drought, can impact jute quality. Additionally, market fluctuations and competition from synthetic fibers pose challenges to the jute industry. Ongoing research aims to develop resilient jute varieties and sustainable cultivation practices to address these challenges."
     },
     "nutrition": {
-      "image": "URL_TO_JUTE_NUTRITION_IMAGE",
+      "image": "https://www.healthbenefitstimes.com/9/gallery/jute/Leaves-of-Jute.jpg",
       "content": "Information about the nutritional content of jute is not available at the moment. Please check back later for updates.",
       "health_benefits": "General information about the potential health benefits of jute.",
       "table": {
@@ -1105,25 +1105,25 @@ export const crops = [
     }
     ,
     "production": {
-      "image": "URL_TO_JUTE_PRODUCTION_IMAGE",
+      "image": "https://cdn.downtoearth.org.in/library/large/2022-07-30/0.71561700_1659169961_1.jpg",
       "global_statistics": "Jute is a vital fiber crop with significant global production. Major jute-producing countries include Bangladesh, India, China, and Thailand. These nations play a crucial role in supplying the world with jute, a versatile fiber used in various industries. Ongoing advancements in jute cultivation and processing contribute to the sustainable production of this natural fiber.",
       "environmental_impact": "Jute production has a relatively low environmental impact compared to synthetic fibers. Jute plants are known for their positive contribution to soil health and carbon sequestration. Sustainable jute farming practices, such as crop rotation and organic cultivation, are emphasized to minimize environmental effects. Efforts are made to promote eco-friendly jute production methods that align with global sustainability goals."
     }
     ,
     "varieties": {
-      "image": "URL_TO_JUTE_IMAGE",
+      "image": "https://pbs.twimg.com/media/FyFOer3XgAAyAux.jpg",
       "types": "Jute is a versatile fiber crop with various varieties cultivated for its strong and coarse fibers. Common types include White Jute (Corchorus capsularis) and Tossa Jute (Corchorus olitorius). The choice of jute varieties depends on factors such as fiber quality, length, and environmental adaptability. Jute cultivation plays a crucial role in the textile industry, providing eco-friendly and biodegradable fibers for the production of sacks, bags, and other products. Ongoing research focuses on improving jute varieties for increased fiber yield and enhanced resistance to pests and diseases."
     }
     ,
     "economy": {
-      "image": "URL_TO_JUTE_IMAGE",
+      "image": "https://cdn.zeebiz.com/sites/default/files/2023/03/24/233780-jute-ga477c532d1920.jpeg",
       "economic_significance": "Crucial in international trade, Jute is a vital commodity globally, providing livelihoods for a significant number of farmers. The economic impact of Jute extends beyond consumption, influencing global trade dynamics and agricultural economies. The demand for various Jute varieties creates market opportunities for farmers, fostering economic sustainability. Innovations in Jute farming techniques, along with advancements in post-harvest processing, contribute to the economic efficiency of the Jute industry. Moreover, the value chain associated with Jute production, distribution, and marketing plays a crucial role in supporting rural livelihoods and enhancing economic resilience in various regions."
     }
     ,
     "culinary": {
-      "image": "URL_TO_JUTE_CULINARY_IMAGE",
-      "image2": "URL_TO_ANOTHER_JUTE_CULINARY_IMAGE",
-      "image3": "URL_TO_YET_ANOTHER_JUTE_CULINARY_IMAGE",
+      "image": "https://mumisfunlife.files.wordpress.com/2018/05/img20180522102038.jpg?w=1000",
+      "image2": "https://files.prokerala.com/news/photos/imgs/1024/24-north-parganas-farmers-stacks-stalks-of-1626750.jpg",
+      "image3": "https://img-global.cpcdn.com/recipes/9322068134afe6d3/640x640sq70/photo.webp",
       "uses": "Jute, primarily known for its fibers, has limited culinary applications. However, some cultures use jute leaves in traditional dishes. The leaves, known for their mucilaginous texture, are often used in soups, stews, and sautéed dishes. Jute leaves can add a unique texture and flavor to various recipes, particularly in regions where they are cultivated and appreciated for their culinary qualities.",
       "harvesting_process": "The harvesting process for jute involves careful timing and techniques to ensure the optimal quality of jute fibers. Once the jute plants reach maturity, they are harvested by cutting the plants close to the ground. The plants are then bundled and soaked in water to facilitate the separation of fibers from the woody stalks. After extraction, the fibers undergo processing to prepare them for various applications.",
       "cooking_tips": "When incorporating jute leaves into dishes, it's essential to clean them thoroughly and remove any tough stems. Jute leaves can be used in a variety of dishes, from simple stir-fries to more complex curries. The mucilaginous nature of jute leaves can contribute to the thickness of soups and stews, adding a unique mouthfeel. Experimenting with different cooking methods allows cooks to explore the diverse culinary possibilities of jute leaves."
@@ -1136,7 +1136,7 @@ export const crops = [
       "research": "Research focuses on improving jute fiber quality, exploring new applications, and promoting sustainable cultivation practices for increased environmental benefits."
     },
     "cultural_significance": {
-      "image": "URL_TO_JUTE_CULTURAL_IMAGE",
+      "image": "https://www.dsource.in/sites/default/files/resource/making-jute-products/introduction/minigallery/19855/10.jpg",
       "description": "Jute carries significant cultural importance in various societies, deeply rooted in the fabric of traditions and heritage. As a versatile natural fiber, jute has been an integral part of textile and handicraft industries for centuries, contributing to the creation of traditional artifacts and garments. In many cultures, jute products symbolize craftsmanship, sustainability, and a connection to the land. Jute fibers are often used in the production of cultural artifacts, home furnishings, and ceremonial items. The cultivation and processing of jute are accompanied by rituals and practices that reflect the cultural identity of communities, showcasing the enduring legacy of this eco-friendly and biodegradable material."
     }
   }

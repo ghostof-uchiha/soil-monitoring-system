@@ -14,8 +14,6 @@ const fetchData = async () => {
 
     if (response.status === 200) {
       const responseData = await response.json();
-      console.log('Data fetched successfully:');
-      console.log(responseData);
       
       return responseData.predictedSoilData;
     } else {

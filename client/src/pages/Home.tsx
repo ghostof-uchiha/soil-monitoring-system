@@ -152,7 +152,7 @@ const Home = () => {
             </a>
           </div>
 
-          <div className="w-full absolute lg:bottom-0 xl:bottom-22 bottom-0 right-0">
+          <div className="w-full absolute lg:bottom-0 xl:bottom-0  bottom-0 right-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               xlinkHref="http://www.w3.org/1999/xlink"
