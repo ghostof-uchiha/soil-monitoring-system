@@ -8,13 +8,13 @@ export const PostBlog = (props: { src: string | undefined; alt: string | undefin
             <div className="topBlog">
                 <img className='h-40 w-full object-cover' src={props.src} alt={props.alt} />
             </div>
-            <div className="middleBlog">
+            <div className="middleBlog text-[#64748b] font-satoshi">
                 <h2>{props.title}</h2>
             </div>
             <div className="botBlog">
                 <div className="botProfile">
                 <img src={props.profile} alt={props.name} />
-                <p className='font-satoshi font-medium'>{props.author}</p>
+                <p className='font-satoshi font-medium text-[#64748b] '>{props.author}</p>
                 </div>
             </div>
         </div>

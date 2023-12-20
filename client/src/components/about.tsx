@@ -26,17 +26,17 @@ const About = () => {
             </div>
 
             <div className="lg:w-6/12 content mt-8 lg:mt-0 px-20 " data-aos="fade-left">
-              <h2 className=" xl:text-6xl md:text-5xl text-4xl  font-extrabold font-satoshi">
+              <h2 className=" text-[#64748b] xl:text-6xl md:text-5xl text-4xl  font-extrabold font-satoshi">
                 Purposeful Agriculture Transformation
               </h2>
               <h3 className="text-lg font-satoshi font-normal text-black mt-10">
                 Empowering farmers with cutting-edge technology
               </h3>
-              <p className='font-satoshi'>
+              <p className='text-[#64748b] font-satoshi'>
                 Agro API's mission is to revolutionize agriculture by providing farmers with data-driven insights and predictive analytics. Our platform enhances crop prediction accuracy and agricultural efficiency, empowering farmers for sustainable and informed decision-making.
               </p>
 
-              <p>
+              <p className='text-[#64748b] font-satoshi'>
                 Join us in the journey of transforming agriculture into a smarter, more efficient, and sustainable practice.
               </p>
             </div>
