@@ -24,13 +24,13 @@ export const Team = () => {
               alt="Avatar"
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              <a href="#">Hemant Arya</a>
+              <a href="#" target='blank'>Hemant Arya</a>
             </h3>
             <p>Hemant Arya</p>
             <ul className="flex justify-center mt-4 space-x-4">
               <li>
                 <a
-                  href="https://www.instagram.com/hemantarya.194?igshid=YzVkODRmOTdmMw=="
+                  href="https://www.instagram.com/hemantarya.194?igshid=YzVkODRmOTdmMw==" target='blank'
                   className="text-[#39569c] hover:text-gray-900 dark:hover:text-white"
                 >
                   <div className="w-6 h-6">
@@ -40,7 +40,7 @@ export const Team = () => {
               </li>
               <li>
                 <a
-                  href="https://x.com/hemantarya194?t=tu6_oRGAKbOKQEn7lpASfA&s=08"
+                  href="https://x.com/hemantarya194?t=tu6_oRGAKbOKQEn7lpASfA&s=08" target='blank'
                   className="text-[#00acee] hover:text-gray-900 dark:hover:text-white"
                 >
                   <div className="w-6 h-6">
@@ -50,7 +50,7 @@ export const Team = () => {
               </li>
               <li>
                 <a
-                  href="https://github.com/hemantarya194"
+                  href="https://github.com/hemantarya194" target='blank'
                   className="text-gray-900 hover:text-gray-900 dark:hover:text-white dark:text-gray-300"
                 >
                   <div className="w-6 h-6">
@@ -60,7 +60,7 @@ export const Team = () => {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/hemant-arya-970207240?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                  href="https://www.linkedin.com/in/hemant-arya-970207240?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target='blank'
                   className="text-[#ea4c89] hover:text-gray-900 dark:hover:text-white"
                 >
                   <div className="w-6 h-6">
@@ -77,13 +77,13 @@ export const Team = () => {
               alt="Jitesh Avatar"
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              <a href="#">Jitesh Ayam</a>
+              <a href="#" target='blank'>Jitesh Ayam</a>
             </h3>
             <p>Jitesh Ayam</p>
             <ul className="flex justify-center mt-4 space-x-4">
               <li>
                 <a
-                  href="https://www.instagram.com/ay_am_aj_?igshid=YzVkODRmOTdmMw=="
+                  href="https://www.instagram.com/ay_am_aj_?igshid=YzVkODRmOTdmMw==" target='blank'
                   className="text-[#39569c] hover:text-gray-900 dark:hover:text-white"
                 >
                   <div className="w-6 h-6">
@@ -93,7 +93,7 @@ export const Team = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#" target='blank'
                   className="text-[#00acee] hover:text-gray-900 dark:hover:text-white"
                 >
                   <div className="w-6 h-6">
@@ -103,7 +103,7 @@ export const Team = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#" target='blank'
                   className="text-gray-900 hover:text-gray-900 dark:hover:text-white dark:text-gray-300"
                 >
                   <div className="w-6 h-6">
@@ -113,7 +113,7 @@ export const Team = () => {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/jitesh-ayam-b2ba30203?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                  href="https://www.linkedin.com/in/jitesh-ayam-b2ba30203?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target='blank'
                   className="text-[#ea4c89] hover:text-gray-900 dark:hover:text-white"
                 >
                   <div className="w-6 h-6">
@@ -130,13 +130,13 @@ export const Team = () => {
               alt="Ashutosh Avatar"
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              <a href="#">Ashutosh</a>
+              <a href="#" target='blank'>Ashutosh</a>
             </h3>
             <p>Ashutosh Choubey</p>
             <ul className="flex justify-center mt-4 space-x-4">
               <li>
                 <a
-                  href="https://www.instagram.com/i_am_ashutosh__9?igshid=YzVkODRmOTdmMw=="
+                  href="https://www.instagram.com/i_am_ashutosh__9?igshid=YzVkODRmOTdmMw==" target='blank'
                   className="text-[#39569c] hover:text-gray-900 dark:hover:text-white"
                 >
                   <div className="w-6 h-6">
@@ -146,7 +146,7 @@ export const Team = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#" target='blank'
                   className="text-[#00acee] hover:text-gray-900 dark:hover:text-white"
                 >
                   <div className="w-6 h-6">
@@ -156,7 +156,7 @@ export const Team = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#" target='blank'
                   className="text-gray-900 hover:text-gray-900 dark:hover:text-white dark:text-gray-300"
                 >
                   <div className="w-6 h-6">
@@ -166,7 +166,7 @@ export const Team = () => {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/ashutosh-choubey-041177225?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                  href="https://www.linkedin.com/in/ashutosh-choubey-041177225?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target='blank'
                   className="text-[#ea4c89] hover:text-gray-900 dark:hover:text-white"
                 >
                   <div className="w-6 h-6">
@@ -183,13 +183,13 @@ export const Team = () => {
               alt="Amithesh Avatar"
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              <a href="#">Amitesh Keshri</a>
+              <a href="#" target='blank'>Amitesh Keshri</a>
             </h3>
             <p>Amitesh Keshri</p>
             <ul className="flex justify-center mt-4 space-x-4">
               <li>
                 <a
-                  href="#"
+                  href="#" target='blank'
                   className="text-[#39569c] hover:text-gray-900 dark:hover:text-white"
                 >
                   <div className="w-6 h-6">
@@ -199,7 +199,7 @@ export const Team = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#" target='blank'
                   className="text-[#00acee] hover:text-gray-900 dark:hover:text-white"
                 >
                   <div className="w-6 h-6">
@@ -209,7 +209,7 @@ export const Team = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#" target='blank'
                   className="text-gray-900 hover:text-gray-900 dark:hover:text-white dark:text-gray-300"
                 >
                   <div className="w-6 h-6">
@@ -219,7 +219,7 @@ export const Team = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#" target='blank'
                   className="text-[#ea4c89] hover:text-gray-900 dark:hover:text-white"
                 >
                   <div className="w-6 h-6">
