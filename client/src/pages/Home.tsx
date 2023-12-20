@@ -2,7 +2,8 @@ import { Contact } from '../components/contact/Contact';
 import { Team } from '../components/Ourteammates/team';
 import About from '../components/about';
 import { Blog } from '../components/blog/Blog';
-import Process from '../components/process';
+import { Footer } from '../components/Ourteammates/footer';
+import Process from '../components/Process';
 
 import '../styles/index.css';
 import '../styles/background.css';
@@ -22,7 +23,7 @@ const Home = () => {
 
   return (
     <>
-      <div id='home-bg' className="antialiased font-sans h-screen pt-8 bg-white overflow-scroll -ms-overflow-style-none list">
+      <div id='home-bg' className="antialiased font-sans h-screen pt-8 w-full bg-white overflow-scroll -ms-overflow-style-none list">
         <nav className="flex justify-between z-10 relative   mx-28 " aria-label="Breadcrumb">
           <div className="mb-2 sm:mb-0 flex flex-row">
             <div className="h-10 w-full self-center mb-4 relative">
@@ -1174,6 +1175,7 @@ const Home = () => {
         <Process />
         <Blog />
         <Team />
+        <Footer/>
       </div>
     </>
   );
