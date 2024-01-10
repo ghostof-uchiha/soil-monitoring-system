@@ -9,6 +9,7 @@
     "dev:client": "cd client && npm run dev",
     "dev:server": "cd server && npm run dev",
     "dev:flask": "cd MlServer && .\\venv\\Scripts\\activate && python app.py"
+
   },
   "keywords": [],
   "author": "",

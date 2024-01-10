@@ -322,3 +322,7 @@ a {
 .bg-gradient {
   background: radial-gradient(circle, #16BFFD 0%, #CB3066 100%);
 }
+
+.crop_image_hover:hover{
+  scale: 1.03;
+}

@@ -34,6 +34,10 @@ unique_crop_list = {
     21: 'coffee'
 }
 
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+    
 @app.route('/predict', methods=['POST'])
 def predict():
     # Get data from JSON request

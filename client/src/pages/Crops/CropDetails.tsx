@@ -26,15 +26,15 @@ const CropDetails: React.FC = () => {
         className="overflow-hidden rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark
           text-boxdark-2 dark:text-white"
       >
-        <div className="md:flex-row flex items-center w-full px-16 pt-10 justify-around gap-10 sm:flex-col">
+        <div className="md:flex-row flex items-center w-full lg:px-16 pt-10 justify-around gap-10 flex-col px-7">
           <img
             src={crop.image}
             alt={crop.name}
             id="tomb"
-            className="h-90 md:h-96 rounded-lg object-cover md:w-1/2 sm:w-full hover:scale-105 transition-scale duration-300 "
+            className="h-90 md:h-96 rounded-lg object-cover md:w-1/2 sm:w-full crop_image_hover transition-scale duration-300 "
           />
           <div className="md:w-1/2 flex flex-col gap-2 sm:w-full">
-            <h2 className="lg:text-6xl font-extrabold text-4xl text-boxdark-2 font-satoshi dark:text-white dynamic-text-shadow">
+            <h2 className="lg:text-4xl font-extrabold text-2xl text-boxdark-2 font-satoshi dark:text-white">
               {crop.name}
             </h2>
             <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
@@ -72,7 +72,7 @@ const CropDetails: React.FC = () => {
             <img
               src={crop.nutrition.image}
               alt="Nutrition"
-              className="w-full h-40 object-cover mb-4 rounded-md"
+              className="w-full  object-cover mb-4 rounded-md"
             />
             <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
               {crop.nutrition.content}
@@ -114,23 +114,27 @@ const CropDetails: React.FC = () => {
             <h2 className="text-2xl md:text-4xl font-medium mb-4 text-boxdark-2 font-satoshi dark:text-white">
               Production
             </h2>
-            <div className='grid grid-cols-2 gap-4'>
+            <div className="grid md:grid-cols-2 gap-4">
+              {crop.production.video ? (
+                <iframe className='w-full h-80' src={crop.production.video}>
+                </iframe>
+              ) : (
+                <img
+                  src={crop.production.image}
+                  alt="Production"
+                  className="w-full h-80 object-cover mb-4 rounded-md"
+                />
+              )}
 
-            <img
-              src={crop.production.image}
-              alt="Production"
-              className="w-full h-80 object-cover mb-4 rounded-md"
-              />
               <div>
-
-            <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
-              {crop.production.global_statistics}
-            </p>
-            <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
-              {crop.production.environmental_impact}
-            </p>
+                <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+                  {crop.production.global_statistics}
+                </p>
+                <p className="text-lg text-justify text-boxdark-2 font-satoshi dark:text-white font-normal">
+                  {crop.production.environmental_impact}
+                </p>
               </div>
-              </div>
+            </div>
           </section>
 
           {/* Varieties Section */}

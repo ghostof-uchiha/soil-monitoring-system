@@ -15,7 +15,7 @@ router.post('/soil-data/:userId', validateApiKey, requireAuth, async (req, res) 
     const N_ratio = N.level / totalNPK;
     const P_ratio = P.level / totalNPK;
     const K_ratio = K.level / totalNPK;
-
+    
     // Make a POST request to the Flask server for prediction
     console.log('Making request to Flask server...');
     const response = await fetch('http://127.0.0.1:5000/predict', {
@@ -24,9 +24,9 @@ router.post('/soil-data/:userId', validateApiKey, requireAuth, async (req, res) 
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        N: N_ratio,
-        P: P_ratio,
-        K: K_ratio,
+        N: N_ratio*100,
+        P: P_ratio*100,
+        K: K_ratio*100,
         temperature: temperature,
         humidity,
         ph,

@@ -13,7 +13,7 @@ export const crops = [
       "challenges": "Faces challenges like susceptibility to pests and diseases, emphasizing the need for ongoing research and development. Climate change poses new threats, prompting the exploration of resilient rice varieties and environmentally friendly cultivation approaches."
     },
     "nutrition": {
-      "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "image": "https://www.verywellfit.com/thmb/vX8tSKOaMJ4upvWVzYs4irMw_qs=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/rice_annotated-b0a0aa51dc264e05b1d50b98c928147e.jpg",
       "content": "Rich in carbohydrates, vitamins (especially B-complex), and minerals (such as iron and magnesium), contributing to a balanced diet.",
       "health_benefits": "Provides sustained energy, aids in digestion, supports heart health, and may contribute to overall well-being.",
       "table": {
@@ -169,34 +169,34 @@ export const crops = [
     "id": 4,
     "name": "KidneyBeans",
     "image": "https://res.cloudinary.com/dya8zifir/image/upload/v1698764333/agroApiProfile/kidney-beans_u9imzs.jpg",
-    "desc": "Kidney beans are a rich source of protein, fiber, and various vitamins and minerals. They are commonly used in salads, soups, and various cuisines around the world.",
+    "desc": "Kidney beans are a rich source of protein, fiber, and various vitamins and minerals. They are commonly used in salads, soups, and various cuisines around the world. kidney beans are a low-fat food that provides essential nutrients such as iron, potassium, and folate, contributing to overall heart health and blood pressure regulation. Their versatility makes them a staple in vegetarian and vegan diets, offering a wholesome and satisfying protein source.",
     "cultivation": {
-      "image": "URL_TO_CULTIVATION_IMAGE",
+      "image": "https://media.istockphoto.com/id/118205697/photo/french-beans.jpg?s=2048x2048&w=is&k=20&c=cONvuEJDfKwrn4rNONgwO8xAj7YXDovFFiyxWkiGpYY=",
       "methods": "Adaptable to diverse climates, kidney beans thrive in well-drained soils and are commonly cultivated using traditional methods like direct seeding or modern agricultural practices such as no-till farming. Crop rotation is often employed to enhance soil fertility and reduce the risk of soil-borne diseases.",
       "fertilizers": "Benefit from well-balanced fertilizers, with an emphasis on phosphorus for healthy root development. While kidney beans can fix nitrogen from the air with the help of nitrogen-fixing bacteria in their root nodules, supplementary organic or mineral fertilizers may be used to optimize nutrient levels and overall yield.",
       "challenges": "Face challenges related to diseases and pests, prompting ongoing research for pest-resistant varieties and sustainable cultivation techniques."
     },
     "nutrition": {
-      "image": "URL_TO_KIDNEY_BEANS_NUTRITION_IMAGE",
+      "image": "https://www.verywellfit.com/thmb/WHrQeHZqw2_rLeY5oICWfNeRJg4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/kidney-beans_annotated-fe18b9d1155343fb847bf554935465d8.jpg",
       "content": "Kidney beans are a nutritious source of protein, fiber, and essential nutrients. They contribute to a well-balanced diet and may offer various health benefits.",
       "health_benefits": "Potential health benefits of kidney beans include supporting heart health, aiding digestion, and providing sustained energy.",
       "table": {
-        "calories": "100g: XX kcal",
-        "carbohydrates": "XXg",
-        "protein": "XXg",
-        "fat": "XXg",
-        "fiber": "XXg"
+        "calories": "112.5 kcal",
+        "carbohydrates": "20g",
+        "protein": "7.5g",
+        "fat": "0.4g",
+        "fiber": "5.5"
       }
     }
     ,
     "production": {
-      "image": "URL_TO_KIDNEY_BEANS_PRODUCTION_IMAGE",
+      "image": "https://media.istockphoto.com/id/176902493/photo/legume.jpg?s=2048x2048&w=is&k=20&c=yXZahOkJYSJzHhoH2XpseNL8DAj2kZkFXHasDbw_WeI=",
       "global_statistics": "Kidney beans contribute significantly to global production, with major cultivating countries including China, India, Brazil, and the United States. These countries collectively account for a substantial portion of the world's kidney bean production. Ongoing advancements in agricultural technology aim to improve productivity and meet the increasing demand for kidney beans.",
       "environmental_impact": "Considerations in kidney bean production involve factors such as water usage, land requirements, and ecological sustainability. Efforts are made to adopt sustainable practices and water-efficient cultivation methods, contributing to reduced environmental impact. The kidney bean industry explores eco-friendly approaches and innovative farming techniques to address environmental challenges associated with production."
     }
     ,
     "varieties": {
-      "image": "URL_TO_KIDNEY_BEANS_IMAGE",
+      "image": "https://media.istockphoto.com/id/177351647/photo/collection-of-wooden-bowls-with-legumes.jpg?s=2048x2048&w=is&k=20&c=CMA0As4QvlKEHGiN6PDKRqhXSthmrnglngHwtPwy1t4=",
       "types": "Kidney Beans (Phaseolus vulgaris) are cultivated in various varieties with differences in size, shape, and color. Common varieties include Red Kidney Beans, Light Kidney Beans, and Dark Red Kidney Beans. The choice of kidney bean varieties depends on factors such as culinary preferences, regional uses, and market demands. Kidney beans are a popular legume known for their rich protein content and versatility in various dishes. They are grown in a wide range of climates. Ongoing research focuses on developing kidney bean varieties with improved yield, resistance to pests and diseases, and adaptability to different agro-climatic conditions to support sustainable cultivation."
     }
     ,
@@ -223,7 +223,7 @@ export const crops = [
   // Pigeon Peas
   {
     "id": 5,
-    "name": "Pigeon Peas",
+    "name": "PigeonPeas",
     "image": "https://chefsmandala.com/wp-content/uploads/2018/04/Pigeon-Pea.jpg",
     "desc": "Pigeon peas are a nutritious legume that is often used in soups, stews, and curries. They are a good source of protein, fiber, and essential nutrients.",
     "cultivation": {
@@ -508,29 +508,30 @@ export const crops = [
     "id": 10,
     "name": "Banana",
     "image": "https://images.unsplash.com/photo-1603833665858-e61d17a86224?auto=format&fit=crop&q=60&w=600&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8QmFuYW5hfGVufDB8fDB8fHww",
-    "desc": "Bananas are a popular and nutritious fruit. They are rich in potassium, vitamins, and antioxidants. Bananas are consumed fresh and are a versatile ingredient in various recipes.",
+    "desc": "Bananas are a popular and nutritious fruit. They are rich in potassium, vitamins, and antioxidants. Bananas are consumed fresh and are a versatile ingredient in various recipes. Whether blended into smoothies or sliced over cereal, bananas offer a natural sweetness and creaminess. Additionally, their convenient, peelable packaging makes them a convenient on-the-go snack for a quick energy boost.",
     "cultivation": {
-      "image": "URL_TO_CULTIVATION_IMAGE",
+      "image": "https://images.unsplash.com/photo-1694721308144-3b2182e6de10?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "methods": "Bananas are cultivated through vegetative propagation, primarily using suckers or tissue culture plantlets. Well-drained, loamy soil with organic matter is ideal for banana cultivation. The plants require a warm, tropical climate with consistent rainfall for optimal growth.",
       "fertilizers": "Banana plants benefit from balanced fertilization to support healthy growth and fruit production. Organic fertilizers like compost and well-rotted manure are often used to enhance soil fertility.",
       "challenges": "Banana cultivation faces challenges from pests such as nematodes and diseases like Panama disease. Integrated pest management (IPM) strategies, including the use of resistant varieties and biocontrol agents, are employed to address pest issues."
     }
     ,
     "nutrition": {
-      "image": "URL_TO_BANANA_IMAGE",
+      "image": "https://www.verywellfit.com/thmb/bQJAdJTkwzQwpm07lgAN5Gf6mJQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/bananas_annotated-ed6ce63a91d74341be88c12b1f6edcb8.jpg",
       "content": "Banana is a popular and nutritious fruit, known for its natural sweetness and convenience as a snack.",
       "health_benefits": "Bananas are rich in potassium, vitamins (especially vitamin C and B6), and dietary fiber. They contribute to heart health, digestion, and overall well-being.",
       "table": {
-        "calories": "100g: XX kcal",
-        "carbohydrates": "XXg",
-        "protein": "XXg",
-        "fat": "XXg",
-        "fiber": "XXg"
+        "calories": "1 piece: 105 kcal",
+        "carbohydrates": "27g",
+        "protein": "1.3g",
+        "fat": "0.4g",
+        "fiber": "3.1g"
       }
     }
     ,
     "production": {
       "image": "URL_TO_BANANA_PRODUCTION_IMAGE",
+      "video":'https://media.istockphoto.com/id/1446165681/video/a-farmer-in-a-banana-field-examines-the-growth-process-of-bananas.mp4?s=mp4-640x640-is&k=20&c=28fq9UOK_ocr2dj2PhiTU-nTYdCEojPFPmAJSRLSxSE=',
       "global_statistics": "Bananas are one of the most widely cultivated fruits globally, with major producers including India, China, the Philippines, Ecuador, and Indonesia. These countries contribute significantly to the world's banana production, meeting the high demand for this popular and versatile fruit. Ongoing advancements in agricultural practices, including disease management and sustainable cultivation, aim to ensure a stable and resilient banana industry.",
       "environmental_impact": "The environmental impact of banana production involves considerations such as land use, water consumption, and the use of agrochemicals. Sustainable practices in banana farming focus on reducing pesticide use, optimizing water resources, and promoting soil health. Efforts to address challenges like Panama disease and promote biodiversity contribute to more environmentally friendly banana cultivation."
     }
