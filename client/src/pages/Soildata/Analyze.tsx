@@ -75,7 +75,7 @@ function calculateAverage(samples: Sample[]): Sample {
   averageSample.temperature /= totalSamples;
   averageSample.humidity /= totalSamples;
   averageSample.ph /= totalSamples;
-  averageSample.rainfall = 32.24;
+  averageSample.rainfall = 58.98;
 
   return averageSample;
 }

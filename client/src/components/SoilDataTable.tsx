@@ -121,7 +121,7 @@ const SoilDataTable: React.FC<SoilBarGraphProps>  = ({sample}) => {
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-meta-5 dark:text-meta-5">32.34 mm</p>
+            <p className="text-meta-5 dark:text-meta-5">58.34 mm</p>
           </div>
 
         </div>
