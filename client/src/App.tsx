@@ -76,8 +76,8 @@ function App() {
 
       <ScrollToTop />
       <Routes>
-          <Route path="/auth/signin" element={userdata? <Home />: <SignIn setToken={setToken}/>} />
-          <Route path="/auth/signup" element={userdata? <Home />:<SignUp />} />
+          <Route path="https://soil-monitoring-system.vercel.app/auth/signin" element={userdata? <Home />: <SignIn setToken={setToken}/>} />
+          <Route path="https://soil-monitoring-system.vercel.app/auth/signup" element={userdata? <Home />:<SignUp />} />
           <Route path="/auth/verifyotp" element={userdata? <Home />:<VerifyForOtp />} />
           <Route path="*" element={<NotFound />} />
 
