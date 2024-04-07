@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
 import '../styles/about.css'; // Assuming your custom styles are still needed
-
+import AgriculturalWebsites from '../components/AgriculturalWebsites.tsx'
 const About = () => {
   useEffect(() => {}, []);
 
   return (
-    <div>
+    <>
+    <div className='mt-6'>
+    <AgriculturalWebsites/>
+    </div>
+    
+        <div>
       <section id="about" className="section-bg md:pt-10 lg:pt-10">
         <div className="container mx-auto">
           <div className="section-header w-full flex justify-center flex-col items-center gap-6 ">
@@ -44,6 +49,7 @@ const About = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
