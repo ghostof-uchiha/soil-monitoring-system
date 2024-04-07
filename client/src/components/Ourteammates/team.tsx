@@ -1,3 +1,4 @@
+import React from 'react';
 import instaLogo from './mediaLogo/instagram.svg';
 import linkedinLogo from './mediaLogo/linkedin.svg';
 import twitterxLogo from './mediaLogo/twitterx.svg';
@@ -12,11 +13,11 @@ export const Team = () => {
             Our Team
           </h2>
           <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-            Where Creativity Meets Collaboration , Strength in Diversity, Unity
-            in Purpose{' '}
+            Where Creativity Meets Collaboration, Strength in Diversity, Unity in Purpose
           </p>
         </div>
         <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {/* Team member 1 */}
           <div className="text-center text-gray-500 dark:text-gray-400">
             <img
               className="mx-auto mb-4 w-36 h-36 rounded-full object-cover"
@@ -28,7 +29,6 @@ export const Team = () => {
                 Hemant Arya
               </a>
             </h3>
-            <p>Hemant Arya</p>
             <ul className="flex justify-center mt-4 space-x-4">
               <li>
                 <a
@@ -76,6 +76,8 @@ export const Team = () => {
               </li>
             </ul>
           </div>
+
+          {/* Team member 2 */}
           <div className="text-center text-gray-500 dark:text-gray-400">
             <img
               className="mx-auto mb-4 w-36 h-36 object-cover rounded-full"
@@ -87,7 +89,6 @@ export const Team = () => {
                 Jitesh Ayam
               </a>
             </h3>
-            <p>Jitesh Ayam</p>
             <ul className="flex justify-center mt-4 space-x-4">
               <li>
                 <a
@@ -135,6 +136,8 @@ export const Team = () => {
               </li>
             </ul>
           </div>
+
+          {/* Team member 3 */}
           <div className="text-center text-gray-500 dark:text-gray-400">
             <img
               className="mx-auto mb-4 w-36 h-36 rounded-full"
@@ -146,7 +149,6 @@ export const Team = () => {
                 Ashutosh
               </a>
             </h3>
-            <p>Ashutosh Choubey</p>
             <ul className="flex justify-center mt-4 space-x-4">
               <li>
                 <a
@@ -194,6 +196,8 @@ export const Team = () => {
               </li>
             </ul>
           </div>
+
+          {/* Team member 4 */}
           <div className="text-center text-gray-500 dark:text-gray-400">
             <img
               className="mx-auto mb-4 w-36 h-36 rounded-full object-cover"
@@ -205,7 +209,6 @@ export const Team = () => {
                 Amitesh Keshri
               </a>
             </h3>
-            <p>Amitesh Keshri</p>
             <ul className="flex justify-center mt-4 space-x-4">
               <li>
                 <a
@@ -258,3 +261,5 @@ export const Team = () => {
     </section>
   );
 };
+
+export default Team;
