@@ -31,7 +31,7 @@ function App() {
           'API-Key': apiKey,
         },
       });
-      console.log((data.user));
+      // console.log((data.user));
       
       localStorage.setItem('userdata', JSON.stringify(data.user)); // Store the token in localStorage
       localStorage.setItem('token', data.token); // Store the token in localStorage
@@ -76,8 +76,8 @@ function App() {
 
       <ScrollToTop />
       <Routes>
-          <Route path="https://soil-monitoring-system.vercel.app/auth/signin" element={userdata? <Home />: <SignIn setToken={setToken}/>} />
-          <Route path="https://soil-monitoring-system.vercel.app/auth/signup" element={userdata? <Home />:<SignUp />} />
+          <Route path="/auth/signin" element={userdata? <Home />: <SignIn setToken={setToken}/>} />
+          <Route path="/auth/signup" element={userdata? <Home />:<SignUp />} />
           <Route path="/auth/verifyotp" element={userdata? <Home />:<VerifyForOtp />} />
           <Route path="*" element={<NotFound />} />
 
