@@ -135,10 +135,10 @@ export const Team = () => {
               </li>
             </ul>
           </div>
-          <div className="text-center text-gray-500 dark:text-gray-400">
+          <div className="text-center text-gray-500 dark:text-gray-4003+">
             <img
               className="mx-auto mb-4 w-36 h-36 rounded-full"
-              src="https://res.cloudinary.com/dya8zifir/image/upload/v1703012672/ashu_xikc7d.png"
+              src="https://res.cloudinary.com/dya8zifir/image/upload/v1712469876/ashu.jpg"
               alt="Ashutosh Avatar"
             />
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
