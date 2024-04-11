@@ -6,7 +6,7 @@ const validateApiKey = require('../middleware/apiKeyMiddleware');
 const router = express.Router();
 
 // Route to save soil data
-router.post('/soil-data', validateApiKey, requireAuth, async (req, res) => {
+router.post('/soil-data', async (req, res) => {
   const {
     N_level,
     P_level,

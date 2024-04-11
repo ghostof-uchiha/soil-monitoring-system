@@ -145,6 +145,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   Dashboard
                 </NavLink>
               </li>
+             
               <li>
                 <NavLink
                   to="/soildata"
@@ -160,6 +161,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               <li>
                 <NavLink
+                  to="/fert"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes('fert') &&
+                    'bg-graydark dark:bg-meta-4'
+                  }`}
+                  onClick={() => setSidebarOpen(!sidebarOpen)}
+                >
+                  <img src={testlogo} alt="" className="w-5" />
+                  Fertilizer
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/crops"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('crops') && 'bg-graydark dark:bg-meta-4'
@@ -171,7 +185,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink
+                {/* <NavLink
                   to="/calendar"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
                     pathname.includes('calendar') &&
@@ -193,7 +207,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     />
                   </svg>
                   Calendar
-                </NavLink>
+                </NavLink> */}
               </li>
               {/* <!-- Menu Item Calendar --> */}
 

@@ -15,7 +15,7 @@ const authRoutes = require('./routes/authRoutes');
 const settingRoutes = require('./routes/settingRoutes'); 
 const googleAuthRoutes = require('./routes/googleAuthRoute');
 const admin = require('./routes/admin');
-const cropPrediction = require('./routes/cropPredictionRoutes');
+const cropPrediction = require('./routes/PredictionRoutes');
 
 dotenv.config(); // Load environment variables from .env file
 const app = express();

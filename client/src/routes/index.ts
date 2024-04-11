@@ -13,6 +13,7 @@ const dashML = lazy(() => import('../pages/Dashboard/MachineLearning'));
 const dashsoildata = lazy(() => import('../pages/Soildata/Soildata'));
 const CropList = lazy(() => import('../pages/Crops/CropList'));
 const CropDetails = lazy(() => import('../pages/Crops/CropDetails'));
+const FertilizerAnalyse = lazy(() => import('../pages/Fertilizers/PredictFert'));
 import ForecastDetails from '../pages/Dashboard/ForcastDetails'; // Adjust the path based on your file structure
 
 
@@ -76,6 +77,11 @@ const coreRoutes = [
     path: '/ui/buttons',
     title: 'Buttons',
     component: Buttons,
+  },
+  {
+    path: '/fert',
+    title: 'Fertilizer',
+    component: FertilizerAnalyse,
   },
   {
     path: '/crops', // Dynamic route parameter for the selected crop
