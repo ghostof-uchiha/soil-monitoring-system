@@ -11,6 +11,7 @@ const passport = require('passport');
 
 // Routes
 const soilDataRoutes = require('./routes/soilDataRoutes'); 
+const soilFertiDataRoutes = require('./routes/soilFertiDataRoutes'); 
 const authRoutes = require('./routes/authRoutes'); 
 const settingRoutes = require('./routes/settingRoutes'); 
 const googleAuthRoutes = require('./routes/googleAuthRoute');
@@ -57,6 +58,7 @@ async function main() {
     app.use('/g', googleAuthRoutes); // Auth routes
     app.use('/setting', settingRoutes); // setting update routes
     app.use('/api/soil', soilDataRoutes); // Soil data routes
+    app.use('/api/ferti', soilFertiDataRoutes); // Soil data routes
     app.use('/api/admin', admin); // Soil data routes
     app.use('/soil', cropPrediction);  // Predict
 

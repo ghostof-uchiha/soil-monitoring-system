@@ -9,24 +9,42 @@ const Settings = lazy(() => import('../pages/Settings'));
 const Tables = lazy(() => import('../pages/Tables'));
 const Alerts = lazy(() => import('../pages/UiElements/Alerts'));
 const Buttons = lazy(() => import('../pages/UiElements/Buttons'));
-const dashML = lazy(() => import('../pages/Dashboard/MachineLearning'));
+const CropML = lazy(() => import('../pages/Dashboard/Crops/MachineLearning'));
+const FertiML = lazy(() => import('../pages/Dashboard/Ferti/MachineLearning'));
 const dashsoildata = lazy(() => import('../pages/Soildata/Soildata'));
 const CropList = lazy(() => import('../pages/Crops/CropList'));
 const CropDetails = lazy(() => import('../pages/Crops/CropDetails'));
 const FertilizerAnalyse = lazy(() => import('../pages/Fertilizers/PredictFert'));
-import ForecastDetails from '../pages/Dashboard/ForcastDetails'; // Adjust the path based on your file structure
+import ForecastDetails from '../pages/Dashboard/Crops/ForcastDetails'; 
+import FertiForecastDetails from '../pages/Dashboard/Ferti/ForcastDetails'; 
+import Dashboard from '../pages/Dashboard/index'; // Adjust the path based on your file structure
 
 
 const coreRoutes = [
   {
     path: '/ml',
     title: 'MachineLearning',
-    component: dashML,
+    component: Dashboard,
   },
   {
-    path: '/ml/:id',
+    path: '/ml/crop',
+    title: 'MachineLearning',
+    component: CropML,
+  },
+  {
+    path: '/ml/crop/:id',
     title: 'Forecast Information',
     component: ForecastDetails, // Add the ForecastDetails component route
+  },
+  {
+    path: '/ml/fert_ilizer/',
+    title: 'MachineLearning',
+    component: FertiML,
+  },
+  {
+    path: '/ml/fert_ilizer/:id',
+    title: 'MachineLearning',
+    component: FertiForecastDetails,
   },
   {
     path: '/Soildata',
@@ -79,7 +97,7 @@ const coreRoutes = [
     component: Buttons,
   },
   {
-    path: '/fert',
+    path: '/ferti',
     title: 'Fertilizer',
     component: FertilizerAnalyse,
   },

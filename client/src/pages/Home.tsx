@@ -147,7 +147,7 @@ const Home = () => {
               Our Projects focus on - Empowering Farmers, Nourishing the World:
               Cultivating Innovation from the Ground Up
             </p>
-            <a href="/auth/signup">
+            <a href="/ml">
               <button className="button-86 ">Connect with us</button>
             </a>
           </div>

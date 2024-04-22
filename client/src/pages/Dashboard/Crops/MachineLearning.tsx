@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumb';
+import { Link,useNavigate } from 'react-router-dom';
+import Breadcrumb from '../../../components/Breadcrumb';
 import {
   fetchData,
   formatToDateTimeString,
   formatToDayMonthString,
 } from './PredictedData';
-import { crops } from '../../utils/crops';
+import { crops } from '../../../utils/crops';
 import 'react-datepicker/dist/react-datepicker.css';
 
 interface CropPrediction {
@@ -52,6 +52,7 @@ const Machine = () => {
 
     fetchDataAndSetState();
   }, []);
+
 
   const handleDateFilterChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -117,7 +118,7 @@ const Machine = () => {
 
   return (
     <>
-      <Breadcrumb pageName="Agro Forecast" />
+      <Breadcrumb pageName="Crops" />
 
       {loading && <p>Loading...</p>}
       {isEmpty ? (
@@ -152,7 +153,7 @@ const Machine = () => {
               key={index}
               className="w-full overflow-hidden rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark transition duration-300 ease-in-out transform zoom111"
             >
-              <Link to={`/ml/${data._id}`}>
+              <Link to={`/ml/crop/${data._id}`}>
                 <div className="flex justify-between items-center p-4">
                   <div>
                     <p className="text-black flex dark:text-white font-bold ">

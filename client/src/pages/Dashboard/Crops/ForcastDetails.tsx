@@ -6,12 +6,12 @@ import {
   formatToDateTimeString,
 } from './PredictedData';
 import { soilData } from './PredictedDataInterfaceFile';
-import Breadcrumb from '../../components/Breadcrumb';
-import DeleteConfirmationModal from '../../components/DeleteConfirmationModal';
-import { crops } from '../../utils/crops';
-import '../../styles/cropcard.css';
-import SoilDataTable from '../../components/SoilDataTable';
-import SoilBarGraph from '../../components/SoilBarGraph';
+import Breadcrumb from '../../../components/Breadcrumb';
+import DeleteConfirmationModal from '../../../components/DeleteConfirmationModal';
+import { crops } from '../../../utils/crops';
+import '../../../styles/cropcard.css';
+import SoilDataTable from '../../../components/SoilDataTable';
+import SoilBarGraph from '../../../components/SoilBarGraph';
 
 const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
 

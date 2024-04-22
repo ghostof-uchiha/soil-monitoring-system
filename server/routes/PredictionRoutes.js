@@ -4,6 +4,7 @@ const fetch = require("isomorphic-fetch");
 const validateApiKey = require("../middleware/apiKeyMiddleware");
 const { requireAuth } = require("../middleware/authMiddleware");
 const SoilData = require("../models/soilData.models");
+const SoilDataFerti = require("../models/soilDataFerti.models");
 
 router.post(
   "/soil-data/:userId",
@@ -76,34 +77,47 @@ router.post(
   }
 );
 
-router.post("/get-fertilizer", async (req, res) => {
-  // Get soil data from the request body (replace with your logic)
-  const soilData = req.body; // Assuming soil data is sent in the request body
-  console.log("Received soil data:", soilData);
+router.post(
+  "/get-fertilizer/:userId",
+  validateApiKey,
+  requireAuth,
+  async (req, res) => {
+    // Get soil data from the request body (replace with your logic)
+    const soilData = req.body; // Assuming soil data is sent in the request body
 
-  // Make a POST request to the Flask server for prediction
-  console.log("Making request to Flask server...");
+    // Make a POST request to the Flask server for prediction
 
-  try {
-    const response = await fetch("http://127.0.0.1:5000/predict-fertilizer", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(soilData),
-    });
-  
-    const responseData = await response.json();
-    console.log("Flask server response:", responseData);
+    console.log("Making request to Flask server...");
 
-    res
-    .status(200)
-    .json({ message: "Soil data stored successfully!", responseData });
-  } catch (error) {
-    console.error("Error making request:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    try {
+      const response = await fetch("http://127.0.0.1:5000/predict-fertilizer", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(soilData),
+      });
+
+      const responseData = await response.json();
+      console.log("Flask server response:", responseData);
+
+      // Save soil data to MongoDB before sending response
+      const newSoilData = new SoilDataFerti({
+        userId: req.params.userId, // Assuming userId is from request params
+        ...soilData, // Use converted or original data
+        fertilizer: responseData.predicted_fertilizer, // Set predicted fertilizer
+      });
+
+      await newSoilData.save();
+
+      res
+        .status(200)
+        .json({ message: "Soil data stored successfully!", newSoilData });
+    } catch (error) {
+      console.error("Error making request:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
   }
-});
-
+);
 
 module.exports = router;
