@@ -213,7 +213,6 @@ const Soildata = () => {
                             <option value="6">Paddy</option>
                             <option value="7">Pulses</option>
                             <option value="8">Sugarcane</option>
-                            <option value="9">Tobacco</option>
                             <option value="10">Wheat</option>
                           </select>
                           <span className="absolute top-1/2 right-4 z-30 -translate-y-1/2">
