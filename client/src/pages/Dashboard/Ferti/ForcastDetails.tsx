@@ -4,14 +4,20 @@ import {
   formatToDayMonthString,
   formatToDateTimeString,
 } from './PredictedData';
-import { soilData } from './PredictedDataInterfaceFile';
 import Breadcrumb from '../../../components/Breadcrumb';
 import DeleteConfirmationModal from '../../../components/DeleteConfirmationModal';
 import '../../../styles/cropcard.css';
 import TableOne from '../../../components/TableOne';
 import { CropData } from '../../../utils/fertidata';
+import CropFertilizerNeed from './cropFertilizerNeed';
 
 const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
+
+interface soilData{
+  Crop_Type:number,
+  fertilizer:string,
+  timestamp:string
+}
 
 
 const ForecastDetails = () => {
@@ -57,7 +63,7 @@ const ForecastDetails = () => {
   const handleDelete = async () => {
     try {
       const response = await fetch(
-        `http://localhost:4000/api/ferti/single-soil-data/${id}`,
+        `http://localhost:4000/api/ferti/delete-soil-data/${id}`,
         {
           method: 'DELETE',
           headers: {
@@ -129,11 +135,11 @@ const ForecastDetails = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-transparent to-black opacity-25 z-20"></div>
           </div>
-          <header className="flex items-center justify-between leading-tight p-2 md:pt-4 md:px-6">
-            <h1 className="text-graydark dark:text-white font-bold text-title-md break-words">
+          <header className="flex items-center justify-start leading-tight p-2 md:pt-4 md:px-6">
+            <h1 className="text-graydark dark:text-white font-bold text-title-md break-words w-1/2">
               {(CropData as any)[0].Crops[soilData.Crop_Type].name}
             </h1>
-            <div className="flex flex-col text-sm">
+            <div className="flex flex-col text-sm  w-1/2">
               <h1 className='text-graydark dark:text-white font-bold text-title-md break-words'>
                 Predicted Fertilizer:{soilData.fertilizer}
               </h1>
@@ -142,18 +148,25 @@ const ForecastDetails = () => {
           </header>
           <div>
             <div
-              className='mb-10 flex item-center place-content-around space-x-2 '>
+              className='mb-10 flex item-center place-content-around space-x-2 w-full px-6'>
+
               <div className='w-1/2'>
+                <CropFertilizerNeed CropId={soilData.Crop_Type}/>
+              </div>
+
+              <div className='w-1/2 rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1'>
+
+                <a href={(CropData as any)[1].Fertilizers[soilData.fertilizer].link} target="_blank" rel="noreferrer" 
+                className='flex justify-center'>
+
+
+                  <img
+                    className='space-x-2 w-full h-100 rounded-md object-cover'
+                    src={`${(CropData as any)[1].Fertilizers[soilData.fertilizer].img}`} alt="" />
+
+                </a>
                 <TableOne SoilData={soilData} />
               </div>
-              <a href={(CropData as any)[1].Fertilizers[soilData.fertilizer].link} target="_blank" rel="noreferrer">
-
-
-                <img
-                  className='space-x-2 w-100 rounded-md object-cover'
-                  src={`${(CropData as any)[1].Fertilizers[soilData.fertilizer].img}`} alt="" />
-
-              </a>
 
             </div>
 

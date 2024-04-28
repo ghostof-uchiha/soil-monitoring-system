@@ -48,7 +48,6 @@ router.get('/predicted-soil-data', validateApiKey, requireAuth, async (req, res)
   try {
     // Fetch predicted soil data from MongoDB for the specified user
     const predictedSoilData = await SoilData.find({ userId }).sort({ timestamp: -1 });
-    console.log(predictedSoilData);
 
     // Send the fetched predicted soil data as a response
     res.status(200).json({ predictedSoilData });

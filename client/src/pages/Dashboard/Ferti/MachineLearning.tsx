@@ -7,7 +7,6 @@ import {
   formatToDateTimeString,
   formatToDayMonthString,
 } from './PredictedData';
-import { crops } from '../../../utils/crops';
 import 'react-datepicker/dist/react-datepicker.css';
 
 interface CropPrediction {
@@ -169,12 +168,12 @@ const Machine = () => {
                 <div className="flex justify-between items-center p-4">
                   <div>
                     <p className="text-black flex dark:text-white font-bold ">
-                      Date:{' '}
+                      {(CropData as any)[0].Crops[data.Crop_Type].name as any}
                     </p>
-                    <p className="text-black flex dark:text-white font-bold uppercase">
-                      {formatToDateTimeString(new Date(data.timestamp))}
+                    <p className="text-black flex dark:text-white font-normal">
+                      Date: {formatToDateTimeString(new Date(data.timestamp))}
                     </p>
-                    <p className="text-black capitalize dark:text-white font-bold">
+                    <p className="text-black capitalize dark:text-white font-normal">
                       Day: {formatToDayMonthString(new Date(data.timestamp))}
                     </p>
                   </div>
